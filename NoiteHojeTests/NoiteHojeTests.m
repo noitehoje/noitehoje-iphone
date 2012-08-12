@@ -1,14 +1,14 @@
 //
-//  Noite_HojeTests.m
-//  Noite HojeTests
+//  NoiteHojeTests.m
+//  NoiteHojeTests
 //
 //  Created by felipe on 8/12/12.
 //  Copyright (c) 2012 Noite Hoje. All rights reserved.
 //
 
-#import "Noite_HojeTests.h"
+#import "NoiteHojeTests.h"
 
-@implementation Noite_HojeTests
+@implementation NoiteHojeTests
 
 - (void)setUp
 {
@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in Noite HojeTests");
+    STFail(@"Unit tests are not implemented yet in NoiteHojeTests");
 }
 
 @end
