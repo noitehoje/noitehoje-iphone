@@ -10,4 +10,6 @@
 
 @interface EventViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray *events;
+
 @end

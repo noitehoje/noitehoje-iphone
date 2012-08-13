@@ -12,6 +12,8 @@
 		5529182D15D8A84800765DEE /* show-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5529182915D8A84800765DEE /* show-icon.png */; };
 		5529182E15D8A84800765DEE /* show-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5529182A15D8A84800765DEE /* show-icon@2x.png */; };
 		5529183115D8AA1500765DEE /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183015D8AA1500765DEE /* EventViewController.m */; };
+		5529183415D8AB4600765DEE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183315D8AB4600765DEE /* Event.m */; };
+		5529183715D8ACE000765DEE /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183615D8ACE000765DEE /* Venue.m */; };
 		555A381115D83D2E005D273C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381015D83D2E005D273C /* UIKit.framework */; };
 		555A381315D83D2E005D273C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381215D83D2E005D273C /* Foundation.framework */; };
 		555A381515D83D2E005D273C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381415D83D2E005D273C /* CoreGraphics.framework */; };
@@ -47,8 +49,12 @@
 		5529182815D8A84800765DEE /* party-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "party-icon@2x.png"; sourceTree = "<group>"; };
 		5529182915D8A84800765DEE /* show-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "show-icon.png"; sourceTree = "<group>"; };
 		5529182A15D8A84800765DEE /* show-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "show-icon@2x.png"; sourceTree = "<group>"; };
-		5529182F15D8AA1500765DEE /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventViewController.h; path = NoiteHoje/EventViewController.h; sourceTree = "<group>"; };
-		5529183015D8AA1500765DEE /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventViewController.m; path = NoiteHoje/EventViewController.m; sourceTree = "<group>"; };
+		5529182F15D8AA1500765DEE /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		5529183015D8AA1500765DEE /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		5529183215D8AB4600765DEE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		5529183315D8AB4600765DEE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		5529183515D8ACE000765DEE /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
+		5529183615D8ACE000765DEE /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		555A380C15D83D2E005D273C /* NoiteHoje.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoiteHoje.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555A381015D83D2E005D273C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		555A381215D83D2E005D273C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -101,8 +107,6 @@
 		555A380115D83D2E005D273C = {
 			isa = PBXGroup;
 			children = (
-				5529182F15D8AA1500765DEE /* EventViewController.h */,
-				5529183015D8AA1500765DEE /* EventViewController.m */,
 				555A384F15D83DE0005D273C /* Images */,
 				555A381615D83D2E005D273C /* NoiteHoje */,
 				555A383A15D83D2F005D273C /* NoiteHojeTests */,
@@ -134,10 +138,16 @@
 		555A381615D83D2E005D273C /* NoiteHoje */ = {
 			isa = PBXGroup;
 			children = (
+				5529182F15D8AA1500765DEE /* EventViewController.h */,
+				5529183015D8AA1500765DEE /* EventViewController.m */,
 				555A381F15D83D2E005D273C /* AppDelegate.h */,
 				555A382015D83D2E005D273C /* AppDelegate.m */,
 				555A382215D83D2E005D273C /* MainStoryboard_iPhone.storyboard */,
 				555A381715D83D2E005D273C /* Supporting Files */,
+				5529183215D8AB4600765DEE /* Event.h */,
+				5529183315D8AB4600765DEE /* Event.m */,
+				5529183515D8ACE000765DEE /* Venue.h */,
+				5529183615D8ACE000765DEE /* Venue.m */,
 			);
 			path = NoiteHoje;
 			sourceTree = "<group>";
@@ -311,6 +321,8 @@
 				555A381D15D83D2E005D273C /* main.m in Sources */,
 				555A382115D83D2E005D273C /* AppDelegate.m in Sources */,
 				5529183115D8AA1500765DEE /* EventViewController.m in Sources */,
+				5529183415D8AB4600765DEE /* Event.m in Sources */,
+				5529183715D8ACE000765DEE /* Venue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
