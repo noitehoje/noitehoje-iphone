@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "br_com_noitehojeAppDelegate.h"
+#import "AppDelegate.h"
 
 int main(int argc, char *argv[])
 {

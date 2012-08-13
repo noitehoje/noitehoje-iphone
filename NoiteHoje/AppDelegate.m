@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Noite Hoje. All rights reserved.
 //
 
-#import "br_com_noitehojeAppDelegate.h"
+#import "AppDelegate.h"
 
 @implementation br_com_noitehojeAppDelegate
 

@@ -8,6 +8,13 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string>NoiteHojeIcon.png</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>NoiteHojeIcon.png</string>
+		<string>NoiteHojeIcon@2x.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>noitehoje.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>

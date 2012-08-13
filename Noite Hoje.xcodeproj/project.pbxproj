@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5529182B15D8A84800765DEE /* party-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5529182715D8A84800765DEE /* party-icon.png */; };
+		5529182C15D8A84800765DEE /* party-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5529182815D8A84800765DEE /* party-icon@2x.png */; };
+		5529182D15D8A84800765DEE /* show-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5529182915D8A84800765DEE /* show-icon.png */; };
+		5529182E15D8A84800765DEE /* show-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5529182A15D8A84800765DEE /* show-icon@2x.png */; };
+		5529183115D8AA1500765DEE /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183015D8AA1500765DEE /* EventViewController.m */; };
 		555A381115D83D2E005D273C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381015D83D2E005D273C /* UIKit.framework */; };
 		555A381315D83D2E005D273C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381215D83D2E005D273C /* Foundation.framework */; };
 		555A381515D83D2E005D273C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381415D83D2E005D273C /* CoreGraphics.framework */; };
 		555A381B15D83D2E005D273C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 555A381915D83D2E005D273C /* InfoPlist.strings */; };
 		555A381D15D83D2E005D273C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 555A381C15D83D2E005D273C /* main.m */; };
-		555A382115D83D2E005D273C /* br_com_noitehojeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 555A382015D83D2E005D273C /* br_com_noitehojeAppDelegate.m */; };
+		555A382115D83D2E005D273C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 555A382015D83D2E005D273C /* AppDelegate.m */; };
 		555A382415D83D2E005D273C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555A382215D83D2E005D273C /* MainStoryboard_iPhone.storyboard */; };
-		555A382715D83D2E005D273C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555A382515D83D2E005D273C /* MainStoryboard_iPad.storyboard */; };
-		555A382A15D83D2E005D273C /* br_com_noitehojeMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555A382915D83D2E005D273C /* br_com_noitehojeMasterViewController.m */; };
-		555A382D15D83D2E005D273C /* br_com_noitehojeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555A382C15D83D2E005D273C /* br_com_noitehojeDetailViewController.m */; };
 		555A383515D83D2F005D273C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A383415D83D2F005D273C /* SenTestingKit.framework */; };
 		555A383615D83D2F005D273C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381015D83D2E005D273C /* UIKit.framework */; };
 		555A383715D83D2F005D273C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381215D83D2E005D273C /* Foundation.framework */; };
 		555A383F15D83D2F005D273C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 555A383D15D83D2F005D273C /* InfoPlist.strings */; };
 		555A384215D83D2F005D273C /* NoiteHojeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 555A384115D83D2F005D273C /* NoiteHojeTests.m */; };
+		555A385615D83DE0005D273C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 555A385015D83DE0005D273C /* Default.png */; };
+		555A385715D83DE0005D273C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 555A385115D83DE0005D273C /* Default@2x.png */; };
+		555A385815D83DE0005D273C /* MainBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 555A385215D83DE0005D273C /* MainBG.png */; };
+		555A385915D83DE0005D273C /* MainBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 555A385315D83DE0005D273C /* MainBG@2x.png */; };
+		555A385A15D83DE0005D273C /* NoiteHojeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 555A385415D83DE0005D273C /* NoiteHojeIcon@2x.png */; };
+		555A385B15D83DE0005D273C /* NoiteHojeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 555A385515D83DE0005D273C /* NoiteHojeIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5529182715D8A84800765DEE /* party-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "party-icon.png"; sourceTree = "<group>"; };
+		5529182815D8A84800765DEE /* party-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "party-icon@2x.png"; sourceTree = "<group>"; };
+		5529182915D8A84800765DEE /* show-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "show-icon.png"; sourceTree = "<group>"; };
+		5529182A15D8A84800765DEE /* show-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "show-icon@2x.png"; sourceTree = "<group>"; };
+		5529182F15D8AA1500765DEE /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventViewController.h; path = NoiteHoje/EventViewController.h; sourceTree = "<group>"; };
+		5529183015D8AA1500765DEE /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventViewController.m; path = NoiteHoje/EventViewController.m; sourceTree = "<group>"; };
 		555A380C15D83D2E005D273C /* NoiteHoje.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoiteHoje.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555A381015D83D2E005D273C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		555A381215D83D2E005D273C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -43,20 +57,21 @@
 		555A381A15D83D2E005D273C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		555A381C15D83D2E005D273C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		555A381E15D83D2E005D273C /* NoiteHoje-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NoiteHoje-Prefix.pch"; sourceTree = "<group>"; };
-		555A381F15D83D2E005D273C /* br_com_noitehojeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = br_com_noitehojeAppDelegate.h; sourceTree = "<group>"; };
-		555A382015D83D2E005D273C /* br_com_noitehojeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = br_com_noitehojeAppDelegate.m; sourceTree = "<group>"; };
+		555A381F15D83D2E005D273C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		555A382015D83D2E005D273C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		555A382315D83D2E005D273C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		555A382615D83D2E005D273C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		555A382815D83D2E005D273C /* br_com_noitehojeMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = br_com_noitehojeMasterViewController.h; sourceTree = "<group>"; };
-		555A382915D83D2E005D273C /* br_com_noitehojeMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = br_com_noitehojeMasterViewController.m; sourceTree = "<group>"; };
-		555A382B15D83D2E005D273C /* br_com_noitehojeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = br_com_noitehojeDetailViewController.h; sourceTree = "<group>"; };
-		555A382C15D83D2E005D273C /* br_com_noitehojeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = br_com_noitehojeDetailViewController.m; sourceTree = "<group>"; };
 		555A383315D83D2F005D273C /* NoiteHojeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoiteHojeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		555A383415D83D2F005D273C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		555A383C15D83D2F005D273C /* NoiteHojeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NoiteHojeTests-Info.plist"; sourceTree = "<group>"; };
 		555A383E15D83D2F005D273C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		555A384015D83D2F005D273C /* NoiteHojeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoiteHojeTests.h; sourceTree = "<group>"; };
 		555A384115D83D2F005D273C /* NoiteHojeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoiteHojeTests.m; sourceTree = "<group>"; };
+		555A385015D83DE0005D273C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		555A385115D83DE0005D273C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		555A385215D83DE0005D273C /* MainBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainBG.png; sourceTree = "<group>"; };
+		555A385315D83DE0005D273C /* MainBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MainBG@2x.png"; sourceTree = "<group>"; };
+		555A385415D83DE0005D273C /* NoiteHojeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NoiteHojeIcon@2x.png"; sourceTree = "<group>"; };
+		555A385515D83DE0005D273C /* NoiteHojeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoiteHojeIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +101,9 @@
 		555A380115D83D2E005D273C = {
 			isa = PBXGroup;
 			children = (
+				5529182F15D8AA1500765DEE /* EventViewController.h */,
+				5529183015D8AA1500765DEE /* EventViewController.m */,
+				555A384F15D83DE0005D273C /* Images */,
 				555A381615D83D2E005D273C /* NoiteHoje */,
 				555A383A15D83D2F005D273C /* NoiteHojeTests */,
 				555A380F15D83D2E005D273C /* Frameworks */,
@@ -116,14 +134,9 @@
 		555A381615D83D2E005D273C /* NoiteHoje */ = {
 			isa = PBXGroup;
 			children = (
-				555A381F15D83D2E005D273C /* br_com_noitehojeAppDelegate.h */,
-				555A382015D83D2E005D273C /* br_com_noitehojeAppDelegate.m */,
+				555A381F15D83D2E005D273C /* AppDelegate.h */,
+				555A382015D83D2E005D273C /* AppDelegate.m */,
 				555A382215D83D2E005D273C /* MainStoryboard_iPhone.storyboard */,
-				555A382515D83D2E005D273C /* MainStoryboard_iPad.storyboard */,
-				555A382815D83D2E005D273C /* br_com_noitehojeMasterViewController.h */,
-				555A382915D83D2E005D273C /* br_com_noitehojeMasterViewController.m */,
-				555A382B15D83D2E005D273C /* br_com_noitehojeDetailViewController.h */,
-				555A382C15D83D2E005D273C /* br_com_noitehojeDetailViewController.m */,
 				555A381715D83D2E005D273C /* Supporting Files */,
 			);
 			path = NoiteHoje;
@@ -157,6 +170,24 @@
 				555A383D15D83D2F005D273C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		555A384F15D83DE0005D273C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5529182715D8A84800765DEE /* party-icon.png */,
+				5529182815D8A84800765DEE /* party-icon@2x.png */,
+				5529182915D8A84800765DEE /* show-icon.png */,
+				5529182A15D8A84800765DEE /* show-icon@2x.png */,
+				555A385015D83DE0005D273C /* Default.png */,
+				555A385115D83DE0005D273C /* Default@2x.png */,
+				555A385215D83DE0005D273C /* MainBG.png */,
+				555A385315D83DE0005D273C /* MainBG@2x.png */,
+				555A385415D83DE0005D273C /* NoiteHojeIcon@2x.png */,
+				555A385515D83DE0005D273C /* NoiteHojeIcon.png */,
+			);
+			name = Images;
+			path = NoiteHoje/Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,7 +239,7 @@
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Noite Hoje";
 			};
-			buildConfigurationList = 555A380615D83D2E005D273C /* Build configuration list for PBXProject "NoiteHoje" */;
+			buildConfigurationList = 555A380615D83D2E005D273C /* Build configuration list for PBXProject "Noite Hoje" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -233,7 +264,16 @@
 			files = (
 				555A381B15D83D2E005D273C /* InfoPlist.strings in Resources */,
 				555A382415D83D2E005D273C /* MainStoryboard_iPhone.storyboard in Resources */,
-				555A382715D83D2E005D273C /* MainStoryboard_iPad.storyboard in Resources */,
+				555A385615D83DE0005D273C /* Default.png in Resources */,
+				555A385715D83DE0005D273C /* Default@2x.png in Resources */,
+				555A385815D83DE0005D273C /* MainBG.png in Resources */,
+				555A385915D83DE0005D273C /* MainBG@2x.png in Resources */,
+				555A385A15D83DE0005D273C /* NoiteHojeIcon@2x.png in Resources */,
+				555A385B15D83DE0005D273C /* NoiteHojeIcon.png in Resources */,
+				5529182B15D8A84800765DEE /* party-icon.png in Resources */,
+				5529182C15D8A84800765DEE /* party-icon@2x.png in Resources */,
+				5529182D15D8A84800765DEE /* show-icon.png in Resources */,
+				5529182E15D8A84800765DEE /* show-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,9 +309,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				555A381D15D83D2E005D273C /* main.m in Sources */,
-				555A382115D83D2E005D273C /* br_com_noitehojeAppDelegate.m in Sources */,
-				555A382A15D83D2E005D273C /* br_com_noitehojeMasterViewController.m in Sources */,
-				555A382D15D83D2E005D273C /* br_com_noitehojeDetailViewController.m in Sources */,
+				555A382115D83D2E005D273C /* AppDelegate.m in Sources */,
+				5529183115D8AA1500765DEE /* EventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,14 +347,6 @@
 				555A382315D83D2E005D273C /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		555A382515D83D2E005D273C /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				555A382615D83D2E005D273C /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		555A383D15D83D2F005D273C /* InfoPlist.strings */ = {
@@ -387,6 +418,7 @@
 				GCC_PREFIX_HEADER = "NoiteHoje/NoiteHoje-Prefix.pch";
 				INFOPLIST_FILE = "NoiteHoje/NoiteHoje-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -398,6 +430,7 @@
 				GCC_PREFIX_HEADER = "NoiteHoje/NoiteHoje-Prefix.pch";
 				INFOPLIST_FILE = "NoiteHoje/NoiteHoje-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -439,7 +472,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		555A380615D83D2E005D273C /* Build configuration list for PBXProject "NoiteHoje" */ = {
+		555A380615D83D2E005D273C /* Build configuration list for PBXProject "Noite Hoje" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				555A384315D83D2F005D273C /* Debug */,
@@ -455,6 +488,7 @@
 				555A384715D83D2F005D273C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		555A384815D83D2F005D273C /* Build configuration list for PBXNativeTarget "NoiteHojeTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +497,7 @@
 				555A384A15D83D2F005D273C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
