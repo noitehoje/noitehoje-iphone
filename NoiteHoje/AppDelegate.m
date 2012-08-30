@@ -7,13 +7,39 @@
 //
 
 #import "AppDelegate.h"
+#import "Event.h"
+#import "EventsViewController.h"
 
-@implementation br_com_noitehojeAppDelegate
+@implementation AppDelegate
 
 NSMutableArray *events;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    events = [NSMutableArray arrayWithCapacity:20];
+    Event *event = [[Event alloc] init];
+    event.title = @"Centidel Babbleset";
+    event.subtitle = @"53170 Ridge Oak Plaza - Emeryville, MN";
+    event.date = @"4 de Setembro";
+    [events addObject: event];
+    
+    event = [[Event alloc] init];
+    event.title = @"Devshare Browsebug";
+    event.subtitle = @"6985 Dwight Street - Ukiah, PA";
+    event.date = @"5 de Setembro";
+    [events addObject: event];
+    
+    event = [[Event alloc] init];
+    event.title = @"Eidel Innotype";
+    event.subtitle = @"3 Armistice Pass - Upland, ND";
+    event.date = @"7 de Setembro";
+    [events addObject: event];
+    
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+	UINavigationController *navigationController = [[tabBarController viewControllers] objectAtIndex:0];
+	EventsViewController *eventsViewController   = [[navigationController viewControllers] objectAtIndex:0];
+	eventsViewController.events = events;
+    
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;

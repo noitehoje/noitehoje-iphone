@@ -7,26 +7,25 @@
 //
 
 #import "NoiteHojeTests.h"
+#import "APIWrapper.h"
 
 @implementation NoiteHojeTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     
     // Set-up code here.
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Tear-down code here.
     
     [super tearDown];
 }
 
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in NoiteHojeTests");
+- (void)testAPIWrapperShouldReturnEvents {
+    APIWrapper *apiWrapper = [[APIWrapper alloc] init];
+    STAssertTrue([[apiWrapper events] count] > 0, @"API Wrapper should return events");
 }
 
 @end

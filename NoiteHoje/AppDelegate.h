@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface br_com_noitehojeAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

@@ -6,13 +6,16 @@
 //  Copyright (c) 2012 Noite Hoje. All rights reserved.
 //
 
-#import "EventViewController.h"
+#import "EventsViewController.h"
+#import "Event.h"
 
-@interface EventViewController ()
+@interface EventsViewController ()
 
 @end
 
-@implementation EventViewController
+@implementation EventsViewController
+
+@synthesize events;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +30,27 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return [self.events count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventCell"];
+    
+    Event *event = [self.events objectAtIndex:indexPath.row];
+    cell.textLabel.text = event.title;
+    cell.detailTextLabel.text = event.subtitle;
+    
+    return cell;
 }
 
 - (void)viewDidUnload

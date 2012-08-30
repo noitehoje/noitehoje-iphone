@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5529182B15D8A84800765DEE /* party-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5529182715D8A84800765DEE /* party-icon.png */; };
-		5529182C15D8A84800765DEE /* party-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5529182815D8A84800765DEE /* party-icon@2x.png */; };
-		5529182D15D8A84800765DEE /* show-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5529182915D8A84800765DEE /* show-icon.png */; };
-		5529182E15D8A84800765DEE /* show-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5529182A15D8A84800765DEE /* show-icon@2x.png */; };
-		5529183115D8AA1500765DEE /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183015D8AA1500765DEE /* EventViewController.m */; };
+		5529183115D8AA1500765DEE /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183015D8AA1500765DEE /* EventsViewController.m */; };
 		5529183415D8AB4600765DEE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183315D8AB4600765DEE /* Event.m */; };
 		5529183715D8ACE000765DEE /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183615D8ACE000765DEE /* Venue.m */; };
+		552B976B15D8CE8900A4DC45 /* APIWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 552B976A15D8CE8900A4DC45 /* APIWrapper.m */; };
+		552B977015D8E52400A4DC45 /* YAJLiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 552B976F15D8E52400A4DC45 /* YAJLiOS.framework */; };
 		555A381115D83D2E005D273C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381015D83D2E005D273C /* UIKit.framework */; };
 		555A381315D83D2E005D273C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381215D83D2E005D273C /* Foundation.framework */; };
 		555A381515D83D2E005D273C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381415D83D2E005D273C /* CoreGraphics.framework */; };
@@ -45,16 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5529182715D8A84800765DEE /* party-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "party-icon.png"; sourceTree = "<group>"; };
-		5529182815D8A84800765DEE /* party-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "party-icon@2x.png"; sourceTree = "<group>"; };
-		5529182915D8A84800765DEE /* show-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "show-icon.png"; sourceTree = "<group>"; };
-		5529182A15D8A84800765DEE /* show-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "show-icon@2x.png"; sourceTree = "<group>"; };
-		5529182F15D8AA1500765DEE /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
-		5529183015D8AA1500765DEE /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		5529182F15D8AA1500765DEE /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
+		5529183015D8AA1500765DEE /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
 		5529183215D8AB4600765DEE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		5529183315D8AB4600765DEE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		5529183515D8ACE000765DEE /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
 		5529183615D8ACE000765DEE /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
+		552B976915D8CE8900A4DC45 /* APIWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIWrapper.h; path = ../APIWrapper.h; sourceTree = "<group>"; };
+		552B976A15D8CE8900A4DC45 /* APIWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIWrapper.m; path = ../APIWrapper.m; sourceTree = "<group>"; };
+		552B976F15D8E52400A4DC45 /* YAJLiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YAJLiOS.framework; sourceTree = "<group>"; };
 		555A380C15D83D2E005D273C /* NoiteHoje.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoiteHoje.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555A381015D83D2E005D273C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		555A381215D83D2E005D273C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -88,6 +85,7 @@
 				555A381115D83D2E005D273C /* UIKit.framework in Frameworks */,
 				555A381315D83D2E005D273C /* Foundation.framework in Frameworks */,
 				555A381515D83D2E005D273C /* CoreGraphics.framework in Frameworks */,
+				552B977015D8E52400A4DC45 /* YAJLiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +125,7 @@
 		555A380F15D83D2E005D273C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				552B976F15D8E52400A4DC45 /* YAJLiOS.framework */,
 				555A381015D83D2E005D273C /* UIKit.framework */,
 				555A381215D83D2E005D273C /* Foundation.framework */,
 				555A381415D83D2E005D273C /* CoreGraphics.framework */,
@@ -138,8 +137,10 @@
 		555A381615D83D2E005D273C /* NoiteHoje */ = {
 			isa = PBXGroup;
 			children = (
-				5529182F15D8AA1500765DEE /* EventViewController.h */,
-				5529183015D8AA1500765DEE /* EventViewController.m */,
+				552B976915D8CE8900A4DC45 /* APIWrapper.h */,
+				552B976A15D8CE8900A4DC45 /* APIWrapper.m */,
+				5529182F15D8AA1500765DEE /* EventsViewController.h */,
+				5529183015D8AA1500765DEE /* EventsViewController.m */,
 				555A381F15D83D2E005D273C /* AppDelegate.h */,
 				555A382015D83D2E005D273C /* AppDelegate.m */,
 				555A382215D83D2E005D273C /* MainStoryboard_iPhone.storyboard */,
@@ -185,10 +186,6 @@
 		555A384F15D83DE0005D273C /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				5529182715D8A84800765DEE /* party-icon.png */,
-				5529182815D8A84800765DEE /* party-icon@2x.png */,
-				5529182915D8A84800765DEE /* show-icon.png */,
-				5529182A15D8A84800765DEE /* show-icon@2x.png */,
 				555A385015D83DE0005D273C /* Default.png */,
 				555A385115D83DE0005D273C /* Default@2x.png */,
 				555A385215D83DE0005D273C /* MainBG.png */,
@@ -280,10 +277,6 @@
 				555A385915D83DE0005D273C /* MainBG@2x.png in Resources */,
 				555A385A15D83DE0005D273C /* NoiteHojeIcon@2x.png in Resources */,
 				555A385B15D83DE0005D273C /* NoiteHojeIcon.png in Resources */,
-				5529182B15D8A84800765DEE /* party-icon.png in Resources */,
-				5529182C15D8A84800765DEE /* party-icon@2x.png in Resources */,
-				5529182D15D8A84800765DEE /* show-icon.png in Resources */,
-				5529182E15D8A84800765DEE /* show-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,9 +313,10 @@
 			files = (
 				555A381D15D83D2E005D273C /* main.m in Sources */,
 				555A382115D83D2E005D273C /* AppDelegate.m in Sources */,
-				5529183115D8AA1500765DEE /* EventViewController.m in Sources */,
+				5529183115D8AA1500765DEE /* EventsViewController.m in Sources */,
 				5529183415D8AB4600765DEE /* Event.m in Sources */,
 				5529183715D8ACE000765DEE /* Venue.m in Sources */,
+				552B976B15D8CE8900A4DC45 /* APIWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +420,10 @@
 		555A384615D83D2F005D273C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NoiteHoje/NoiteHoje-Prefix.pch";
 				INFOPLIST_FILE = "NoiteHoje/NoiteHoje-Info.plist";
@@ -438,6 +436,10 @@
 		555A384715D83D2F005D273C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NoiteHoje/NoiteHoje-Prefix.pch";
 				INFOPLIST_FILE = "NoiteHoje/NoiteHoje-Info.plist";

@@ -10,4 +10,16 @@
 
 @implementation Event
 
+@synthesize title;
+@synthesize subtitle;
+@synthesize time;
+@synthesize date;
+@synthesize dateRelative;
+@synthesize dateHuman;
+@synthesize description;
+@synthesize type;
+@synthesize source;
+@synthesize eventID;
+@synthesize shortURL;
+
 @end

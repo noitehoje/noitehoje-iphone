@@ -1,5 +1,5 @@
 //
-//  EventViewController.h
+//  EventsViewController.h
 //  Noite Hoje
 //
 //  Created by felipe on 8/12/12.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EventViewController : UIViewController
+@interface EventsViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *events;
 
