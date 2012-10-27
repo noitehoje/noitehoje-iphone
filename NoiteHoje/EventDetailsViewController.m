@@ -8,6 +8,7 @@
 
 #import "EventDetailsViewController.h"
 #import "UIColor+Extensions.h"
+#import "EventDetailsCell.h"
 
 @interface EventDetailsViewController ()
 
@@ -50,19 +51,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [super numberOfSectionsInTableView:tableView];
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [super tableView:tableView numberOfRowsInSection:section];
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    EventDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventDetailsCell"];
     NSUInteger index = [indexPath indexAtPosition:0];
-    
+        
     if(index == 0) {
         cell.textLabel.text = self.event.title;
     }

@@ -1,5 +1,5 @@
 //
-//  SplashViewController.h
+//  LoginViewController.h
 //  NoiteHoje-v2
 //
 //  Created by Felipe Lima on 9/7/12.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SplashViewController : UIViewController
+@interface LoginViewController : UIViewController
 
 - (IBAction)onFacebookLoginButtonClicked:(id)sender;
 

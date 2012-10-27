@@ -33,8 +33,10 @@
 		555A385A15D83DE0005D273C /* NoiteHojeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 555A385415D83DE0005D273C /* NoiteHojeIcon@2x.png */; };
 		555A385B15D83DE0005D273C /* NoiteHojeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 555A385515D83DE0005D273C /* NoiteHojeIcon.png */; };
 		556C3B47163B620E006808A6 /* button_topbar_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 556C3B46163B620E006808A6 /* button_topbar_back.png */; };
+		558390A4163C76B3002340CB /* EventDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 558390A3163C76B3002340CB /* EventDetailsCell.m */; };
+		558390A8163C8755002340CB /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558390A7163C8755002340CB /* StartViewController.m */; };
 		5590AE3115FB096000BE3754 /* facebook_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 5590AE3015FB096000BE3754 /* facebook_login.png */; };
-		5590AE3515FB0CF800BE3754 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5590AE3415FB0CF800BE3754 /* SplashViewController.m */; };
+		5590AE3515FB0CF800BE3754 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5590AE3415FB0CF800BE3754 /* LoginViewController.m */; };
 		55AA511A1637615800C967E7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA51191637615800C967E7 /* FacebookSDK.framework */; };
 		55AA511C163761C700C967E7 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 55AA511B163761C700C967E7 /* FacebookSDKResources.bundle */; };
 		55AA511F163761FF00C967E7 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA511D163761FF00C967E7 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -101,9 +103,13 @@
 		555A385415D83DE0005D273C /* NoiteHojeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NoiteHojeIcon@2x.png"; sourceTree = "<group>"; };
 		555A385515D83DE0005D273C /* NoiteHojeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoiteHojeIcon.png; sourceTree = "<group>"; };
 		556C3B46163B620E006808A6 /* button_topbar_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_topbar_back.png; sourceTree = "<group>"; };
+		558390A2163C76B3002340CB /* EventDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsCell.h; sourceTree = "<group>"; };
+		558390A3163C76B3002340CB /* EventDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsCell.m; sourceTree = "<group>"; };
+		558390A6163C8754002340CB /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		558390A7163C8755002340CB /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		5590AE3015FB096000BE3754 /* facebook_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_login.png; sourceTree = "<group>"; };
-		5590AE3315FB0CF800BE3754 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashViewController.h; path = ../SplashViewController.h; sourceTree = "<group>"; };
-		5590AE3415FB0CF800BE3754 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashViewController.m; path = ../SplashViewController.m; sourceTree = "<group>"; };
+		5590AE3315FB0CF800BE3754 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
+		5590AE3415FB0CF800BE3754 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
 		55AA51191637615800C967E7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		55AA511B163761C700C967E7 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		55AA511D163761FF00C967E7 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -200,8 +206,10 @@
 				55F8E49E163B902300F8DEC0 /* NoiteHojeViewController.m */,
 				55F8E4A0163B90DF00F8DEC0 /* NoiteHojeTableViewController.h */,
 				55F8E4A1163B90DF00F8DEC0 /* NoiteHojeTableViewController.m */,
-				5590AE3315FB0CF800BE3754 /* SplashViewController.h */,
-				5590AE3415FB0CF800BE3754 /* SplashViewController.m */,
+				5590AE3315FB0CF800BE3754 /* LoginViewController.h */,
+				5590AE3415FB0CF800BE3754 /* LoginViewController.m */,
+				558390A6163C8754002340CB /* StartViewController.h */,
+				558390A7163C8755002340CB /* StartViewController.m */,
 				552B976915D8CE8900A4DC45 /* APIWrapper.h */,
 				552B976A15D8CE8900A4DC45 /* APIWrapper.m */,
 				5529182F15D8AA1500765DEE /* EventsViewController.h */,
@@ -217,6 +225,8 @@
 				5529183615D8ACE000765DEE /* Venue.m */,
 				552DA30E15F17B2000951CB8 /* EventCell.h */,
 				552DA30F15F17B2000951CB8 /* EventCell.m */,
+				558390A2163C76B3002340CB /* EventDetailsCell.h */,
+				558390A3163C76B3002340CB /* EventDetailsCell.m */,
 				55F8E4A3163B95EE00F8DEC0 /* UIColor+Extensions.h */,
 				55F8E4A4163B95EE00F8DEC0 /* UIColor+Extensions.m */,
 				555A381715D83D2E005D273C /* Supporting Files */,
@@ -412,11 +422,13 @@
 				5529183715D8ACE000765DEE /* Venue.m in Sources */,
 				552B976B15D8CE8900A4DC45 /* APIWrapper.m in Sources */,
 				552DA31015F17B2000951CB8 /* EventCell.m in Sources */,
-				5590AE3515FB0CF800BE3754 /* SplashViewController.m in Sources */,
+				5590AE3515FB0CF800BE3754 /* LoginViewController.m in Sources */,
 				55F8E48A163B68F700F8DEC0 /* EventDetailsViewController.m in Sources */,
 				55F8E49F163B902300F8DEC0 /* NoiteHojeViewController.m in Sources */,
 				55F8E4A2163B90DF00F8DEC0 /* NoiteHojeTableViewController.m in Sources */,
 				55F8E4A5163B95EE00F8DEC0 /* UIColor+Extensions.m in Sources */,
+				558390A4163C76B3002340CB /* EventDetailsCell.m in Sources */,
+				558390A8163C8755002340CB /* StartViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
