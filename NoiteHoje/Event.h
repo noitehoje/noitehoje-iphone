@@ -21,5 +21,4 @@
 @property (nonatomic, copy) NSString *source;
 @property (nonatomic, copy) NSString *eventID;
 @property (nonatomic, copy) NSString *shortURL;
-
 @end

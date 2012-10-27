@@ -9,6 +9,7 @@
 #import "EventsViewController.h"
 #import "Event.h"
 #import "EventCell.h"
+#import "EventDetailsViewController.h"
 
 @interface EventsViewController ()
 
@@ -32,18 +33,21 @@
     event.title = @"Nightwish";
     event.subtitle = @"Bar Opinião";
     event.date = @"4 de Setembro";
+    event.time = @"22h";
     [self.events addObject: event];
     
     event = [[Event alloc] init];
     event.title = @"Club688";
     event.subtitle = @"Loco Dice and Friends";
     event.date = @"5 de Setembro";
+    event.time = @"23h";
     [self.events addObject: event];
     
     event = [[Event alloc] init];
     event.title = @"Segredo";
     event.subtitle = @"Quarta Sertanejo Universitário";
     event.date = @"7 de Setembro";
+    event.time = @"23:30";
     [self.events addObject: event];
 }
 
@@ -57,14 +61,19 @@
  	return [events count];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    EventCell *eventCell = sender;
+    EventDetailsViewController *destController = [segue destinationViewController];
+    destController.event = eventCell.event;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EventCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventCell"];
     Event *event = [self.events objectAtIndex:indexPath.row];
-    cell.titleLabel.text = event.title;
-    cell.subtitleLabel.text = event.subtitle;
-    UIImageView * favoriteImageView = (UIImageView *)[cell viewWithTag:102];
-    favoriteImageView.image = [UIImage imageNamed:@"star.png"];
+    
+    cell.event = event;
     
     return cell;
 }

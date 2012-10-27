@@ -33,4 +33,11 @@
     self.selectedBackgroundView = highlightedView;
 }
 
+- (void)setEvent:(Event *)event
+{
+    _event = event;
+    self.titleLabel.text = event.title;
+    self.subtitleLabel.text = event.subtitle;
+}
+
 @end

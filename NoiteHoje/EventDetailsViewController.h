@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "NoiteHojeTableViewController.h"
+#import "Event.h"
 
 @interface EventDetailsViewController : NoiteHojeTableViewController
 
-- (IBAction)voltarBarButtonClicked:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *detailsTableView;
+@property (nonatomic, retain) Event *event;
+
+- (IBAction)voltarBarButtonClicked:(id)sender;
 
 @end

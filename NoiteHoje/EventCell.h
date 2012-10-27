@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event.h"
 
 @interface EventCell : UITableViewCell
 
 @property IBOutlet UILabel *titleLabel;
 @property IBOutlet UILabel *subtitleLabel;
+@property (nonatomic, retain) Event *event;
 
 @end

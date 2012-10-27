@@ -60,7 +60,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    NSUInteger index = [indexPath indexAtPosition:0];
+    
+    if(index == 0) {
+        cell.textLabel.text = self.event.title;
+    }
+    else if(index == 1) {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.event.date, self.event.time];
+    }
+    else if(index == 2) {
+        cell.textLabel.text = self.event.subtitle;
+    }
+    return cell;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
