@@ -18,18 +18,15 @@
 
 @synthesize events;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    UIImage *img = [UIImage imageNamed:@"MainBG.png"];
+    UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
+    
+    [self.eventsTableView setBackgroundView:bgView];
+    
     self.events = [NSMutableArray arrayWithCapacity:20];
     Event *event = [[Event alloc] init];
     event.title = @"Nightwish";

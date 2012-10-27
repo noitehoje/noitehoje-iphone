@@ -1,19 +1,18 @@
 //
-//  EventDetailsViewController.m
+//  NoiteHojeTableViewController.m
 //  NoiteHoje-v2
 //
-//  Created by Felipe Lima on 10/26/12.
+//  Created by Felipe Lima on 10/27/12.
 //  Copyright (c) 2012 Noite Hoje. All rights reserved.
 //
 
-#import "EventDetailsViewController.h"
-#import "UIColor+Extensions.h"
+#import "NoiteHojeTableViewController.h"
 
-@interface EventDetailsViewController ()
+@interface NoiteHojeTableViewController ()
 
 @end
 
-@implementation EventDetailsViewController
+@implementation NoiteHojeTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,10 +33,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    UIImage *img = [UIImage imageNamed:@"MainBG.png"];
-    UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
+    UIImage *titleImg = [UIImage imageNamed:@"NavigationBarLogo.png"];
+    UIImageView *barTitle = [[UIImageView alloc] initWithImage:titleImg];
     
-    [self.detailsTableView setBackgroundView:bgView];
+    self.navigationItem.titleView = barTitle;
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,38 +62,6 @@
     return [super tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    NSString *text;
-    if(section == 0) {
-        text = @"O que?";
-    }
-    else if(section == 1) {
-        text = @"Quando?";
-    }
-    else if(section == 2) {
-         text = @"Onde?";
-    }
-    else {
-         text = @"Mais Infos?";
-    }
-    
-    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
-    
-    // create the label objects
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    headerLabel.backgroundColor = [UIColor clearColor];
-    headerLabel.font = [UIFont boldSystemFontOfSize:18];
-    headerLabel.frame = CGRectMake(10,0,200,20);
-    headerLabel.text =  text;
-    headerLabel.textColor = [UIColor colorWithHex:0xac59ac];
-    headerLabel.shadowColor = [UIColor blackColor];
-    headerLabel.shadowOffset = CGSizeMake(0.f, -1.f);
-    
-    [customView addSubview:headerLabel];
-    
-    return customView;
-}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -147,8 +114,4 @@
      */
 }
 
-- (IBAction)voltarBarButtonClicked:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
 @end

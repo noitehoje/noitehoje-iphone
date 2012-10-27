@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NoiteHojeTableViewController.h"
 
-@interface EventDetailsViewController : UITableViewController
+@interface EventDetailsViewController : NoiteHojeTableViewController
+
 - (IBAction)voltarBarButtonClicked:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *detailsTableView;
 
 @end

@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UIKit/UITableView.h>
+#import "NoiteHojeViewController.h"
 
-@interface EventsViewController : UITableViewController
+@interface EventsViewController : NoiteHojeViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *events;
+@property (weak, nonatomic) IBOutlet UITableView *eventsTableView;
 
 @end

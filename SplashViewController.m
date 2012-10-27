@@ -50,7 +50,7 @@
                 NSEnumerator *enumerator = [my keyEnumerator];
                 id key;
                 while ((key = [enumerator nextObject])){
-                    NSLog(@"%@ - %@", key, [my objectForKey: key]);
+                    //NSLog(@"%@ - %@", key, [my objectForKey: key]);
                 }
             }];
         }

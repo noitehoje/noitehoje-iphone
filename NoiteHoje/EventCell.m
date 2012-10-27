@@ -22,8 +22,15 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
+    
+    UIImage *img = [UIImage imageNamed:@"RowCellBG.png"];
+    UIImage *highlightedImg = [UIImage imageNamed:@"RowCellSelectedBG.png"];
+    
+    UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
+    UIImageView *highlightedView = [[UIImageView alloc] initWithImage:highlightedImg];
 
-    // Configure the view for the selected state
+    self.backgroundView = bgView;
+    self.selectedBackgroundView = highlightedView;
 }
 
 @end
