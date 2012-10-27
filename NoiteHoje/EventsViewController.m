@@ -8,6 +8,7 @@
 
 #import "EventsViewController.h"
 #import "Event.h"
+#import "EventCell.h"
 
 @interface EventsViewController ()
 
@@ -21,7 +22,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -29,7 +29,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+    self.events = [NSMutableArray arrayWithCapacity:20];
+    Event *event = [[Event alloc] init];
+    event.title = @"Nightwish";
+    event.subtitle = @"Bar Opinião";
+    event.date = @"4 de Setembro";
+    [self.events addObject: event];
+    
+    event = [[Event alloc] init];
+    event.title = @"Club688";
+    event.subtitle = @"Loco Dice and Friends";
+    event.date = @"5 de Setembro";
+    [self.events addObject: event];
+    
+    event = [[Event alloc] init];
+    event.title = @"Segredo";
+    event.subtitle = @"Quarta Sertanejo Universitário";
+    event.date = @"7 de Setembro";
+    [self.events addObject: event];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -39,18 +57,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [self.events count];
+ 	return [events count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventCell"];
-    
+    EventCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventCell"];
     Event *event = [self.events objectAtIndex:indexPath.row];
-    cell.textLabel.text = event.title;
-    cell.detailTextLabel.text = event.subtitle;
+    cell.titleLabel.text = event.title;
+    cell.subtitleLabel.text = event.subtitle;
+    UIImageView * favoriteImageView = (UIImageView *)[cell viewWithTag:102];
+    favoriteImageView.image = [UIImage imageNamed:@"star.png"];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (editingStyle == UITableViewCellEditingStyleDelete)
+	{
+		[self.events removeObjectAtIndex:indexPath.row];
+		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+	}
 }
 
 - (void)viewDidUnload
