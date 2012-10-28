@@ -142,14 +142,17 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <inset key="contentInset" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventDetailsCell" id="Pvq-E0-zF2" customClass="EventDetailsCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventDetailsCell" id="Pvq-E0-zF2" customClass="EventDetailsCell">
                                 <rect key="frame" x="0.0" y="46" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="300" height="37"/>
+                                    <rect key="frame" x="10" y="1" width="280" height="37"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="puc-oL-2Vm" kind="push" id="aEi-cV-fWA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -177,6 +180,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dz-II-5PY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1779" y="-452"/>
+        </scene>
+        <!--Event Map View Controller-->
+        <scene sceneID="wjy-rf-gSd">
+            <objects>
+                <viewController id="puc-oL-2Vm" customClass="EventMapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZdY-SN-X6N">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="Q6F-Ty-xcV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nWe-Xf-Niv"/>
+                    <connections>
+                        <outlet property="eventMap" destination="Q6F-Ty-xcV" id="BR4-Or-Uon"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="82Q-jh-vcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2193" y="-452"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="CiK-j6-eG6">

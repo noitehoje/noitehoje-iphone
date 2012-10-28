@@ -36,6 +36,9 @@
 		558390A8163C8755002340CB /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558390A7163C8755002340CB /* StartViewController.m */; };
 		558390AB163C928F002340CB /* EventDetailsRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 558390A9163C928F002340CB /* EventDetailsRow.png */; };
 		558390AC163C928F002340CB /* EventDetailsRow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 558390AA163C928F002340CB /* EventDetailsRow@2x.png */; };
+		558390B2163CB54C002340CB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 558390B1163CB54C002340CB /* MapKit.framework */; };
+		558390B5163CB661002340CB /* EventMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558390B4163CB661002340CB /* EventMapViewController.m */; };
+		558390BB163CBA56002340CB /* MapPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 558390BA163CBA56002340CB /* MapPin.m */; };
 		5590AE3115FB096000BE3754 /* facebook_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 5590AE3015FB096000BE3754 /* facebook_login.png */; };
 		5590AE3515FB0CF800BE3754 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5590AE3415FB0CF800BE3754 /* LoginViewController.m */; };
 		55AA511A1637615800C967E7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA51191637615800C967E7 /* FacebookSDK.framework */; };
@@ -109,6 +112,11 @@
 		558390A7163C8755002340CB /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		558390A9163C928F002340CB /* EventDetailsRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventDetailsRow.png; sourceTree = "<group>"; };
 		558390AA163C928F002340CB /* EventDetailsRow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EventDetailsRow@2x.png"; sourceTree = "<group>"; };
+		558390B1163CB54C002340CB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		558390B3163CB660002340CB /* EventMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventMapViewController.h; sourceTree = "<group>"; };
+		558390B4163CB661002340CB /* EventMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventMapViewController.m; sourceTree = "<group>"; };
+		558390B9163CBA56002340CB /* MapPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPin.h; sourceTree = "<group>"; };
+		558390BA163CBA56002340CB /* MapPin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPin.m; sourceTree = "<group>"; };
 		5590AE3015FB096000BE3754 /* facebook_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_login.png; sourceTree = "<group>"; };
 		5590AE3315FB0CF800BE3754 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
 		5590AE3415FB0CF800BE3754 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
@@ -140,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				558390B2163CB54C002340CB /* MapKit.framework in Frameworks */,
 				55AA51221637621800C967E7 /* Social.framework in Frameworks */,
 				55AA511F163761FF00C967E7 /* Accounts.framework in Frameworks */,
 				55AA5120163761FF00C967E7 /* AdSupport.framework in Frameworks */,
@@ -187,6 +196,7 @@
 		555A380F15D83D2E005D273C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				558390B1163CB54C002340CB /* MapKit.framework */,
 				55AA511B163761C700C967E7 /* FacebookSDKResources.bundle */,
 				55AA51191637615800C967E7 /* FacebookSDK.framework */,
 				55AA51211637621800C967E7 /* Social.framework */,
@@ -204,33 +214,16 @@
 		555A381615D83D2E005D273C /* NoiteHoje */ = {
 			isa = PBXGroup;
 			children = (
-				55F8E49D163B902300F8DEC0 /* NoiteHojeViewController.h */,
-				55F8E49E163B902300F8DEC0 /* NoiteHojeViewController.m */,
-				55F8E4A0163B90DF00F8DEC0 /* NoiteHojeTableViewController.h */,
-				55F8E4A1163B90DF00F8DEC0 /* NoiteHojeTableViewController.m */,
-				5590AE3315FB0CF800BE3754 /* LoginViewController.h */,
-				5590AE3415FB0CF800BE3754 /* LoginViewController.m */,
-				558390A6163C8754002340CB /* StartViewController.h */,
-				558390A7163C8755002340CB /* StartViewController.m */,
-				552B976915D8CE8900A4DC45 /* APIWrapper.h */,
-				552B976A15D8CE8900A4DC45 /* APIWrapper.m */,
-				5529182F15D8AA1500765DEE /* EventsViewController.h */,
-				5529183015D8AA1500765DEE /* EventsViewController.m */,
-				55F8E488163B68F700F8DEC0 /* EventDetailsViewController.h */,
-				55F8E489163B68F700F8DEC0 /* EventDetailsViewController.m */,
+				558390B8163CB6B6002340CB /* Categories */,
+				558390B7163CB697002340CB /* Models */,
+				558390B6163CB681002340CB /* ViewControllers */,
 				555A381F15D83D2E005D273C /* AppDelegate.h */,
 				555A382015D83D2E005D273C /* AppDelegate.m */,
 				555A382215D83D2E005D273C /* MainStoryboard_iPhone.storyboard */,
-				5529183215D8AB4600765DEE /* Event.h */,
-				5529183315D8AB4600765DEE /* Event.m */,
-				5529183515D8ACE000765DEE /* Venue.h */,
-				5529183615D8ACE000765DEE /* Venue.m */,
 				552DA30E15F17B2000951CB8 /* EventCell.h */,
 				552DA30F15F17B2000951CB8 /* EventCell.m */,
 				558390A2163C76B3002340CB /* EventDetailsCell.h */,
 				558390A3163C76B3002340CB /* EventDetailsCell.m */,
-				55F8E4A3163B95EE00F8DEC0 /* UIColor+Extensions.h */,
-				55F8E4A4163B95EE00F8DEC0 /* UIColor+Extensions.m */,
 				555A381715D83D2E005D273C /* Supporting Files */,
 			);
 			path = NoiteHoje;
@@ -290,6 +283,51 @@
 			);
 			name = Images;
 			path = NoiteHoje/Images;
+			sourceTree = "<group>";
+		};
+		558390B6163CB681002340CB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5529182F15D8AA1500765DEE /* EventsViewController.h */,
+				5529183015D8AA1500765DEE /* EventsViewController.m */,
+				55F8E488163B68F700F8DEC0 /* EventDetailsViewController.h */,
+				55F8E489163B68F700F8DEC0 /* EventDetailsViewController.m */,
+				558390B3163CB660002340CB /* EventMapViewController.h */,
+				558390B4163CB661002340CB /* EventMapViewController.m */,
+				55F8E49D163B902300F8DEC0 /* NoiteHojeViewController.h */,
+				55F8E49E163B902300F8DEC0 /* NoiteHojeViewController.m */,
+				55F8E4A0163B90DF00F8DEC0 /* NoiteHojeTableViewController.h */,
+				55F8E4A1163B90DF00F8DEC0 /* NoiteHojeTableViewController.m */,
+				5590AE3315FB0CF800BE3754 /* LoginViewController.h */,
+				5590AE3415FB0CF800BE3754 /* LoginViewController.m */,
+				558390A6163C8754002340CB /* StartViewController.h */,
+				558390A7163C8755002340CB /* StartViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		558390B7163CB697002340CB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				552B976915D8CE8900A4DC45 /* APIWrapper.h */,
+				552B976A15D8CE8900A4DC45 /* APIWrapper.m */,
+				5529183215D8AB4600765DEE /* Event.h */,
+				5529183315D8AB4600765DEE /* Event.m */,
+				5529183515D8ACE000765DEE /* Venue.h */,
+				5529183615D8ACE000765DEE /* Venue.m */,
+				558390B9163CBA56002340CB /* MapPin.h */,
+				558390BA163CBA56002340CB /* MapPin.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		558390B8163CB6B6002340CB /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				55F8E4A3163B95EE00F8DEC0 /* UIColor+Extensions.h */,
+				55F8E4A4163B95EE00F8DEC0 /* UIColor+Extensions.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,6 +471,8 @@
 				55F8E4A5163B95EE00F8DEC0 /* UIColor+Extensions.m in Sources */,
 				558390A4163C76B3002340CB /* EventDetailsCell.m in Sources */,
 				558390A8163C8755002340CB /* StartViewController.m in Sources */,
+				558390B5163CB661002340CB /* EventMapViewController.m in Sources */,
+				558390BB163CBA56002340CB /* MapPin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

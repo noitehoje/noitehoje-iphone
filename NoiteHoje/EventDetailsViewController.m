@@ -180,11 +180,13 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 0) {
-//        [[FBSession activeSession] reauthorizeWithPublishPermissions:@[@"publish_stream"]
-//                                                     defaultAudience:FBSessionDefaultAudienceEveryone
-//                                                   completionHandler:^(FBSession *session, NSError *error) {
-//                                                       
-//                                                   }];
+        NSArray *permissions = [[FBSession activeSession] permissions];
+        
+        if ([permissions indexOfObject:@"publish_stream"] == NSNotFound) {
+            [[FBSession activeSession] reauthorizeWithPublishPermissions:@[@"publish_stream"]
+                                                         defaultAudience:FBSessionDefaultAudienceEveryone
+                                                       completionHandler:^(FBSession *session, NSError *error) { }];
+        }
         BOOL displayedNativeDialog =
         [FBNativeDialogs
          presentShareDialogModallyFrom:self
