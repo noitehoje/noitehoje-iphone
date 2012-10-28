@@ -23,8 +23,8 @@
 {
     [super setSelected:selected animated:animated];
 
-    UIView *bgView = [[UIView alloc] initWithFrame:self.bounds];
-    bgView.backgroundColor = [UIColor blackColor];
+    UIImage *rowBackground = [UIImage imageNamed:@"RowCellBG.png"];
+    UIImageView *bgView = [[UIImageView alloc] initWithImage:rowBackground];
     self.backgroundView = bgView;
     
     self.textLabel.font = [UIFont systemFontOfSize:17];

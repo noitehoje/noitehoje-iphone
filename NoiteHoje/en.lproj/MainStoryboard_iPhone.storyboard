@@ -136,16 +136,17 @@
         <scene sceneID="WyZ-ae-rCR">
             <objects>
                 <tableViewController id="ZaH-qO-Fdt" customClass="EventDetailsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="MDB-ce-aUr">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="38" sectionHeaderHeight="30" sectionFooterHeight="20" id="MDB-ce-aUr">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <inset key="contentInset" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventDetailsCell" id="Pvq-E0-zF2" customClass="EventDetailsCell">
-                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                <rect key="frame" x="0.0" y="46" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <rect key="frame" x="10" y="1" width="300" height="37"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -161,6 +162,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Voltar" id="jyi-5l-e7f">
                             <connections>
                                 <action selector="voltarBarButtonClicked:" destination="ZaH-qO-Fdt" id="vIe-Sr-p1d"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="mxp-Q9-CSf">
+                            <connections>
+                                <action selector="sendButtonTapped:" destination="ZaH-qO-Fdt" id="mnt-5j-v12"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -215,46 +221,6 @@
         <image name="Default.png" width="320" height="480"/>
         <image name="facebook_login.png" width="253" height="49"/>
     </resources>
-    <classes>
-        <class className="EventCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="subtitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="EventDetailsCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailsCell.h"/>
-        </class>
-        <class className="EventDetailsViewController" superclassName="NoiteHojeTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="voltarBarButtonClicked:"/>
-                <relationship kind="outlet" name="detailsTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="EventsViewController" superclassName="NoiteHojeViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="eventsTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="onFacebookLoginButtonClicked:"/>
-            </relationships>
-        </class>
-        <class className="NoiteHojeTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoiteHojeTableViewController.h"/>
-        </class>
-        <class className="NoiteHojeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoiteHojeViewController.h"/>
-        </class>
-        <class className="StartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

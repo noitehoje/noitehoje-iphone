@@ -37,15 +37,15 @@
     [self.events addObject: event];
     
     event = [[Event alloc] init];
-    event.title = @"Club688";
-    event.subtitle = @"Loco Dice and Friends";
+    event.title = @"Loco Dice and Friends";
+    event.subtitle = @"Club688";
     event.date = @"5 de Setembro";
     event.time = @"23h";
     [self.events addObject: event];
     
     event = [[Event alloc] init];
-    event.title = @"Segredo";
-    event.subtitle = @"Quarta Sertanejo Universitário";
+    event.title = @"Sertanejo Universitário";
+    event.subtitle = @"Segredo";
     event.date = @"7 de Setembro";
     event.time = @"23:30";
     [self.events addObject: event];

@@ -10,10 +10,11 @@
 #import "NoiteHojeTableViewController.h"
 #import "Event.h"
 
-@interface EventDetailsViewController : NoiteHojeTableViewController
+@interface EventDetailsViewController : NoiteHojeTableViewController<UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *detailsTableView;
 @property (nonatomic, retain) Event *event;
+- (IBAction)sendButtonTapped:(id)sender;
 
 - (IBAction)voltarBarButtonClicked:(id)sender;
 

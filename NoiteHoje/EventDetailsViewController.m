@@ -9,6 +9,8 @@
 #import "EventDetailsViewController.h"
 #import "UIColor+Extensions.h"
 #import "EventDetailsCell.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import "Social/Social.h"
 
 @interface EventDetailsViewController ()
 
@@ -39,6 +41,7 @@
     UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
     
     [self.detailsTableView setBackgroundView:bgView];
+    self.detailsTableView.rowHeight = 50;
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +54,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -62,16 +65,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EventDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventDetailsCell"];
-    NSUInteger index = [indexPath indexAtPosition:0];
+    NSUInteger index = [indexPath section];
         
     if(index == 0) {
         cell.textLabel.text = self.event.title;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else if(index == 1) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.event.date, self.event.time];
     }
     else if(index == 2) {
         cell.textLabel.text = self.event.subtitle;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     return cell;
 }
@@ -85,20 +90,15 @@
     else if(section == 1) {
         text = @"Quando?";
     }
-    else if(section == 2) {
+    else {
          text = @"Onde?";
     }
-    else {
-         text = @"Mais Infos?";
-    }
     
-    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
+    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 20, 20)];
     
-    // create the label objects
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:customView.frame];
     headerLabel.backgroundColor = [UIColor clearColor];
     headerLabel.font = [UIFont boldSystemFontOfSize:18];
-    headerLabel.frame = CGRectMake(10,0,200,20);
     headerLabel.text =  text;
     headerLabel.textColor = [UIColor colorWithHex:0xac59ac];
     headerLabel.shadowColor = [UIColor blackColor];
@@ -160,8 +160,81 @@
      */
 }
 
+- (IBAction)sendButtonTapped:(id)sender
+{
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Compartilhe com seus amigos"
+                                        delegate:self
+                               cancelButtonTitle:@"Cancelar"
+                          destructiveButtonTitle:nil
+                               otherButtonTitles:@"Facebook", @"Twitter", @"E-mail", nil];
+    
+    // Show the sheet
+    [sheet showInView:self.view];
+}
+
 - (IBAction)voltarBarButtonClicked:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0) {
+//        [[FBSession activeSession] reauthorizeWithPublishPermissions:@[@"publish_stream"]
+//                                                     defaultAudience:FBSessionDefaultAudienceEveryone
+//                                                   completionHandler:^(FBSession *session, NSError *error) {
+//                                                       
+//                                                   }];
+        BOOL displayedNativeDialog =
+        [FBNativeDialogs
+         presentShareDialogModallyFrom:self
+         initialText:@"asdsdad"
+         image:[UIImage imageNamed:@"star.png"]
+         url:[NSURL URLWithString:@"http://www.example.com"]
+         handler:^(FBNativeDialogResult result, NSError *error) {
+             if (error) {
+                 NSLog(@"%@", error);
+             } else {
+                 if (result == FBNativeDialogResultSucceeded) {
+                     NSLog(@"Success");
+                 } else {
+                     NSLog(@"Cancelled");
+                 }
+             }
+         }];
+        if (!displayedNativeDialog) {
+            SLComposeViewController *fbController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            
+            if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+                SLComposeViewControllerCompletionHandler completionHandler = ^(SLComposeViewControllerResult result) {
+                    
+                    [fbController dismissViewControllerAnimated:YES completion:nil];
+                    
+                    switch(result) {
+                        case SLComposeViewControllerResultCancelled:
+                        default: {
+                            NSLog(@"Cancelled.....");
+                        }
+                        break;
+                        case SLComposeViewControllerResultDone: {
+                            NSLog(@"Posted....");
+                        }
+                        break;
+                    }
+                };
+                
+                [fbController addImage:[UIImage imageNamed:@"star.png"]];
+                [fbController setInitialText:@"Test post."];
+                [fbController addURL:[NSURL URLWithString:@"http://google.com/"]];
+                [fbController setCompletionHandler:completionHandler];
+                
+                [self presentViewController:fbController animated:YES completion:nil];
+            }
+        }
+    }
+    else if(buttonIndex == 1) {
+        // twitter
+    }
+}
+
 @end
