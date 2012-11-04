@@ -23,6 +23,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"Lista";
+    
     UIImage *img = [UIImage imageNamed:@"MainBG.png"];
     UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
     
@@ -96,6 +98,28 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction)addButtonTapped:(id)sender
+{
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Novo evento"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancelar"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:@"Festa", @"Show", nil];
+    
+    // Show the sheet
+    [sheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0) {
+        NSLog(@"New party");
+    }
+    else if (buttonIndex == 1) {
+        NSLog(@"New show");        
+    }
 }
 
 @end

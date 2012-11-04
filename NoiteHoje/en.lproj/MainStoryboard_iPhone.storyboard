@@ -104,6 +104,9 @@
                     <navigationItem key="navigationItem" id="oBQ-T7-xpx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wxD-9V-YgF">
                             <color key="tintColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addButtonTapped:" destination="MX6-L0-TCs" id="2w5-uV-TeB"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -162,11 +165,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="xV8-TW-aFw">
-                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="jyi-5l-e7f">
-                            <connections>
-                                <action selector="voltarBarButtonClicked:" destination="ZaH-qO-Fdt" id="vIe-Sr-p1d"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="mxp-Q9-CSf">
                             <connections>
                                 <action selector="sendButtonTapped:" destination="ZaH-qO-Fdt" id="mnt-5j-v12"/>
@@ -179,7 +177,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dz-II-5PY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1779" y="-452"/>
+            <point key="canvasLocation" x="1801" y="68"/>
         </scene>
         <!--Event Map View Controller-->
         <scene sceneID="wjy-rf-gSd">
@@ -203,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82Q-jh-vcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2193" y="-452"/>
+            <point key="canvasLocation" x="2329" y="68"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="CiK-j6-eG6">
