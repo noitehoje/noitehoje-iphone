@@ -7,6 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Venue.h"
+
+#define EVENTINFO_DATE_ORIGINAL @"EEE, d MMM yyyy"
+#define EVENTINFO_DATE_ABSOLUTE @"dd/MM/yy (EEEE)"
+#define EVENTINFO_DATE_READABLE @"dd/MM"
 
 @interface Event : NSObject
 
@@ -21,4 +26,8 @@
 @property (nonatomic, copy) NSString *source;
 @property (nonatomic, copy) NSString *eventID;
 @property (nonatomic, copy) NSString *shortURL;
+@property (nonatomic, retain) Venue *venue;
+
+- (id)initWithJSON:(NSDictionary *)json;
+
 @end

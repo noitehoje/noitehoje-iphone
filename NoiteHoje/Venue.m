@@ -10,4 +10,21 @@
 
 @implementation Venue
 
+- (id)initWithJSON:(NSDictionary *)json
+{
+    self = [super init];
+    if (self) {
+        self.name = [[json objectForKey:@"title"] capitalizedString];
+        self.city = [[[json objectForKey:@"location"] objectForKey:@"city"] capitalizedString];
+        
+        NSNumber *lat = [[json objectForKey:@"location"] objectForKey:@"geo_lat"];
+        NSNumber *lng = [[json objectForKey:@"location"] objectForKey:@"geo_lon"];
+
+        self.location = [[CLLocation alloc] initWithLatitude:[lat floatValue] longitude:[lng floatValue]];
+        self.coordinate = self.location.coordinate;
+        self.foursquareId = [json objectForKey:@"foursquare_id"];
+    }
+    return self;
+}
+
 @end

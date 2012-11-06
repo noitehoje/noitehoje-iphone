@@ -14,8 +14,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *detailsTableView;
 @property (nonatomic, retain) Event *event;
-- (IBAction)sendButtonTapped:(id)sender;
 
-- (IBAction)voltarBarButtonClicked:(id)sender;
+- (IBAction)sendButtonTapped:(id)sender;
 
 @end

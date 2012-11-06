@@ -10,6 +10,7 @@
 #import "Event.h"
 #import "EventCell.h"
 #import "EventDetailsViewController.h"
+#import "APIWrapper.h"
 
 @interface EventsViewController ()
 
@@ -27,6 +28,11 @@
     
     UIImage *img = [UIImage imageNamed:@"MainBG.png"];
     UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
+    
+    APIWrapper *apiWrapper = [[APIWrapper alloc] init];
+    [apiWrapper requestWithCallback:^(NSArray *evts) {
+        NSLog(@"callback invoked - %@", evts);
+    }];
     
     [self.eventsTableView setBackgroundView:bgView];
     

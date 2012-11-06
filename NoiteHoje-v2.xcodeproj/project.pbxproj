@@ -11,7 +11,6 @@
 		5529183415D8AB4600765DEE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183315D8AB4600765DEE /* Event.m */; };
 		5529183715D8ACE000765DEE /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183615D8ACE000765DEE /* Venue.m */; };
 		552B976B15D8CE8900A4DC45 /* APIWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 552B976A15D8CE8900A4DC45 /* APIWrapper.m */; };
-		552B977015D8E52400A4DC45 /* YAJLiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 552B976F15D8E52400A4DC45 /* YAJLiOS.framework */; };
 		552DA30C15F176A600951CB8 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 552DA30B15F176A600951CB8 /* star.png */; };
 		552DA31015F17B2000951CB8 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 552DA30F15F17B2000951CB8 /* EventCell.m */; };
 		555A381115D83D2E005D273C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381015D83D2E005D273C /* UIKit.framework */; };
@@ -47,6 +46,7 @@
 		55AA5120163761FF00C967E7 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA511E163761FF00C967E7 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		55AA51221637621800C967E7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA51211637621800C967E7 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		55AA51241637632300C967E7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55AA51231637632300C967E7 /* Default-568h@2x.png */; };
+		55F5295216490755005EC26F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F5295116490755005EC26F /* CoreLocation.framework */; };
 		55F8E48A163B68F700F8DEC0 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F8E489163B68F700F8DEC0 /* EventDetailsViewController.m */; };
 		55F8E494163B81CB00F8DEC0 /* facebook_login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55F8E48F163B81CB00F8DEC0 /* facebook_login@2x.png */; };
 		55F8E495163B81CB00F8DEC0 /* RowCellBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 55F8E490163B81CB00F8DEC0 /* RowCellBG.png */; };
@@ -79,7 +79,6 @@
 		5529183615D8ACE000765DEE /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		552B976915D8CE8900A4DC45 /* APIWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIWrapper.h; path = ../APIWrapper.h; sourceTree = "<group>"; };
 		552B976A15D8CE8900A4DC45 /* APIWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIWrapper.m; path = ../APIWrapper.m; sourceTree = "<group>"; };
-		552B976F15D8E52400A4DC45 /* YAJLiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YAJLiOS.framework; sourceTree = "<group>"; };
 		552DA30B15F176A600951CB8 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		552DA30E15F17B2000951CB8 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
 		552DA30F15F17B2000951CB8 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
@@ -126,6 +125,7 @@
 		55AA511E163761FF00C967E7 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		55AA51211637621800C967E7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		55AA51231637632300C967E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Default-568h@2x.png"; sourceTree = "<group>"; };
+		55F5295116490755005EC26F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		55F8E488163B68F700F8DEC0 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		55F8E489163B68F700F8DEC0 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
 		55F8E48F163B81CB00F8DEC0 /* facebook_login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook_login@2x.png"; sourceTree = "<group>"; };
@@ -148,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55F5295216490755005EC26F /* CoreLocation.framework in Frameworks */,
 				558390B2163CB54C002340CB /* MapKit.framework in Frameworks */,
 				55AA51221637621800C967E7 /* Social.framework in Frameworks */,
 				55AA511F163761FF00C967E7 /* Accounts.framework in Frameworks */,
@@ -155,7 +156,6 @@
 				555A381115D83D2E005D273C /* UIKit.framework in Frameworks */,
 				555A381315D83D2E005D273C /* Foundation.framework in Frameworks */,
 				555A381515D83D2E005D273C /* CoreGraphics.framework in Frameworks */,
-				552B977015D8E52400A4DC45 /* YAJLiOS.framework in Frameworks */,
 				55AA511A1637615800C967E7 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +176,7 @@
 		555A380115D83D2E005D273C = {
 			isa = PBXGroup;
 			children = (
+				55F5295116490755005EC26F /* CoreLocation.framework */,
 				555A384F15D83DE0005D273C /* Images */,
 				555A381615D83D2E005D273C /* NoiteHoje */,
 				555A383A15D83D2F005D273C /* NoiteHojeTests */,
@@ -202,7 +203,6 @@
 				55AA51211637621800C967E7 /* Social.framework */,
 				55AA511D163761FF00C967E7 /* Accounts.framework */,
 				55AA511E163761FF00C967E7 /* AdSupport.framework */,
-				552B976F15D8E52400A4DC45 /* YAJLiOS.framework */,
 				555A381015D83D2E005D273C /* UIKit.framework */,
 				555A381215D83D2E005D273C /* Foundation.framework */,
 				555A381415D83D2E005D273C /* CoreGraphics.framework */,
