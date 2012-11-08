@@ -31,32 +31,11 @@
     
     APIWrapper *apiWrapper = [[APIWrapper alloc] init];
     [apiWrapper requestWithCallback:^(NSArray *evts) {
-        NSLog(@"callback invoked - %@", evts);
+        self.events = [[NSArray alloc] initWithArray:evts];
+        [self.eventsTableView reloadData];
     }];
     
     [self.eventsTableView setBackgroundView:bgView];
-    
-    self.events = [NSMutableArray arrayWithCapacity:20];
-    Event *event = [[Event alloc] init];
-    event.title = @"Nightwish";
-    event.subtitle = @"Bar Opinião";
-    event.date = @"4 de Setembro";
-    event.time = @"22h";
-    [self.events addObject: event];
-    
-    event = [[Event alloc] init];
-    event.title = @"Loco Dice and Friends";
-    event.subtitle = @"Club688";
-    event.date = @"5 de Setembro";
-    event.time = @"23h";
-    [self.events addObject: event];
-    
-    event = [[Event alloc] init];
-    event.title = @"Sertanejo Universitário";
-    event.subtitle = @"Segredo";
-    event.date = @"7 de Setembro";
-    event.time = @"23:30";
-    [self.events addObject: event];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -90,7 +69,7 @@
 {
 	if (editingStyle == UITableViewCellEditingStyleDelete)
 	{
-		[self.events removeObjectAtIndex:indexPath.row];
+        //[self.events removeObjectAtIndex:indexPath.row];
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}
 }

@@ -12,7 +12,7 @@
 
 @interface EventsViewController : NoiteHojeViewController<UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 
-@property (nonatomic, strong) NSMutableArray *events;
+@property (nonatomic, strong) NSArray *events;
 @property (weak, nonatomic) IBOutlet UITableView *eventsTableView;
 
 - (IBAction)addButtonTapped:(id)sender;
