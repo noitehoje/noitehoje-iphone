@@ -38,6 +38,7 @@
 		558390B2163CB54C002340CB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 558390B1163CB54C002340CB /* MapKit.framework */; };
 		558390B5163CB661002340CB /* EventMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558390B4163CB661002340CB /* EventMapViewController.m */; };
 		558390BB163CBA56002340CB /* MapPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 558390BA163CBA56002340CB /* MapPin.m */; };
+		5586F1F9164B8A2200B7325C /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5586F1F8164B8A2200B7325C /* LocationManager.m */; };
 		5590AE3115FB096000BE3754 /* facebook_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 5590AE3015FB096000BE3754 /* facebook_login.png */; };
 		5590AE3515FB0CF800BE3754 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5590AE3415FB0CF800BE3754 /* LoginViewController.m */; };
 		55AA511A1637615800C967E7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA51191637615800C967E7 /* FacebookSDK.framework */; };
@@ -116,6 +117,8 @@
 		558390B4163CB661002340CB /* EventMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventMapViewController.m; sourceTree = "<group>"; };
 		558390B9163CBA56002340CB /* MapPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPin.h; sourceTree = "<group>"; };
 		558390BA163CBA56002340CB /* MapPin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPin.m; sourceTree = "<group>"; };
+		5586F1F7164B8A2200B7325C /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		5586F1F8164B8A2200B7325C /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		5590AE3015FB096000BE3754 /* facebook_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_login.png; sourceTree = "<group>"; };
 		5590AE3315FB0CF800BE3754 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
 		5590AE3415FB0CF800BE3754 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
@@ -214,6 +217,7 @@
 		555A381615D83D2E005D273C /* NoiteHoje */ = {
 			isa = PBXGroup;
 			children = (
+				5586F1F2164B89E300B7325C /* External */,
 				558390B8163CB6B6002340CB /* Categories */,
 				558390B7163CB697002340CB /* Models */,
 				558390B6163CB681002340CB /* ViewControllers */,
@@ -328,6 +332,15 @@
 				55F8E4A4163B95EE00F8DEC0 /* UIColor+Extensions.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		5586F1F2164B89E300B7325C /* External */ = {
+			isa = PBXGroup;
+			children = (
+				5586F1F7164B8A2200B7325C /* LocationManager.h */,
+				5586F1F8164B8A2200B7325C /* LocationManager.m */,
+			);
+			name = External;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,6 +486,7 @@
 				558390A8163C8755002340CB /* StartViewController.m in Sources */,
 				558390B5163CB661002340CB /* EventMapViewController.m in Sources */,
 				558390BB163CBA56002340CB /* MapPin.m in Sources */,
+				5586F1F9164B8A2200B7325C /* LocationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
