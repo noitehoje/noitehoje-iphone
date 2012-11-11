@@ -56,15 +56,15 @@
     for (Event *event in self.events)
     {
         // Reduce event start date to date components (year, month, day)
-        NSDate *dateRepresentingThisDay = [self dateAtBeginningOfDayForDate:[event formattedDate]];
+        NSDate *eventDate = [self dateAtBeginningOfDayForDate:event.formattedDate];
         
         // If we don't yet have an array to hold the events for this day, create one
-        NSMutableArray *eventsOnThisDay = [self.sections objectForKey:dateRepresentingThisDay];
+        NSMutableArray *eventsOnThisDay = [self.sections objectForKey:eventDate];
         if (eventsOnThisDay == nil) {
             eventsOnThisDay = [NSMutableArray array];
             
             // Use the reduced date as dictionary key to later retrieve the event list this day
-            [self.sections setObject:eventsOnThisDay forKey:dateRepresentingThisDay];
+            [self.sections setObject:eventsOnThisDay forKey:eventDate];
         }
         
         // Add the event to the list for this day
@@ -74,6 +74,7 @@
     // Create a sorted list of days
     NSArray *unsortedDays = [self.sections allKeys];
     self.sortedDays = [unsortedDays sortedArrayUsingSelector:@selector(compare:)];
+    NSLog(@"%@", self.sections);
 }
 
 - (NSDate *)dateAtBeginningOfDayForDate:(NSDate *)inputDate
@@ -142,7 +143,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EventCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventCell"];
-    Event *event = [self.events objectAtIndex:indexPath.row];
+
+    NSDate *eventDate = [self.sortedDays objectAtIndex:indexPath.section];
+    NSArray *eventsOnThisDay = [self.sections objectForKey:eventDate];
+    Event *event = [eventsOnThisDay objectAtIndex:indexPath.row];
     
     cell.event = event;
     
