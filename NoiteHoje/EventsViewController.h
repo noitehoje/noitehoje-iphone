@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <UIKit/UITableView.h>
 #import "NoiteHojeViewController.h"
+#import "EGORefreshTableHeaderView.h"
 
-@interface EventsViewController : NoiteHojeViewController<UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
+@interface EventsViewController : NoiteHojeViewController<EGORefreshTableHeaderDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
+{
+    BOOL _isLastPage;
+    EGORefreshTableHeaderView *_refreshHeaderView;
+}
 
 @property (nonatomic, strong) NSArray *events;
 @property (weak, nonatomic) IBOutlet UITableView *eventsTableView;

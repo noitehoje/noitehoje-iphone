@@ -10,7 +10,7 @@
 
 typedef void (^ApiCallback)(NSArray *);
 
-@interface APIWrapper : NSObject<NSURLConnectionDelegate>
+@interface APIWrapper : NSObject
 {
     ApiCallback _callback;
 }

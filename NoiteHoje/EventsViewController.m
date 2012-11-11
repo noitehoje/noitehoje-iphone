@@ -12,6 +12,7 @@
 #import "EventDetailsViewController.h"
 #import "APIWrapper.h"
 #import "UIColor+Extensions.h"
+#import "EGORefreshTableHeaderView.h"
 
 @interface EventsViewController ()
 
@@ -24,6 +25,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _isLastPage = NO;
     
     self.navigationItem.title = @"Lista";
     
@@ -48,6 +51,16 @@
     [self.cellDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"pt_BR"]];
     [self.cellDateFormatter setDateStyle:NSDateFormatterNoStyle];
     [self.cellDateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    
+    if (_refreshHeaderView == nil) {
+        EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.eventsTableView.bounds.size.height,
+                                                                                                      self.eventsTableView.frame.size.width,
+                                                                                                      self.eventsTableView.frame.size.height)];
+		view.delegate = self;
+		[self.eventsTableView addSubview:view];
+		_refreshHeaderView = view;
+	}
+	[_refreshHeaderView refreshLastUpdatedDate];
 }
 
 - (void)loadSections
@@ -74,7 +87,6 @@
     // Create a sorted list of days
     NSArray *unsortedDays = [self.sections allKeys];
     self.sortedDays = [unsortedDays sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@", self.sections);
 }
 
 - (NSDate *)dateAtBeginningOfDayForDate:(NSDate *)inputDate
@@ -106,6 +118,10 @@
 {
     NSDate *date = [self.sortedDays objectAtIndex:section];
     NSArray *evts = [self.sections objectForKey:date];
+
+    if(!_isLastPage && section == self.sections.count - 1) {
+        return evts.count + 1;
+    }
     return evts.count;
 }
 
@@ -143,12 +159,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EventCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventCell"];
-
     NSDate *eventDate = [self.sortedDays objectAtIndex:indexPath.section];
     NSArray *eventsOnThisDay = [self.sections objectForKey:eventDate];
-    Event *event = [eventsOnThisDay objectAtIndex:indexPath.row];
     
-    cell.event = event;
+    if (indexPath.row < eventsOnThisDay.count) {
+        Event *event = [eventsOnThisDay objectAtIndex:indexPath.row];
+        cell.event = event;
+    }
+    else {
+        [cell showLoading];
+    }
     
     return cell;
 }
@@ -193,6 +213,31 @@
     else if (buttonIndex == 1) {
         NSLog(@"New show");        
     }
+}
+
+#pragma mark -
+#pragma mark Pull to Refresh
+
+- (void)reloadTableViewDataSource
+{
+}
+
+- (void)doneLoadingTableViewData
+{
+}
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view
+{
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view
+{
+	return NO;
+}
+
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view
+{
+	return [NSDate date];
 }
 
 @end

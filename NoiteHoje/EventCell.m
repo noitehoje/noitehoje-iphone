@@ -46,4 +46,33 @@
     [self.thumbImageView setImageWithURL:[NSURL URLWithString:event.flyerUrl]];
 }
 
+- (void)showLoading
+{
+    self.titleLabel.text = @"Carregando...";
+    self.titleLabel.frame = CGRectOffset(self.titleLabel.frame, 0, 10);
+    self.venueLabel.text = @"";
+    self.subtitleLabel.text = @"";
+
+    self.accessoryType = UITableViewCellAccessoryNone;
+    self.thumbImageView.backgroundColor = [UIColor clearColor];
+    self.thumbImageView.animationImages = @[
+        [UIImage imageNamed:@"loading0.gif"],
+        [UIImage imageNamed:@"loading1.gif"],
+        [UIImage imageNamed:@"loading2.gif"],
+        [UIImage imageNamed:@"loading3.gif"],
+        [UIImage imageNamed:@"loading4.gif"],
+        [UIImage imageNamed:@"loading5.gif"],
+        [UIImage imageNamed:@"loading6.gif"],
+        [UIImage imageNamed:@"loading7.gif"]
+    ];
+    self.thumbImageView.animationDuration = 0.7f;
+    CGRect frame = self.thumbImageView.frame;
+    frame.size.width = 25;
+    frame.size.height = 25;
+    self.thumbImageView.frame = frame;
+    self.thumbImageView.frame = CGRectOffset(self.thumbImageView.frame, 20, 15);
+    self.thumbImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.thumbImageView startAnimating];
+}
+
 @end

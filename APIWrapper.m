@@ -8,6 +8,7 @@
 
 #import "APIWrapper.h"
 #import "Event.h"
+#import "AFJSONRequestOperation.h"
 
 @implementation APIWrapper
 
@@ -23,54 +24,41 @@
 
 - (void)requestWithCallback:(ApiCallback)callback
 {
+    [self requestWithCallback:callback andPage:1];
+}
+
+- (void)requestWithCallback:(ApiCallback)callback andPage:(NSUInteger)page
+{
     _callback = callback;
     
-    NSString *apiUrlString = [self apiEndpoint:@"getevents"];
+    NSString *apiUrlString = [self apiEndpoint:@"getevents" page:page];
     NSURL *url = [NSURL URLWithString:apiUrlString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
-    if (connection) {
-        _eventData = [NSMutableData data];
-    }
-    else {
-        _callback(nil);
-    }
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    [_eventData setLength:0];
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [_eventData appendData:data];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    _eventData = nil;
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSError *myError = nil;
-    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:_eventData options:NSJSONReadingMutableLeaves error:&myError];
-    NSInteger totalPages  = [[[results objectForKey:@"attributes"] objectForKey:@"totalpages"] intValue] || 1;
-    NSMutableArray *eventsToReturn = [NSMutableArray array];
-    NSArray *eventList = [results objectForKey:@"events"];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        //        NSInteger totalPages  = [[[JSON objectForKey:@"attributes"] objectForKey:@"totalpages"] intValue] || 1;
+        NSMutableArray *eventsToReturn = [NSMutableArray array];
+        NSArray *eventList = [JSON objectForKey:@"events"];
+        
+        for (NSDictionary *event in eventList) {
+            Event *evt = [[Event alloc] initWithJSON:event];
+            [eventsToReturn addObject:evt];
+        }
+        
+        _callback(eventsToReturn);
+        
+    } failure:nil];
     
-    for (NSDictionary *event in eventList) {
-        Event *evt = [[Event alloc] initWithJSON:event];
-        [eventsToReturn addObject:evt];
-    }
-    
-    _callback(eventsToReturn);
+    [operation start];
 }
 
-- (NSString *) apiEndpoint:(NSString *)method {
-  return [NSString stringWithFormat:@"%@/%@/%@/%@",
-    self.noiteHojeWSURL,
-    self.noiteAPIVersion,
-    self.noiteHojeAPIKey,
-    method];
+- (NSString *) apiEndpoint:(NSString *)method page:(NSUInteger)page {
+    return [NSString stringWithFormat:@"%@/%@/%@/%@?page=%d",
+            self.noiteHojeWSURL,
+            self.noiteAPIVersion,
+            self.noiteHojeAPIKey,
+            method,
+            page];
 }
 
 @end

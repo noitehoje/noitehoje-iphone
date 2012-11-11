@@ -17,4 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *venueLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 
+- (void)showLoading;
+
 @end
