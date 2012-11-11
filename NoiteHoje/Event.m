@@ -24,6 +24,7 @@
         self.source = [json objectForKey:@"source"];
         self.eventID = [json objectForKey:@"_id"];
         self.shortURL = [json objectForKey:@"short_url"];
+        self.flyerUrl = [json objectForKey:@"flyer"];
         
         NSString *ret = [[json objectForKey:@"evt_type"] capitalizedString];
 

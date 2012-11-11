@@ -26,6 +26,7 @@
 @property (nonatomic, copy) NSString *source;
 @property (nonatomic, copy) NSString *eventID;
 @property (nonatomic, copy) NSString *shortURL;
+@property (nonatomic, copy) NSString *flyerUrl;
 @property (nonatomic, retain) Venue *venue;
 
 - (id)initWithJSON:(NSDictionary *)json;

@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NoiteHojeTableViewController.h"
 #import "Event.h"
 
-@interface EventDetailsViewController : NoiteHojeTableViewController<UIActionSheetDelegate>
+@interface EventDetailsViewController : UIViewController<UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *detailsTableView;
 @property (nonatomic, retain) Event *event;
+@property (weak, nonatomic) IBOutlet UIImageView *flyerImageView;
+@property (weak, nonatomic) IBOutlet UILabel *eventDateLabel;
+@property (strong, nonatomic) IBOutlet UIView *backgroundView;
+@property (weak, nonatomic) IBOutlet UIView *thumbContainer;
 
 - (IBAction)sendButtonTapped:(id)sender;
 

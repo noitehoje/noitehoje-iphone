@@ -7,6 +7,8 @@
 //
 
 #import "EventCell.h"
+#import "UIImageView+AFNetworking.h"
+#import "UIColor+Extensions.h"
 
 @implementation EventCell
 
@@ -39,7 +41,9 @@
     self.titleLabel.text = event.title;
     self.subtitleLabel.text = [event relativeDistance];
     self.venueLabel.text = event.venue.name;
-    self.cityLabel.text = event.venue.city;
+    self.thumbImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.thumbImageView.backgroundColor = [UIColor colorWithHex:0x191a1f];
+    [self.thumbImageView setImageWithURL:[NSURL URLWithString:event.flyerUrl]];
 }
 
 @end

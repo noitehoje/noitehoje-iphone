@@ -11,6 +11,7 @@
 #import "EventCell.h"
 #import "EventDetailsViewController.h"
 #import "APIWrapper.h"
+#import "UIColor+Extensions.h"
 
 @interface EventsViewController ()
 
@@ -40,7 +41,7 @@
     
     self.sectionDateFormatter = [[NSDateFormatter alloc] init];
     [self.sectionDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"pt_BR"]];
-    [self.sectionDateFormatter setDateStyle:NSDateFormatterLongStyle];
+    [self.sectionDateFormatter setDateStyle:kCFDateFormatterFullStyle];
     [self.sectionDateFormatter setTimeStyle:NSDateFormatterNoStyle];
     
     self.cellDateFormatter = [[NSDateFormatter alloc] init];
@@ -102,15 +103,33 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSDate *dateRepresentingThisDay = [self.sortedDays objectAtIndex:section];
-    NSArray *eventsOnThisDay = [self.sections objectForKey:dateRepresentingThisDay];
-    return [eventsOnThisDay count];
+    NSDate *date = [self.sortedDays objectAtIndex:section];
+    NSArray *evts = [self.sections objectForKey:date];
+    return evts.count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSDate *dateRepresentingThisDay = [self.sortedDays objectAtIndex:section];
-    return [self.sectionDateFormatter stringFromDate:dateRepresentingThisDay];
+    NSDate *date = [self.sortedDays objectAtIndex:section];
+    return [self.sectionDateFormatter stringFromDate:date];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 20)];
+    
+    headerView.backgroundColor = [UIColor colorWithHex:0x191919];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.bounds.size.width - 10, 20)];
+    label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
+    label.backgroundColor = [UIColor colorWithHex:0x191919];
+    label.textColor = [UIColor colorWithHex:0xafafaf];
+    label.shadowColor = [UIColor blackColor];
+    label.shadowOffset = CGSizeMake(0.f, 2.f);
+    label.font = [UIFont boldSystemFontOfSize:14];
+    
+    [headerView addSubview:label];
+    return headerView;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

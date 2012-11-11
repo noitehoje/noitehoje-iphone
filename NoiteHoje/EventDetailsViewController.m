@@ -10,7 +10,10 @@
 #import "UIColor+Extensions.h"
 #import "EventDetailsCell.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <QuartzCore/QuartzCore.h>
 #import "Social/Social.h"
+#import "UIImageView+AFNetworking.h"
+#import "UIColor+Extensions.h"
 
 @interface EventDetailsViewController ()
 
@@ -18,20 +21,9 @@
 
 @implementation EventDetailsViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.navigationItem.title = @"Informações";
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,8 +34,25 @@
     UIImage *img = [UIImage imageNamed:@"MainBG.png"];
     UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
     
-    [self.detailsTableView setBackgroundView:bgView];
-    self.detailsTableView.rowHeight = 50;
+    [self.backgroundView addSubview:bgView];
+    self.thumbContainer.backgroundColor = [UIColor colorWithHex:0x191a1f];
+    self.thumbContainer.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.thumbContainer.layer.shadowOffset = CGSizeMake(0, 1);
+    self.thumbContainer.layer.shadowOpacity = 1;
+    self.thumbContainer.layer.shadowRadius = 1.0;
+
+    self.flyerImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    [self.view sendSubviewToBack:self.backgroundView];
+    [self.view bringSubviewToFront:self.eventDateLabel];
+    [self.view bringSubviewToFront:self.thumbContainer];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationItem.title = self.event.title;
+    self.eventDateLabel.text = self.event.date;
+    [self.flyerImageView setImageWithURL:[NSURL URLWithString:self.event.flyerUrl]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,64 +61,53 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 3;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    EventDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventDetailsCell"];
-    NSUInteger index = [indexPath section];
-        
-    if(index == 0) {
-        cell.textLabel.text = self.event.title;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    else if(index == 1) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.event.date, self.event.time];
-    }
-    else if(index == 2) {
-        cell.textLabel.text = self.event.subtitle;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    return cell;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    NSString *text;
-    if(section == 0) {
-        text = @"O que?";
-    }
-    else if(section == 1) {
-        text = @"Quando?";
-    }
-    else {
-         text = @"Onde?";
-    }
-    
-    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 20, 20)];
-    
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:customView.frame];
-    headerLabel.backgroundColor = [UIColor clearColor];
-    headerLabel.font = [UIFont boldSystemFontOfSize:18];
-    headerLabel.text =  text;
-    headerLabel.textColor = [UIColor colorWithHex:0xac59ac];
-    headerLabel.shadowColor = [UIColor blackColor];
-    headerLabel.shadowOffset = CGSizeMake(0.f, -1.f);
-    
-    [customView addSubview:headerLabel];
-    
-    return customView;
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    EventDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventDetailsCell"];
+//    NSUInteger index = [indexPath section];
+//        
+//    if(index == 0) {
+//        cell.textLabel.text = self.event.title;
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    }
+//    else if(index == 1) {
+//        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.event.date, self.event.time];
+//    }
+//    else if(index == 2) {
+//        cell.textLabel.text = self.event.subtitle;
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    }
+//    return cell;
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    NSString *text;
+//    if(section == 0) {
+//        text = @"O que?";
+//    }
+//    else if(section == 1) {
+//        text = @"Quando?";
+//    }
+//    else {
+//         text = @"Onde?";
+//    }
+//    
+//    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 20, 20)];
+//    
+//    UILabel *headerLabel = [[UILabel alloc] initWithFrame:customView.frame];
+//    headerLabel.backgroundColor = [UIColor clearColor];
+//    headerLabel.font = [UIFont boldSystemFontOfSize:18];
+//    headerLabel.text =  text;
+//    headerLabel.textColor = [UIColor colorWithHex:0xac59ac];
+//    headerLabel.shadowColor = [UIColor blackColor];
+//    headerLabel.shadowOffset = CGSizeMake(0.f, -1.f);
+//    
+//    [customView addSubview:headerLabel];
+//    
+//    return customView;
+//}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -148,19 +146,6 @@
     return YES;
 }
 */
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"Nib name" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
 
 - (IBAction)sendButtonTapped:(id)sender
 {
