@@ -14,7 +14,6 @@
 @property IBOutlet UILabel *titleLabel;
 @property IBOutlet UILabel *subtitleLabel;
 @property (nonatomic, retain) Event *event;
-@property (weak, nonatomic) IBOutlet UILabel *relDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *venueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 

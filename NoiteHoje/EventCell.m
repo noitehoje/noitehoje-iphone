@@ -38,7 +38,6 @@
     _event = event;
     self.titleLabel.text = event.title;
     self.subtitleLabel.text = [event relativeDistance];
-    self.relDateLabel.text = [event dateRelative];
     self.venueLabel.text = event.venue.name;
     self.cityLabel.text = event.venue.city;
 }

@@ -50,7 +50,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="euZ-iB-Wqw">
-                                                    <rect key="frame" x="5" y="2" width="275" height="21"/>
+                                                    <rect key="frame" x="5" y="8" width="275" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,17 +67,8 @@
                                                     <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="0.0" height="1"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Festa agora" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KLc-vC-ILd">
-                                                    <rect key="frame" x="5" y="22" width="185" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <size key="shadowOffset" width="0.0" height="1"/>
-                                                </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Venue Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k3c-jz-gfi">
-                                                    <rect key="frame" x="100" y="22" width="180" height="21"/>
+                                                    <rect key="frame" x="100" y="23" width="180" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <color key="textColor" red="0.69019607843137254" green="0.27450980392156865" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,7 +77,7 @@
                                                     <size key="shadowOffset" width="0.0" height="1"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="City Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9FA-YA-aKF">
-                                                    <rect key="frame" x="100" y="37" width="180" height="21"/>
+                                                    <rect key="frame" x="100" y="38" width="180" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <color key="textColor" red="0.69019607839999997" green="0.27450980390000002" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,7 +90,6 @@
                                         </view>
                                         <connections>
                                             <outlet property="cityLabel" destination="9FA-YA-aKF" id="Zdj-ny-0Cp"/>
-                                            <outlet property="relDateLabel" destination="KLc-vC-ILd" id="Jr9-Bd-fBm"/>
                                             <outlet property="subtitleLabel" destination="K6R-p7-ZrO" id="FR5-Up-2yb"/>
                                             <outlet property="titleLabel" destination="euZ-iB-Wqw" id="SRl-Pa-gGj"/>
                                             <outlet property="venueLabel" destination="k3c-jz-gfi" id="KWs-ho-PSH"/>
@@ -278,6 +268,55 @@
         <image name="Default.png" width="320" height="480"/>
         <image name="facebook_login.png" width="253" height="49"/>
     </resources>
+    <classes>
+        <class className="EventCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="subtitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EventDetailsCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailsCell.h"/>
+        </class>
+        <class className="EventDetailsViewController" superclassName="NoiteHojeTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sendButtonTapped:"/>
+                <relationship kind="outlet" name="detailsTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="EventMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventMapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="eventMap" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="EventsViewController" superclassName="NoiteHojeViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addButtonTapped:"/>
+                <relationship kind="outlet" name="eventsTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onFacebookLoginButtonClicked:"/>
+            </relationships>
+        </class>
+        <class className="NoiteHojeTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoiteHojeTableViewController.h"/>
+        </class>
+        <class className="NoiteHojeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoiteHojeViewController.h"/>
+        </class>
+        <class className="StartViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

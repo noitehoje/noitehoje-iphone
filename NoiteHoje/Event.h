@@ -29,6 +29,7 @@
 @property (nonatomic, retain) Venue *venue;
 
 - (id)initWithJSON:(NSDictionary *)json;
+- (NSDate *)formattedDate;
 - (NSString *)relativeDistance;
 
 @end
