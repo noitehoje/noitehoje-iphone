@@ -29,20 +29,14 @@
     
     APIWrapper *apiWrapper = [[APIWrapper alloc] init];
     
-    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSLog(@"Starting...");
-        [apiWrapper requestWithCallback:^(NSArray *events) {
-            NSLog(@"callback invoked");
-            callbackInvoked = YES;
-            STAssertTrue(events.count > 0, @"API Wrapper should return events");
-            [lock unlockWithCondition:1];
-        }];
+    NSLog(@"Starting...");
+    [apiWrapper requestWithCallback:^(NSArray *events) {
+        NSLog(@"callback invoked");
+        callbackInvoked = YES;
+        STAssertTrue(events.count > 0, @"API Wrapper should return events");
+        [lock unlockWithCondition:1];
+    }];
         
-        dispatch_async( dispatch_get_main_queue(), ^{
-            NSLog(@"done");
-        });
-    });
-    
     [lock lockWhenCondition:1];
     
     STAssertTrue(callbackInvoked, @"API Callback should be invoked");

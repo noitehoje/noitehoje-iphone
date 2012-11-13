@@ -22,21 +22,21 @@
     return self;
 }
 
-- (void)requestWithCallback:(ApiCallback)callback
+- (void)eventsWithCallback:(void (^)(NSArray *, NSUInteger, NSUInteger))callback
 {
-    [self requestWithCallback:callback andPage:1];
+    [self eventsWithCallback:callback andPage:1];
 }
 
-- (void)requestWithCallback:(ApiCallback)callback andPage:(NSUInteger)page
+- (void)eventsWithCallback:(void (^)(NSArray *, NSUInteger, NSUInteger))callback andPage:(NSUInteger)page
 {
-    _callback = callback;
-    
+    NSLog(@"requesting events at page %d", page);
     NSString *apiUrlString = [self apiEndpoint:@"getevents" page:page];
     NSURL *url = [NSURL URLWithString:apiUrlString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        //        NSInteger totalPages  = [[[JSON objectForKey:@"attributes"] objectForKey:@"totalpages"] intValue] || 1;
+        NSInteger totalPages  = [[[JSON objectForKey:@"attributes"] objectForKey:@"totalpages"] intValue];
+        NSInteger currentPage  = [[[JSON objectForKey:@"attributes"] objectForKey:@"page"] intValue];
         NSMutableArray *eventsToReturn = [NSMutableArray array];
         NSArray *eventList = [JSON objectForKey:@"events"];
         
@@ -45,8 +45,7 @@
             [eventsToReturn addObject:evt];
         }
         
-        _callback(eventsToReturn);
-        
+        callback(eventsToReturn, currentPage, totalPages);
     } failure:nil];
     
     [operation start];

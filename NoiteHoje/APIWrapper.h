@@ -8,18 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^ApiCallback)(NSArray *);
-
 @interface APIWrapper : NSObject
-{
-    ApiCallback _callback;
-}
 
 @property (nonatomic, copy) NSString *noiteHojeWSURL;
 @property (nonatomic, copy) NSString *noiteHojeAPIKey;
 @property (nonatomic, copy) NSString *noiteAPIVersion;
 @property (nonatomic, copy) NSMutableData *eventData;
 
-- (void)requestWithCallback:(ApiCallback)callback;
+- (void)eventsWithCallback:(void (^)(NSArray *, NSUInteger, NSUInteger))callback;
+- (void)eventsWithCallback:(void (^)(NSArray *, NSUInteger, NSUInteger))callback andPage:(NSUInteger)page;
 
 @end

@@ -10,7 +10,7 @@
 #import "Event.h"
 #import "EventCell.h"
 #import "EventDetailsViewController.h"
-#import "APIWrapper.h"
+#import "PagedEvents.h"
 #import "UIColor+Extensions.h"
 #import "EGORefreshTableHeaderView.h"
 
@@ -20,22 +20,19 @@
 
 @implementation EventsViewController
 
-@synthesize events;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    _isLastPage = NO;
     
     self.navigationItem.title = @"Lista";
     
     UIImage *img = [UIImage imageNamed:@"MainBG.png"];
     UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
+
+    self.sections = [NSMutableDictionary dictionary];
     
-    APIWrapper *apiWrapper = [[APIWrapper alloc] init];
-    [apiWrapper requestWithCallback:^(NSArray *evts) {
-        self.events = [[NSArray alloc] initWithArray:evts];
+    [PagedEvents firstPage:^(PagedEvents *events) {
+        self.pagedEvents = events;
         [self loadSections];
         [self.eventsTableView reloadData];
     }];
@@ -65,9 +62,7 @@
 
 - (void)loadSections
 {
-    self.sections = [NSMutableDictionary dictionary];
-    for (Event *event in self.events)
-    {
+    for (Event *event in self.pagedEvents.events) {
         // Reduce event start date to date components (year, month, day)
         NSDate *eventDate = [self dateAtBeginningOfDayForDate:event.formattedDate];
         
@@ -119,7 +114,7 @@
     NSDate *date = [self.sortedDays objectAtIndex:section];
     NSArray *evts = [self.sections objectForKey:date];
 
-    if(!_isLastPage && section == self.sections.count - 1) {
+    if(![self.pagedEvents isLastPage] && section == self.sections.count - 1) {
         return evts.count + 1;
     }
     return evts.count;
@@ -156,6 +151,20 @@
     destController.event = eventCell.event;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDate *date = [self.sortedDays objectAtIndex:indexPath.section];
+    NSArray *evts = [self.sections objectForKey:date];
+
+    if(![self.pagedEvents isLastPage] && indexPath.row == evts.count) {
+        [self.pagedEvents nextPage:^(PagedEvents *events) {
+            self.pagedEvents = events;
+            [self loadSections];
+            [self.eventsTableView reloadData];
+        }];
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EventCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventCell"];
@@ -166,7 +175,7 @@
         Event *event = [eventsOnThisDay objectAtIndex:indexPath.row];
         cell.event = event;
     }
-    else {
+    else if (![self.pagedEvents isLastPage]){
         [cell showLoading];
     }
     

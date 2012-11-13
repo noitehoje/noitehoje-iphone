@@ -38,10 +38,20 @@
 - (void)setEvent:(Event *)event
 {
     _event = event;
+    CGRect titleFrame = self.titleLabel.frame;
+    titleFrame.origin.y = 0;
+    self.titleLabel.frame = titleFrame;
+    CGRect frame = self.thumbImageView.frame;
+    frame.size.width = 68;
+    frame.size.height = 58;
+    frame.origin.x = 0;
+    frame.origin.y = 0;
+    self.thumbImageView.frame = frame;
     self.titleLabel.text = event.title;
     self.subtitleLabel.text = [event relativeDistance];
     self.venueLabel.text = event.venue.name;
-    self.thumbImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.thumbImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.thumbImageView.clipsToBounds = YES;
     self.thumbImageView.backgroundColor = [UIColor colorWithHex:0x191a1f];
     [self.thumbImageView setImageWithURL:[NSURL URLWithString:event.flyerUrl]];
 }
@@ -49,7 +59,9 @@
 - (void)showLoading
 {
     self.titleLabel.text = @"Carregando...";
-    self.titleLabel.frame = CGRectOffset(self.titleLabel.frame, 0, 10);
+    CGRect titleFrame = self.titleLabel.frame;
+    titleFrame.origin.y = 18;
+    self.titleLabel.frame = titleFrame;
     self.venueLabel.text = @"";
     self.subtitleLabel.text = @"";
 
@@ -69,8 +81,9 @@
     CGRect frame = self.thumbImageView.frame;
     frame.size.width = 25;
     frame.size.height = 25;
+    frame.origin.x = 23;
+    frame.origin.y = 15;
     self.thumbImageView.frame = frame;
-    self.thumbImageView.frame = CGRectOffset(self.thumbImageView.frame, 20, 15);
     self.thumbImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.thumbImageView startAnimating];
 }

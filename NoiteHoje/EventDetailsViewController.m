@@ -41,7 +41,8 @@
     self.thumbContainer.layer.shadowOpacity = 1;
     self.thumbContainer.layer.shadowRadius = 1.0;
 
-    self.flyerImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.flyerImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.flyerImageView.clipsToBounds = YES;
     
     [self.view sendSubviewToBack:self.backgroundView];
     [self.view bringSubviewToFront:self.eventDateLabel];

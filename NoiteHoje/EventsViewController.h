@@ -10,14 +10,14 @@
 #import <UIKit/UITableView.h>
 #import "NoiteHojeViewController.h"
 #import "EGORefreshTableHeaderView.h"
+#import "PagedEvents.h"
 
 @interface EventsViewController : NoiteHojeViewController<EGORefreshTableHeaderDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 {
-    BOOL _isLastPage;
     EGORefreshTableHeaderView *_refreshHeaderView;
 }
 
-@property (nonatomic, strong) NSArray *events;
+@property (nonatomic, strong) PagedEvents *pagedEvents;
 @property (weak, nonatomic) IBOutlet UITableView *eventsTableView;
 
 @property (strong, nonatomic) NSMutableDictionary *sections;
@@ -26,4 +26,5 @@
 @property (strong, nonatomic) NSDateFormatter *cellDateFormatter;
 
 - (IBAction)addButtonTapped:(id)sender;
+
 @end
