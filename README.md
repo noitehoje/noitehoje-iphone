@@ -1,4 +1,4 @@
-noitehoje-ios
+noitehoje-iPhone
 =============
 
-NoiteHoje iOS client v2
+Repositório para a iPhone app NoiteHoje v2.0
