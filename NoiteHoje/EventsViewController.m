@@ -29,13 +29,7 @@
     UIImage *img = [UIImage imageNamed:@"MainBG.png"];
     UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
 
-    self.sections = [NSMutableDictionary dictionary];
-    
-    [PagedEvents firstPage:^(PagedEvents *events) {
-        self.pagedEvents = events;
-        [self loadSections];
-        [self.eventsTableView reloadData];
-    }];
+    [self reloadAllData];
     
     [self.eventsTableView setBackgroundView:bgView];
     
@@ -50,7 +44,7 @@
     [self.cellDateFormatter setTimeStyle:NSDateFormatterShortStyle];
     
     if (_refreshHeaderView == nil) {
-        EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.eventsTableView.bounds.size.height,
+        EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.eventsTableView.frame.size.height,
                                                                                                       self.eventsTableView.frame.size.width,
                                                                                                       self.eventsTableView.frame.size.height)];
 		view.delegate = self;
@@ -60,8 +54,22 @@
 	[_refreshHeaderView refreshLastUpdatedDate];
 }
 
+- (void)reloadAllData
+{
+    _reloading = YES;
+    self.sections = [NSMutableDictionary dictionary];
+    
+    [PagedEvents firstPage:^(PagedEvents *events) {
+        self.pagedEvents = events;
+        [self loadSections];
+        [self.eventsTableView reloadData];
+    }];
+}
+
 - (void)loadSections
 {
+    _reloading = NO;
+    
     for (Event *event in self.pagedEvents.events) {
         // Reduce event start date to date components (year, month, day)
         NSDate *eventDate = [self dateAtBeginningOfDayForDate:event.formattedDate];
@@ -227,21 +235,31 @@
 #pragma mark -
 #pragma mark Pull to Refresh
 
-- (void)reloadTableViewDataSource
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+	
+	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+	
+	[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];	
 }
 
 - (void)doneLoadingTableViewData
 {
+    _reloading = NO;
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.eventsTableView];
 }
 
 - (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view
 {
+    [self reloadAllData];
+	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1.0];
 }
 
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view
 {
-	return NO;
+	return _reloading;
 }
 
 - (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view

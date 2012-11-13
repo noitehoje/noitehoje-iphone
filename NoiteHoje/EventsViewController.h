@@ -15,6 +15,7 @@
 @interface EventsViewController : NoiteHojeViewController<EGORefreshTableHeaderDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 {
     EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL _reloading;
 }
 
 @property (nonatomic, strong) PagedEvents *pagedEvents;

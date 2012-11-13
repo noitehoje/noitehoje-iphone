@@ -39,7 +39,7 @@
 {
     _event = event;
     CGRect titleFrame = self.titleLabel.frame;
-    titleFrame.origin.y = 0;
+    titleFrame.origin.y = 10;
     self.titleLabel.frame = titleFrame;
     CGRect frame = self.thumbImageView.frame;
     frame.size.width = 68;
