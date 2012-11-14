@@ -44,18 +44,7 @@
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		self.backgroundColor = [UIColor colorWithHex:0x191a1f];
         
-		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 30.0f, self.frame.size.width, 20.0f)];
-		label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-		label.font = [UIFont systemFontOfSize:12.0f];
-		label.textColor = textColor;
-		label.shadowColor = [UIColor blackColor];
-		label.shadowOffset = CGSizeMake(0.0f, 1.0f);
-		label.backgroundColor = [UIColor clearColor];
-		label.textAlignment = NSTextAlignmentCenter;
-		[self addSubview:label];
-		_lastUpdatedLabel=label;
-		
-		label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 48.0f, self.frame.size.width, 20.0f)];
+		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 38.0f, self.frame.size.width, 20.0f)];
 		label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		label.font = [UIFont boldSystemFontOfSize:13.0f];
 		label.textColor = textColor;
@@ -80,7 +69,7 @@
 		[[self layer] addSublayer:layer];
 		_arrowImage=layer;
 		
-		UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+		UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 		view.frame = CGRectMake(25.0f, frame.size.height - 38.0f, 20.0f, 20.0f);
 		[self addSubview:view];
 		_activityView = view;
@@ -99,29 +88,6 @@
 
 #pragma mark -
 #pragma mark Setters
-
-- (void)refreshLastUpdatedDate {
-	
-	if ([self.delegate respondsToSelector:@selector(egoRefreshTableHeaderDataSourceLastUpdated:)]) {
-		
-		NSDate *date = [_delegate egoRefreshTableHeaderDataSourceLastUpdated:self];
-		
-		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehaviorDefault];
-		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-		[dateFormatter setDateStyle:NSDateFormatterShortStyle];
-		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-
-		_lastUpdatedLabel.text = [NSString stringWithFormat:@"Atualizado em %@", [dateFormatter stringFromDate:date]];
-		[[NSUserDefaults standardUserDefaults] setObject:_lastUpdatedLabel.text forKey:@"EGORefreshTableView_LastRefresh"];
-		[[NSUserDefaults standardUserDefaults] synchronize];
-		
-	} else {
-		
-		_lastUpdatedLabel.text = nil;
-		
-	}
-
-}
 
 - (void)setState:(EGOPullRefreshState)aState{
 	
@@ -151,8 +117,6 @@
 			_arrowImage.hidden = NO;
 			_arrowImage.transform = CATransform3DIdentity;
 			[CATransaction commit];
-			
-			[self refreshLastUpdatedDate];
 			
 			break;
 		case EGOOPullRefreshLoading:
@@ -249,7 +213,6 @@
 	_activityView = nil;
 	_statusLabel = nil;
 	_arrowImage = nil;
-	_lastUpdatedLabel = nil;
 }
 
 

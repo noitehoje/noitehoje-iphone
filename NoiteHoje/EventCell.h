@@ -10,6 +10,9 @@
 #import "Event.h"
 
 @interface EventCell : UITableViewCell
+{
+    UIActivityIndicatorView *_activityView;
+}
 
 @property IBOutlet UILabel *titleLabel;
 @property IBOutlet UILabel *subtitleLabel;

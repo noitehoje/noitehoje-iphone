@@ -7,6 +7,7 @@
 //
 
 #import "EventCell.h"
+#import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AFNetworking.h"
 #import "UIColor+Extensions.h"
 
@@ -47,6 +48,9 @@
     frame.origin.x = 0;
     frame.origin.y = 0;
     self.thumbImageView.frame = frame;
+    self.thumbImageView.hidden = NO;
+    _activityView.hidden = YES;
+    [_activityView stopAnimating];
     self.titleLabel.text = event.title;
     self.subtitleLabel.text = [event relativeDistance];
     self.venueLabel.text = event.venue.name;
@@ -60,32 +64,17 @@
 {
     self.titleLabel.text = @"Carregando...";
     CGRect titleFrame = self.titleLabel.frame;
-    titleFrame.origin.y = 18;
+    titleFrame.origin.y = 20;
     self.titleLabel.frame = titleFrame;
     self.venueLabel.text = @"";
     self.subtitleLabel.text = @"";
-
     self.accessoryType = UITableViewCellAccessoryNone;
-    self.thumbImageView.backgroundColor = [UIColor clearColor];
-    self.thumbImageView.animationImages = @[
-        [UIImage imageNamed:@"loading0.gif"],
-        [UIImage imageNamed:@"loading1.gif"],
-        [UIImage imageNamed:@"loading2.gif"],
-        [UIImage imageNamed:@"loading3.gif"],
-        [UIImage imageNamed:@"loading4.gif"],
-        [UIImage imageNamed:@"loading5.gif"],
-        [UIImage imageNamed:@"loading6.gif"],
-        [UIImage imageNamed:@"loading7.gif"]
-    ];
-    self.thumbImageView.animationDuration = 0.7f;
-    CGRect frame = self.thumbImageView.frame;
-    frame.size.width = 25;
-    frame.size.height = 25;
-    frame.origin.x = 23;
-    frame.origin.y = 15;
-    self.thumbImageView.frame = frame;
-    self.thumbImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.thumbImageView startAnimating];
+    self.thumbImageView.hidden = YES;
+    _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    _activityView.frame = CGRectMake(15, 15, 30, 30);
+    _activityView.hidden = NO;
+    [self addSubview:_activityView];
+    [_activityView startAnimating];
 }
 
 @end

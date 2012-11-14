@@ -51,7 +51,6 @@
 		[self.eventsTableView addSubview:view];
 		_refreshHeaderView = view;
 	}
-	[_refreshHeaderView refreshLastUpdatedDate];
 }
 
 - (void)reloadAllData
@@ -260,11 +259,6 @@
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view
 {
 	return _reloading;
-}
-
-- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view
-{
-	return [NSDate date];
 }
 
 @end
