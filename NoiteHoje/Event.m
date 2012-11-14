@@ -45,8 +45,7 @@
         CLLocation *here = [[LocationManager singleton] recentLocation];
         CLLocation *location = self.venue.location;
         CLLocationDistance meters = [here distanceFromLocation:location];
-        NSString *distance = [LocationManager distanceStringForMeters:meters];
-        return [NSString stringWithFormat:@"%@ daqui", distance];
+        return [LocationManager distanceStringForMeters:meters];
     }
     NSLog(@" no recent location");
     return @"";
@@ -98,7 +97,7 @@
 {
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"pt_BR"]];
-    [outputFormatter setDateFormat:EVENTINFO_DATE_ABSOLUTE];
+    [outputFormatter setDateFormat:EVENTINFO_DATE_ORIGINAL];
     
     return [[outputFormatter stringFromDate:[self formattedDate]] capitalizedString];
 }

@@ -34,25 +34,19 @@
     UIImage *img = [UIImage imageNamed:@"MainBG.png"];
     UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
     
-    [self.backgroundView addSubview:bgView];
+    [self.backgroundView insertSubview:bgView atIndex:0];
 
     self.flyerImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.flyerImageView.clipsToBounds = YES;
-    
-    [self.view bringSubviewToFront:self.flyerImageView];
-    [self.view bringSubviewToFront:self.eventDateBackground];
-    [self.view bringSubviewToFront:self.eventInfoBackground];
-    [self.view bringSubviewToFront:self.eventDateLabel];
-    [self.view bringSubviewToFront:self.eventTitleLabel];
-    [self.view bringSubviewToFront:self.eventVenueLabel];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     self.navigationItem.title = self.event.title;
-    self.eventDateLabel.text = self.event.date;
+    self.eventDateLabel.text = [self.event localizedDate];
     self.eventTitleLabel.text = self.event.title;
     self.eventVenueLabel.text = self.event.venue.name;
+    self.eventDescriptionTextView.text = self.event.description;
     [self.flyerImageView setImageWithURL:[NSURL URLWithString:self.event.flyerUrl]];
 }
 

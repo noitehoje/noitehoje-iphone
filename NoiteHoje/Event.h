@@ -32,5 +32,6 @@
 - (id)initWithJSON:(NSDictionary *)json;
 - (NSDate *)formattedDate;
 - (NSString *)relativeDistance;
+- (NSString *)localizedDate;
 
 @end
