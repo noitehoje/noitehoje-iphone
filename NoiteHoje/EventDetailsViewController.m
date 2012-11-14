@@ -35,24 +35,24 @@
     UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
     
     [self.backgroundView addSubview:bgView];
-    self.thumbContainer.backgroundColor = [UIColor colorWithHex:0x191a1f];
-    self.thumbContainer.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.thumbContainer.layer.shadowOffset = CGSizeMake(0, 1);
-    self.thumbContainer.layer.shadowOpacity = 1;
-    self.thumbContainer.layer.shadowRadius = 1.0;
 
     self.flyerImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.flyerImageView.clipsToBounds = YES;
     
-    [self.view sendSubviewToBack:self.backgroundView];
+    [self.view bringSubviewToFront:self.flyerImageView];
+    [self.view bringSubviewToFront:self.eventDateBackground];
+    [self.view bringSubviewToFront:self.eventInfoBackground];
     [self.view bringSubviewToFront:self.eventDateLabel];
-    [self.view bringSubviewToFront:self.thumbContainer];
+    [self.view bringSubviewToFront:self.eventTitleLabel];
+    [self.view bringSubviewToFront:self.eventVenueLabel];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     self.navigationItem.title = self.event.title;
     self.eventDateLabel.text = self.event.date;
+    self.eventTitleLabel.text = self.event.title;
+    self.eventVenueLabel.text = self.event.venue.name;
     [self.flyerImageView setImageWithURL:[NSURL URLWithString:self.event.flyerUrl]];
 }
 
