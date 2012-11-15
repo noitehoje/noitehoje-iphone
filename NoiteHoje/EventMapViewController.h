@@ -10,6 +10,15 @@
 #import <MapKit/MapKit.h>
 
 @interface EventMapViewController : UIViewController
+{
+    CLLocationDegrees _latitude;
+    CLLocationDegrees _longitude;
+    NSString *_pinName;
+    NSString *_pinDescription;
+}
+
 @property (weak, nonatomic) IBOutlet MKMapView *eventMap;
+
+- (void)setMapPinLocation:(CLLocation *)location name:(NSString *)name andDescription:(NSString *)description;
 
 @end

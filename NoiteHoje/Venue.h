@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *phone;
 @property (nonatomic, copy) NSString *city;
+@property (nonatomic, copy) NSString *address;
 @property (nonatomic, copy) CLLocation *location;
 @property (nonatomic, copy) NSString *foursquareId;
 @property (nonatomic) CLLocationCoordinate2D coordinate;

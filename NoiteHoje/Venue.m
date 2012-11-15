@@ -16,6 +16,7 @@
     if (self) {
         self.name = [[json objectForKey:@"name"] capitalizedString];
         self.city = [[[json objectForKey:@"location"] objectForKey:@"city"] capitalizedString];
+        self.address = [[[json objectForKey:@"location"] objectForKey:@"street"] capitalizedString];
         
         NSNumber *lat = [[json objectForKey:@"location"] objectForKey:@"geo_lat"];
         NSNumber *lng = [[json objectForKey:@"location"] objectForKey:@"geo_lon"];

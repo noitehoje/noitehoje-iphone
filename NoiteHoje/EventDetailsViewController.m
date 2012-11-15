@@ -14,6 +14,7 @@
 #import "Social/Social.h"
 #import "UIImageView+AFNetworking.h"
 #import "UIColor+Extensions.h"
+#import "EventMapViewController.h"
 
 @interface EventDetailsViewController ()
 
@@ -65,6 +66,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    EventMapViewController *destController = [segue destinationViewController];
+    [destController setMapPinLocation:self.event.venue.location name:self.event.venue.name andDescription:self.event.venue.address];
+}
+
 - (IBAction)sendButtonTapped:(id)sender
 {
     NSString *shareText = [NSString stringWithFormat:@"%@ %@, %@ @ %@",
@@ -75,7 +82,7 @@
     
     UIActivityViewController *activityController =
     [[UIActivityViewController alloc]
-     initWithActivityItems:@[shareText, self.event.shortURL, self.flyerImageView.image]
+     initWithActivityItems:@[shareText, [NSURL URLWithString:self.event.shortURL], self.flyerImageView.image]
      applicationActivities:nil];
     
     [self presentViewController:activityController

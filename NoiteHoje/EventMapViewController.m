@@ -33,11 +33,19 @@
 	// Do any additional setup after loading the view.
 }
 
+- (void)setMapPinLocation:(CLLocation *)location name:(NSString *)name andDescription:(NSString *)description
+{
+    _latitude = location.coordinate.latitude;
+    _longitude = location.coordinate.longitude;
+    _pinName = name;
+    _pinDescription = description;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     // 1
     CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = 39.281516;
-    zoomLocation.longitude= -76.580806;
+    zoomLocation.latitude = _latitude;
+    zoomLocation.longitude= _longitude;
     
     // 2
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
@@ -45,7 +53,7 @@
     // 3
     [self.eventMap setRegion:viewRegion animated:YES];
 
-    MapPin *pin = [[MapPin alloc] initWithCoordinates:zoomLocation placeName:@"Nightwish" description:@"Bar Opinião"];
+    MapPin *pin = [[MapPin alloc] initWithCoordinates:zoomLocation placeName:_pinName description:_pinDescription];
     [self.eventMap addAnnotation:pin];
 }
 
