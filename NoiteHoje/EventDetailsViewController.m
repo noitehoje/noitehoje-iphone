@@ -67,81 +67,81 @@
 
 - (IBAction)sendButtonTapped:(id)sender
 {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Compartilhe com seus amigos"
-                                        delegate:self
-                               cancelButtonTitle:@"Cancelar"
-                          destructiveButtonTitle:nil
-                               otherButtonTitles:@"Facebook", @"Twitter", @"E-mail", nil];
+    NSString *shareText = [NSString stringWithFormat:@"%@ %@, %@ @ %@",
+                           self.event.type,
+                           self.event.title,
+                           self.event.localizedDate,
+                           self.event.venue.name];
     
-    // Show the sheet
-    [sheet showInView:self.view];
+    UIActivityViewController *activityController =
+    [[UIActivityViewController alloc]
+     initWithActivityItems:@[shareText, self.event.shortURL, self.flyerImageView.image]
+     applicationActivities:nil];
+    
+    [self presentViewController:activityController
+                       animated:YES completion:nil];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    if(buttonIndex == 0) {
-        NSArray *permissions = [[FBSession activeSession] permissions];
-        
-        if ([permissions indexOfObject:@"publish_stream"] == NSNotFound) {
-            [[FBSession activeSession] reauthorizeWithPublishPermissions:@[@"publish_stream"]
-                                                         defaultAudience:FBSessionDefaultAudienceEveryone
-                                                       completionHandler:^(FBSession *session, NSError *error) { }];
-        }
-        BOOL displayedNativeDialog =
-        [FBNativeDialogs
-         presentShareDialogModallyFrom:self
-         initialText:@"asdsdad"
-         image:[UIImage imageNamed:@"star.png"]
-         url:[NSURL URLWithString:@"http://www.example.com"]
-         handler:^(FBNativeDialogResult result, NSError *error) {
-             if (error) {
-                 NSLog(@"%@", error);
-             } else {
-                 if (result == FBNativeDialogResultSucceeded) {
-                     NSLog(@"Success");
-                 } else {
-                     NSLog(@"Cancelled");
-                 }
-             }
-         }];
-        if (!displayedNativeDialog) {
-            SLComposeViewController *fbController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-            
-            if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-                SLComposeViewControllerCompletionHandler completionHandler = ^(SLComposeViewControllerResult result) {
-                    
-                    [fbController dismissViewControllerAnimated:YES completion:nil];
-                    
-                    switch(result) {
-                        case SLComposeViewControllerResultCancelled:
-                        default: {
-                            NSLog(@"Cancelled.....");
-                        }
-                        break;
-                        case SLComposeViewControllerResultDone: {
-                            NSLog(@"Posted....");
-                        }
-                        break;
-                    }
-                };
-                
-                NSString *shareText = [NSString stringWithFormat:@"%@ %@, %@ @ %@",
-                                       self.event.type,
-                                       self.event.title,
-                                       self.event.localizedDate,
-                                       self.event.venue.name];
-                [fbController addImage:self.flyerImageView.image];
-                [fbController setInitialText:shareText];
-                [fbController addURL:[NSURL URLWithString:self.event.shortURL]];
-                [fbController setCompletionHandler:completionHandler];
-                
-                [self presentViewController:fbController animated:YES completion:nil];
-            }
-        }
-    }
-    else if(buttonIndex == 1) {
-        // twitter
-    }
-}
+//- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+//{
+//    if(buttonIndex == 0) {
+//        NSArray *permissions = [[FBSession activeSession] permissions];
+//        
+//        if ([permissions indexOfObject:@"publish_stream"] == NSNotFound) {
+//            [[FBSession activeSession] reauthorizeWithPublishPermissions:@[@"publish_stream"]
+//                                                         defaultAudience:FBSessionDefaultAudienceEveryone
+//                                                       completionHandler:^(FBSession *session, NSError *error) { }];
+//        }
+//        BOOL displayedNativeDialog =
+//        [FBNativeDialogs
+//         presentShareDialogModallyFrom:self
+//         initialText:@"asdsdad"
+//         image:[UIImage imageNamed:@"star.png"]
+//         url:[NSURL URLWithString:@"http://www.example.com"]
+//         handler:^(FBNativeDialogResult result, NSError *error) {
+//             if (error) {
+//                 NSLog(@"%@", error);
+//             } else {
+//                 if (result == FBNativeDialogResultSucceeded) {
+//                     NSLog(@"Success");
+//                 } else {
+//                     NSLog(@"Cancelled");
+//                 }
+//             }
+//         }];
+//        if (!displayedNativeDialog) {
+//            SLComposeViewController *fbController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+//            
+//            if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+//                SLComposeViewControllerCompletionHandler completionHandler = ^(SLComposeViewControllerResult result) {
+//                    
+//                    [fbController dismissViewControllerAnimated:YES completion:nil];
+//                    
+//                    switch(result) {
+//                        case SLComposeViewControllerResultCancelled:
+//                        default: {
+//                            NSLog(@"Cancelled.....");
+//                        }
+//                        break;
+//                        case SLComposeViewControllerResultDone: {
+//                            NSLog(@"Posted....");
+//                        }
+//                        break;
+//                    }
+//                };
+//                
+//                [fbController addImage:self.flyerImageView.image];
+////                [fbController setInitialText:shareText];
+//                [fbController addURL:[NSURL URLWithString:self.event.shortURL]];
+//                [fbController setCompletionHandler:completionHandler];
+//                
+//                [self presentViewController:fbController animated:YES completion:nil];
+//            }
+//        }
+//    }
+//    else if(buttonIndex == 1) {
+//        // twitter
+//    }
+//}
 
 @end

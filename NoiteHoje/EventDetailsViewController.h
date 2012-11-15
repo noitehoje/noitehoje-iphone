@@ -10,7 +10,7 @@
 #import "Event.h"
 #import "NoiteHojeViewController.h"
 
-@interface EventDetailsViewController : NoiteHojeViewController<UIActionSheetDelegate>
+@interface EventDetailsViewController : NoiteHojeViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *detailsTableView;
 @property (nonatomic, retain) Event *event;
