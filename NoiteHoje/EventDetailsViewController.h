@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventVenueLabel;
 @property (weak, nonatomic) IBOutlet UIView *eventDateBackground;
 @property (weak, nonatomic) IBOutlet UIView *eventInfoBackground;
-@property (weak, nonatomic) IBOutlet UITextView *eventDescriptionTextView;
+@property (weak, nonatomic) IBOutlet UIWebView *eventDescriptionWebView;
 
 - (IBAction)sendButtonTapped:(id)sender;
 

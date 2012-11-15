@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Lista";
+    self.navigationItem.title = @"Voltar";
     
     UIImage *img = [UIImage imageNamed:@"MainBG.png"];
     UIImageView *bgView = [[UIImageView alloc] initWithImage:img];

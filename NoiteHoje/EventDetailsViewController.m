@@ -31,13 +31,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    UIImage *img = [UIImage imageNamed:@"MainBG.png"];
-    UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MainBG.png"]];
     
-    [self.backgroundView insertSubview:bgView atIndex:0];
-
     self.flyerImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.flyerImageView.clipsToBounds = YES;
+    self.eventDescriptionWebView.dataDetectorTypes = UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber;
+    self.eventDescriptionWebView.opaque = NO;
+    self.eventDescriptionWebView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -46,8 +46,17 @@
     self.eventDateLabel.text = [self.event localizedDate];
     self.eventTitleLabel.text = self.event.title;
     self.eventVenueLabel.text = self.event.venue.name;
-    self.eventDescriptionTextView.text = self.event.description;
     [self.flyerImageView setImageWithURL:[NSURL URLWithString:self.event.flyerUrl]];
+    [self loadPageWithTemplate];
+}
+
+- (void)loadPageWithTemplate
+{
+    NSString *pathTp = [[NSBundle mainBundle] pathForResource:@"DescriptionTemplate" ofType:@"tp"];
+    NSString *template = [NSString stringWithContentsOfFile:pathTp encoding:NSUTF8StringEncoding error:nil];
+    NSString *htmlDescription = [template stringByReplacingOccurrencesOfString:@"%%%DESCRIPTION%%%" withString:self.event.description];
+    
+    [self.eventDescriptionWebView loadHTMLString:[NSString stringWithFormat:@"%@ (Fonte: %@)", htmlDescription, self.event.source] baseURL:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,92 +64,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    EventDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventDetailsCell"];
-//    NSUInteger index = [indexPath section];
-//        
-//    if(index == 0) {
-//        cell.textLabel.text = self.event.title;
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//    }
-//    else if(index == 1) {
-//        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.event.date, self.event.time];
-//    }
-//    else if(index == 2) {
-//        cell.textLabel.text = self.event.subtitle;
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//    }
-//    return cell;
-//}
-//
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    NSString *text;
-//    if(section == 0) {
-//        text = @"O que?";
-//    }
-//    else if(section == 1) {
-//        text = @"Quando?";
-//    }
-//    else {
-//         text = @"Onde?";
-//    }
-//    
-//    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 20, 20)];
-//    
-//    UILabel *headerLabel = [[UILabel alloc] initWithFrame:customView.frame];
-//    headerLabel.backgroundColor = [UIColor clearColor];
-//    headerLabel.font = [UIFont boldSystemFontOfSize:18];
-//    headerLabel.text =  text;
-//    headerLabel.textColor = [UIColor colorWithHex:0xac59ac];
-//    headerLabel.shadowColor = [UIColor blackColor];
-//    headerLabel.shadowOffset = CGSizeMake(0.f, -1.f);
-//    
-//    [customView addSubview:headerLabel];
-//    
-//    return customView;
-//}
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 - (IBAction)sendButtonTapped:(id)sender
 {
@@ -202,9 +125,14 @@
                     }
                 };
                 
-                [fbController addImage:[UIImage imageNamed:@"star.png"]];
-                [fbController setInitialText:@"Test post."];
-                [fbController addURL:[NSURL URLWithString:@"http://google.com/"]];
+                NSString *shareText = [NSString stringWithFormat:@"%@ %@, %@ @ %@",
+                                       self.event.type,
+                                       self.event.title,
+                                       self.event.localizedDate,
+                                       self.event.venue.name];
+                [fbController addImage:self.flyerImageView.image];
+                [fbController setInitialText:shareText];
+                [fbController addURL:[NSURL URLWithString:self.event.shortURL]];
                 [fbController setCompletionHandler:completionHandler];
                 
                 [self presentViewController:fbController animated:YES completion:nil];
