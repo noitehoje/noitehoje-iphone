@@ -36,10 +36,10 @@
 		555C11A416576084007196F0 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C11A316576084007196F0 /* SidebarViewController.m */; };
 		555C11A716576440007196F0 /* ButtonMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 555C11A516576440007196F0 /* ButtonMenu.png */; };
 		555C11A816576440007196F0 /* ButtonMenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 555C11A616576440007196F0 /* ButtonMenu@2x.png */; };
+		555C11B016581B4B007196F0 /* SidebarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C11AF16581B4B007196F0 /* SidebarCell.m */; };
 		5572F3D01654B08C00965E68 /* DescriptionTemplate.tp in Resources */ = {isa = PBXBuildFile; fileRef = 5572F3CF1654B08C00965E68 /* DescriptionTemplate.tp */; };
 		5572F3D41654CC6000965E68 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 5572F3D21654CC6000965E68 /* map.png */; };
 		5572F3D51654CC6000965E68 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5572F3D31654CC6000965E68 /* map@2x.png */; };
-		558390A4163C76B3002340CB /* EventDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 558390A3163C76B3002340CB /* EventDetailsCell.m */; };
 		558390A8163C8755002340CB /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558390A7163C8755002340CB /* StartViewController.m */; };
 		558390AB163C928F002340CB /* EventDetailsRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 558390A9163C928F002340CB /* EventDetailsRow.png */; };
 		558390AC163C928F002340CB /* EventDetailsRow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 558390AA163C928F002340CB /* EventDetailsRow@2x.png */; };
@@ -142,11 +142,11 @@
 		555C11A316576084007196F0 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
 		555C11A516576440007196F0 /* ButtonMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonMenu.png; sourceTree = "<group>"; };
 		555C11A616576440007196F0 /* ButtonMenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonMenu@2x.png"; sourceTree = "<group>"; };
+		555C11AE16581B4B007196F0 /* SidebarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarCell.h; sourceTree = "<group>"; };
+		555C11AF16581B4B007196F0 /* SidebarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarCell.m; sourceTree = "<group>"; };
 		5572F3CF1654B08C00965E68 /* DescriptionTemplate.tp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DescriptionTemplate.tp; path = ../../DescriptionTemplate.tp; sourceTree = "<group>"; };
 		5572F3D21654CC6000965E68 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		5572F3D31654CC6000965E68 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
-		558390A2163C76B3002340CB /* EventDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsCell.h; sourceTree = "<group>"; };
-		558390A3163C76B3002340CB /* EventDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsCell.m; sourceTree = "<group>"; };
 		558390A6163C8754002340CB /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		558390A7163C8755002340CB /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		558390A9163C928F002340CB /* EventDetailsRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventDetailsRow.png; sourceTree = "<group>"; };
@@ -292,13 +292,10 @@
 				558390B8163CB6B6002340CB /* Categories */,
 				558390B7163CB697002340CB /* Models */,
 				558390B6163CB681002340CB /* ViewControllers */,
+				555C11AD16581B1F007196F0 /* TableCells */,
 				555A381F15D83D2E005D273C /* AppDelegate.h */,
 				555A382015D83D2E005D273C /* AppDelegate.m */,
 				555A382215D83D2E005D273C /* MainStoryboard_iPhone.storyboard */,
-				552DA30E15F17B2000951CB8 /* EventCell.h */,
-				552DA30F15F17B2000951CB8 /* EventCell.m */,
-				558390A2163C76B3002340CB /* EventDetailsCell.h */,
-				558390A3163C76B3002340CB /* EventDetailsCell.m */,
 				555A381715D83D2E005D273C /* Supporting Files */,
 			);
 			path = NoiteHoje;
@@ -374,6 +371,17 @@
 				555C119F16575E13007196F0 /* UIViewController+JTRevealSidebarV2.m */,
 			);
 			path = JTRevealSidebarV2;
+			sourceTree = "<group>";
+		};
+		555C11AD16581B1F007196F0 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				552DA30E15F17B2000951CB8 /* EventCell.h */,
+				552DA30F15F17B2000951CB8 /* EventCell.m */,
+				555C11AE16581B4B007196F0 /* SidebarCell.h */,
+				555C11AF16581B4B007196F0 /* SidebarCell.m */,
+			);
+			name = TableCells;
 			sourceTree = "<group>";
 		};
 		558390B6163CB681002340CB /* ViewControllers */ = {
@@ -654,7 +662,6 @@
 				55F8E48A163B68F700F8DEC0 /* EventDetailsViewController.m in Sources */,
 				55F8E49F163B902300F8DEC0 /* NoiteHojeViewController.m in Sources */,
 				55F8E4A5163B95EE00F8DEC0 /* UIColor+Extensions.m in Sources */,
-				558390A4163C76B3002340CB /* EventDetailsCell.m in Sources */,
 				558390A8163C8755002340CB /* StartViewController.m in Sources */,
 				558390B5163CB661002340CB /* EventMapViewController.m in Sources */,
 				558390BB163CBA56002340CB /* MapPin.m in Sources */,
@@ -673,6 +680,7 @@
 				555C11A016575E13007196F0 /* UINavigationItem+JTRevealSidebarV2.m in Sources */,
 				555C11A116575E13007196F0 /* UIViewController+JTRevealSidebarV2.m in Sources */,
 				555C11A416576084007196F0 /* SidebarViewController.m in Sources */,
+				555C11B016581B4B007196F0 /* SidebarCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

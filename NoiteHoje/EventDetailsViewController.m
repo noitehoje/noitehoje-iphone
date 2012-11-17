@@ -8,7 +8,6 @@
 
 #import "EventDetailsViewController.h"
 #import "UIColor+Extensions.h"
-#import "EventDetailsCell.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <QuartzCore/QuartzCore.h>
 #import "Social/Social.h"

@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Noite Hoje. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "EventsViewController.h"
 #import "Event.h"
 #import "EventCell.h"
@@ -34,7 +35,7 @@
 
     [self reloadAllData];
     
-    [self.eventsTableView setBackgroundView:bgView];
+    self.eventsTableView.backgroundView = bgView;
     
     self.sectionDateFormatter = [[NSDateFormatter alloc] init];
     [self.sectionDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"pt_BR"]];
@@ -54,7 +55,7 @@
 		[self.eventsTableView addSubview:view];
 		_refreshHeaderView = view;
 	}
-    
+        
     self.navigationItem.revealSidebarDelegate = self;
 }
 

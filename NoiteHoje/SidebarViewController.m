@@ -7,6 +7,8 @@
 //
 
 #import "SidebarViewController.h"
+#import "SidebarCell.h"
+#import "UIColor+Extensions.h"
 
 @interface SidebarViewController ()
 
@@ -32,6 +34,10 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self.tableView registerClass:SidebarCell.class forCellReuseIdentifier:@"SidebarCell"];
+    self.tableView.separatorColor = [UIColor colorWithHex:0x372937];
+    self.tableView.backgroundColor = [UIColor colorWithHex:0x211121];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,24 +50,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    SidebarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SidebarCell"];
     
-    // Configure the cell...
+    cell.label.text = [NSString stringWithFormat:@"Testing %d", indexPath.row];
     
     return cell;
 }

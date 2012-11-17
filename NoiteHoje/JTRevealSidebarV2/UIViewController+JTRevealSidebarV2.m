@@ -9,6 +9,7 @@
 #import "UIViewController+JTRevealSidebarV2.h"
 #import "UINavigationItem+JTRevealSidebarV2.h"
 #import "JTRevealSidebarV2Delegate.h"
+#import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
 
 @interface UIViewController (JTRevealSidebarV2Private)
@@ -159,6 +160,13 @@ static char *revealedStateKey;
 //        self.view.transform = CGAffineTransformTranslate([self baseTransform], width, 0);
         
         self.view.frame = CGRectOffset(self.view.frame, width, 0);
+        
+        self.view.layer.masksToBounds = NO;
+        self.view.layer.shadowRadius = 5;
+        self.view.layer.shadowOpacity = 1;
+        self.view.layer.shadowColor = [[UIColor blackColor] CGColor];
+        self.view.layer.shadowOffset = CGSizeZero;
+        self.view.layer.shadowPath = [[UIBezierPath bezierPathWithRect:self.view.bounds] CGPath];
 
     } else {
         [UIView beginAnimations:@"hideSidebarView" context:(void *)SIDEBAR_VIEW_TAG];
