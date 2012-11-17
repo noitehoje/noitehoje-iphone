@@ -11,8 +11,15 @@
 #import "NoiteHojeViewController.h"
 #import "EGORefreshTableHeaderView.h"
 #import "PagedEvents.h"
+#import "JTRevealSidebarV2Delegate.h"
+#import "SidebarViewController.h"
 
-@interface EventsViewController : NoiteHojeViewController<EGORefreshTableHeaderDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
+@interface EventsViewController : NoiteHojeViewController<EGORefreshTableHeaderDelegate,
+                                                          UITableViewDelegate,
+                                                          UITableViewDataSource,
+                                                          UIActionSheetDelegate,
+                                                          JTRevealSidebarV2Delegate,
+                                                          SidebarViewControllerDelegate>
 {
     EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL _reloading;
@@ -25,7 +32,9 @@
 @property (strong, nonatomic) NSArray *sortedDays;
 @property (strong, nonatomic) NSDateFormatter *sectionDateFormatter;
 @property (strong, nonatomic) NSDateFormatter *cellDateFormatter;
+@property (nonatomic, retain) SidebarViewController *leftSidebarViewController;
 
 - (IBAction)addButtonTapped:(id)sender;
+- (IBAction)menuButtonTapped:(id)sender;
 
 @end

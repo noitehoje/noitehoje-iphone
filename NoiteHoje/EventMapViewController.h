@@ -19,6 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *eventMap;
 
-- (void)setMapPinLocation:(CLLocation *)location name:(NSString *)name andDescription:(NSString *)description;
+- (void)setMapPinLocation:(CLLocation *)location name:(NSString *)name andDescription:(NSString *)description; \
 
 @end

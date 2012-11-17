@@ -13,6 +13,9 @@
 #import "PagedEvents.h"
 #import "UIColor+Extensions.h"
 #import "EGORefreshTableHeaderView.h"
+#import "UINavigationItem+JTRevealSidebarV2.h"
+#import "UIViewController+JTRevealSidebarV2.h"
+#import "SidebarViewController.h"
 
 @interface EventsViewController ()
 
@@ -51,6 +54,8 @@
 		[self.eventsTableView addSubview:view];
 		_refreshHeaderView = view;
 	}
+    
+    self.navigationItem.revealSidebarDelegate = self;
 }
 
 - (void)reloadAllData
@@ -221,6 +226,11 @@
     [sheet showInView:self.view];
 }
 
+- (IBAction)menuButtonTapped:(id)sender
+{
+    [self revealLeftSidebar:sender];
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 0) {
@@ -259,6 +269,48 @@
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view
 {
 	return _reloading;
+}
+
+- (void)revealLeftSidebar:(id)sender {
+    [self.navigationController toggleRevealState:JTRevealedStateLeft];
+}
+
+#pragma mark -
+#pragma mark JTRevealSidebarDelegate
+
+// This is an examle to configure your sidebar view through a custom UIViewController
+- (UIView *)viewForLeftSidebar {
+    // Use applicationViewFrame to get the correctly calculated view's frame
+    // for use as a reference to our sidebar's view
+    CGRect viewFrame = self.navigationController.applicationViewFrame;
+    SidebarViewController *controller = self.leftSidebarViewController;
+    if (! controller) {
+        self.leftSidebarViewController = [[SidebarViewController alloc] init];
+        self.leftSidebarViewController.sidebarDelegate = self;
+        controller = self.leftSidebarViewController;
+        controller.title = @"LeftSidebarViewController";
+    }
+    controller.view.frame = CGRectMake(0, viewFrame.origin.y, 270, viewFrame.size.height);
+    controller.view.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
+    return controller.view;
+}
+
+// Optional delegate methods for additional configuration after reveal state changed
+- (void)didChangeRevealedStateForViewController:(UIViewController *)viewController {
+    // Example to disable userInteraction on content view while sidebar is revealing
+    if (viewController.revealedState == JTRevealedStateNo) {
+        self.view.userInteractionEnabled = YES;
+    } else {
+        self.view.userInteractionEnabled = NO;
+    }
+}
+
+#pragma mark -
+#pragma mark SidebarViewControllerDelegate
+
+- (void)sidebarViewController:(SidebarViewController *)sidebarViewController didSelectObject:(NSObject *)object atIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 @end

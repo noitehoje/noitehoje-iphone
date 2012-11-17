@@ -31,6 +31,11 @@
 		555A385915D83DE0005D273C /* MainBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 555A385315D83DE0005D273C /* MainBG@2x.png */; };
 		555A385A15D83DE0005D273C /* NoiteHojeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 555A385415D83DE0005D273C /* NoiteHojeIcon@2x.png */; };
 		555A385B15D83DE0005D273C /* NoiteHojeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 555A385515D83DE0005D273C /* NoiteHojeIcon.png */; };
+		555C11A016575E13007196F0 /* UINavigationItem+JTRevealSidebarV2.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C119D16575E13007196F0 /* UINavigationItem+JTRevealSidebarV2.m */; };
+		555C11A116575E13007196F0 /* UIViewController+JTRevealSidebarV2.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C119F16575E13007196F0 /* UIViewController+JTRevealSidebarV2.m */; };
+		555C11A416576084007196F0 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C11A316576084007196F0 /* SidebarViewController.m */; };
+		555C11A716576440007196F0 /* ButtonMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 555C11A516576440007196F0 /* ButtonMenu.png */; };
+		555C11A816576440007196F0 /* ButtonMenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 555C11A616576440007196F0 /* ButtonMenu@2x.png */; };
 		5572F3D01654B08C00965E68 /* DescriptionTemplate.tp in Resources */ = {isa = PBXBuildFile; fileRef = 5572F3CF1654B08C00965E68 /* DescriptionTemplate.tp */; };
 		5572F3D41654CC6000965E68 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 5572F3D21654CC6000965E68 /* map.png */; };
 		5572F3D51654CC6000965E68 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5572F3D31654CC6000965E68 /* map@2x.png */; };
@@ -128,6 +133,15 @@
 		555A385315D83DE0005D273C /* MainBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MainBG@2x.png"; sourceTree = "<group>"; };
 		555A385415D83DE0005D273C /* NoiteHojeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NoiteHojeIcon@2x.png"; sourceTree = "<group>"; };
 		555A385515D83DE0005D273C /* NoiteHojeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoiteHojeIcon.png; sourceTree = "<group>"; };
+		555C119B16575E13007196F0 /* JTRevealSidebarV2Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTRevealSidebarV2Delegate.h; sourceTree = "<group>"; };
+		555C119C16575E13007196F0 /* UINavigationItem+JTRevealSidebarV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+JTRevealSidebarV2.h"; sourceTree = "<group>"; };
+		555C119D16575E13007196F0 /* UINavigationItem+JTRevealSidebarV2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+JTRevealSidebarV2.m"; sourceTree = "<group>"; };
+		555C119E16575E13007196F0 /* UIViewController+JTRevealSidebarV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JTRevealSidebarV2.h"; sourceTree = "<group>"; };
+		555C119F16575E13007196F0 /* UIViewController+JTRevealSidebarV2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JTRevealSidebarV2.m"; sourceTree = "<group>"; };
+		555C11A216576084007196F0 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
+		555C11A316576084007196F0 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
+		555C11A516576440007196F0 /* ButtonMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonMenu.png; sourceTree = "<group>"; };
+		555C11A616576440007196F0 /* ButtonMenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonMenu@2x.png"; sourceTree = "<group>"; };
 		5572F3CF1654B08C00965E68 /* DescriptionTemplate.tp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DescriptionTemplate.tp; path = ../../DescriptionTemplate.tp; sourceTree = "<group>"; };
 		5572F3D21654CC6000965E68 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		5572F3D31654CC6000965E68 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
@@ -323,6 +337,8 @@
 		555A384F15D83DE0005D273C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				555C11A516576440007196F0 /* ButtonMenu.png */,
+				555C11A616576440007196F0 /* ButtonMenu@2x.png */,
 				5572F3D21654CC6000965E68 /* map.png */,
 				5572F3D31654CC6000965E68 /* map@2x.png */,
 				558390A9163C928F002340CB /* EventDetailsRow.png */,
@@ -348,6 +364,18 @@
 			path = NoiteHoje/Images;
 			sourceTree = "<group>";
 		};
+		555C119A16575E13007196F0 /* JTRevealSidebarV2 */ = {
+			isa = PBXGroup;
+			children = (
+				555C119B16575E13007196F0 /* JTRevealSidebarV2Delegate.h */,
+				555C119C16575E13007196F0 /* UINavigationItem+JTRevealSidebarV2.h */,
+				555C119D16575E13007196F0 /* UINavigationItem+JTRevealSidebarV2.m */,
+				555C119E16575E13007196F0 /* UIViewController+JTRevealSidebarV2.h */,
+				555C119F16575E13007196F0 /* UIViewController+JTRevealSidebarV2.m */,
+			);
+			path = JTRevealSidebarV2;
+			sourceTree = "<group>";
+		};
 		558390B6163CB681002340CB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +391,8 @@
 				5590AE3415FB0CF800BE3754 /* LoginViewController.m */,
 				558390A6163C8754002340CB /* StartViewController.h */,
 				558390A7163C8755002340CB /* StartViewController.m */,
+				555C11A216576084007196F0 /* SidebarViewController.h */,
+				555C11A316576084007196F0 /* SidebarViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -396,6 +426,7 @@
 		5586F1F2164B89E300B7325C /* External */ = {
 			isa = PBXGroup;
 			children = (
+				555C119A16575E13007196F0 /* JTRevealSidebarV2 */,
 				5597C4F5164F82B600449789 /* EGOTableViewPullRefresh */,
 				5597C4B1164F639B00449789 /* AFNetworking */,
 				5586F1F7164B8A2200B7325C /* LocationManager.h */,
@@ -576,6 +607,8 @@
 				5572F3D01654B08C00965E68 /* DescriptionTemplate.tp in Resources */,
 				5572F3D41654CC6000965E68 /* map.png in Resources */,
 				5572F3D51654CC6000965E68 /* map@2x.png in Resources */,
+				555C11A716576440007196F0 /* ButtonMenu.png in Resources */,
+				555C11A816576440007196F0 /* ButtonMenu@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +670,9 @@
 				5597C4CD164F639B00449789 /* UIImageView+AFNetworking.m in Sources */,
 				5597C503164F82B600449789 /* EGORefreshTableHeaderView.m in Sources */,
 				55BE39DC1652117100806EBD /* PagedEvents.m in Sources */,
+				555C11A016575E13007196F0 /* UINavigationItem+JTRevealSidebarV2.m in Sources */,
+				555C11A116575E13007196F0 /* UIViewController+JTRevealSidebarV2.m in Sources */,
+				555C11A416576084007196F0 /* SidebarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
