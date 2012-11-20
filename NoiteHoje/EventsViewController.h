@@ -33,8 +33,11 @@
 @property (strong, nonatomic) NSDateFormatter *sectionDateFormatter;
 @property (strong, nonatomic) NSDateFormatter *cellDateFormatter;
 @property (nonatomic, retain) SidebarViewController *leftSidebarViewController;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
 
 - (IBAction)addButtonTapped:(id)sender;
 - (IBAction)menuButtonTapped:(id)sender;
+- (IBAction)filterValueChanged:(id)sender;
 
 @end

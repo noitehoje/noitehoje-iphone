@@ -76,6 +76,18 @@
     _reloading = NO;
     
     for (Event *event in self.pagedEvents.events) {
+        switch ([self.segmentedControl selectedSegmentIndex]) {
+            case 0:
+                break;
+            case 1:
+                if (![event.type isEqualToString:@"Festa"]) continue;
+                break;
+            case 2:
+                if (![event.type isEqualToString:@"Show"]) continue;
+                break;
+            default: break;
+        }
+
         // Reduce event start date to date components (year, month, day)
         NSDate *eventDate = [self dateAtBeginningOfDayForDate:event.formattedDate];
         
@@ -230,6 +242,14 @@
 - (IBAction)menuButtonTapped:(id)sender
 {
     [self revealLeftSidebar:sender];
+}
+
+- (IBAction)filterValueChanged:(id)sender
+{
+    _reloading = YES;
+    self.sections = [NSMutableDictionary dictionary];
+    [self loadSections];
+    [self.eventsTableView reloadData];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
