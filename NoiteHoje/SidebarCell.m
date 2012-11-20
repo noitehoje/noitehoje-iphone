@@ -15,14 +15,18 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(30, 0, self.frame.size.width - 20, 40)];
+        self.label = [[UILabel alloc] initWithFrame:CGRectMake(50, 3, self.frame.size.width - 20, 40)];
+        self.icon = [[UIView alloc] initWithFrame:CGRectMake(5, 3, 30, 30)];
+    
         [self addSubview:self.label];
+        [self addSubview:self.icon];
+                     
         self.backgroundColor = [UIColor colorWithHex:0x211121];
         
-        UIView *lineView = lineView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, self.contentView.bounds.size.height - 2.0f, self.contentView.bounds.size.width, 1.0f)];
+        UIView *lineView = lineView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.contentView.bounds.size.width, 1.0f)];
                                        
         lineView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-        lineView.backgroundColor = [UIColor colorWithHex:0x020102];
+        lineView.backgroundColor = [UIColor colorWithHex:0x372937];
 
         [self addSubview:lineView];
     }

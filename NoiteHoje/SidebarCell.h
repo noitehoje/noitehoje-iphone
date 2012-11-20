@@ -11,5 +11,6 @@
 @interface SidebarCell : UITableViewCell
 
 @property (nonatomic, retain) UILabel *label;
+@property (nonatomic, retain) UIView *icon;
 
 @end

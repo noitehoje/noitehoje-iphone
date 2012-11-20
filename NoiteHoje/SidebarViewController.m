@@ -9,6 +9,7 @@
 #import "SidebarViewController.h"
 #import "SidebarCell.h"
 #import "UIColor+Extensions.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface SidebarViewController ()
 
@@ -20,7 +21,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -36,8 +36,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self.tableView registerClass:SidebarCell.class forCellReuseIdentifier:@"SidebarCell"];
-    self.tableView.separatorColor = [UIColor colorWithHex:0x372937];
+    self.tableView.separatorColor = [UIColor colorWithHex:0x020102];
     self.tableView.backgroundColor = [UIColor colorWithHex:0x211121];
+
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 44)];
+    self.searchBar.tintColor = [UIColor colorWithHex:0x211121];
+    self.searchBar.placeholder = @"Buscar";
+    self.tableView.tableHeaderView = self.searchBar;
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,20 +55,84 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
+    if(section == 0) {
+        return 1;
+    }
     return 10;
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if(section == 0) {
+        return @"";
+    }
+    return @"MENU";
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section == 0) {
+        return 0.0;
+    }
+    return 25;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if(section == 0) {
+        return nil;
+    }
+
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 20)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 2, tableView.bounds.size.width - 10, 20)];
+    label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
+    label.backgroundColor = [UIColor colorWithHex:0x191919];
+    label.textColor = [UIColor colorWithHex:0xc2acc2];
+    label.shadowColor = [UIColor blackColor];
+    label.shadowOffset = CGSizeMake(0.f, 2.f);
+    label.font = [UIFont boldSystemFontOfSize:13];
+    
+    [headerView addSubview:label];
+    headerView.backgroundColor = [UIColor colorWithHex:0x191919];
+    
+    return headerView;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SidebarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SidebarCell"];
     
-    cell.label.text = [NSString stringWithFormat:@"Testing %d", indexPath.row];
+    if(indexPath.section == 0 && indexPath.row == 0) {
+        if([[FBSession activeSession] isOpen]) {
+            FBRequest *me = [FBRequest requestForMe];
+            [me startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *my, NSError *error) {
+                cell.label.text = my.name;
+                NSLog(@"id = %@", my.id);
+                FBProfilePictureView *avatar = [[FBProfilePictureView alloc] initWithFrame:cell.icon.frame];
+                avatar.profileID = my.id;
+                [cell.icon addSubview:avatar];
+            }];
+        }
+    }
+    else {
+        NSString *lbl;
+        switch(indexPath.row) {
+            case 0: lbl = @"Festas"; break;
+            case 1: lbl = @"Shows"; break;
+            case 2: lbl = @"Porto Alegre"; break;
+            case 3: lbl = @"Rio de Janeiro"; break;
+            case 4: lbl = @"São Paulo"; break;
+            case 5: lbl = @"Florianópolis"; break;
+            case 6: lbl = @"Belo Horizonte"; break;
+        }
+        cell.label.text = lbl;
+    }
     
     return cell;
 }
