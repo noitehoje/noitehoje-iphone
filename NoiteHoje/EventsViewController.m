@@ -311,7 +311,7 @@
 
 - (void)sidebarViewController:(SidebarViewController *)sidebarViewController didSelectObject:(NSObject *)object atIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self revealLeftSidebar:nil];
 }
 
 @end

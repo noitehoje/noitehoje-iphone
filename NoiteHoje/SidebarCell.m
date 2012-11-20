@@ -29,6 +29,10 @@
         lineView.backgroundColor = [UIColor colorWithHex:0x372937];
 
         [self addSubview:lineView];
+        
+        UIView *selectedBgview = [[UIView alloc] initWithFrame:self.frame];
+        selectedBgview.backgroundColor = [UIColor colorWithHex:0x110011];
+        self.selectedBackgroundView = selectedBgview;
     }
     return self;
 }
