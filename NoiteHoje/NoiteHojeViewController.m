@@ -31,6 +31,8 @@
     UIImageView *barTitle = [[UIImageView alloc] initWithImage:titleImg];
     
     self.navigationItem.titleView = barTitle;
+
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MainBG.png"]];
 }
 
 - (void)didReceiveMemoryWarning

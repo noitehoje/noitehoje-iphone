@@ -30,9 +30,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MainBG.png"]];
-    
+        
     self.flyerImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.flyerImageView.clipsToBounds = YES;
     self.eventDescriptionWebView.dataDetectorTypes = UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber;

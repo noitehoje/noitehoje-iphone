@@ -17,6 +17,7 @@
 #import "UINavigationItem+JTRevealSidebarV2.h"
 #import "UIViewController+JTRevealSidebarV2.h"
 #import "SidebarViewController.h"
+#import "LocationManager.h"
 
 @interface EventsViewController ()
 
@@ -28,6 +29,8 @@
 {
     [super viewDidLoad];
     
+    [LocationManager singleton]; // initialize location services
+    
     self.navigationItem.title = @"Voltar";
     
     UIImage *img = [UIImage imageNamed:@"MainBG.png"];
@@ -36,6 +39,7 @@
     [self reloadAllData];
     
     self.eventsTableView.backgroundView = bgView;
+    self.eventsTableView.hidden = YES;
     
     self.sectionDateFormatter = [[NSDateFormatter alloc] init];
     [self.sectionDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"pt_BR"]];
@@ -46,6 +50,10 @@
     [self.cellDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"pt_BR"]];
     [self.cellDateFormatter setDateStyle:NSDateFormatterNoStyle];
     [self.cellDateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    
+    CGRect f = self.activityView.frame;
+    f.origin.y = self.view.center.y - 100;
+    self.activityView.frame = f;
     
     if (_refreshHeaderView == nil) {
         EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.eventsTableView.frame.size.height,
@@ -65,6 +73,8 @@
     self.sections = [NSMutableDictionary dictionary];
     
     [PagedEvents firstPage:^(PagedEvents *events) {
+        self.eventsTableView.hidden = NO;
+        [self.activityView removeFromSuperview];
         self.pagedEvents = events;
         [self loadSections];
         [self.eventsTableView reloadData];

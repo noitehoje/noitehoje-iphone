@@ -10,7 +10,6 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "Event.h"
 #import "EventsViewController.h"
-#import "LocationManager.h"
 
 @implementation AppDelegate
 
@@ -20,7 +19,6 @@ NSString *const FBSessionStateChangedNotification = @"br.com.noitehoje.Login:FBS
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [LocationManager singleton]; // initialize location services
     return YES;
 }
 

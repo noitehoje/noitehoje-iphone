@@ -34,6 +34,7 @@
 @property (strong, nonatomic) NSDateFormatter *cellDateFormatter;
 @property (nonatomic, retain) SidebarViewController *leftSidebarViewController;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 
 
 - (IBAction)addButtonTapped:(id)sender;
