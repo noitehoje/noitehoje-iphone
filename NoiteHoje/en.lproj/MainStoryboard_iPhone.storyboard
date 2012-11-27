@@ -301,7 +301,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onFacebookLoginButtonClicked:" destination="uwE-jp-nEa" eventType="touchUpInside" id="CrP-ka-OGy"/>
-                                    <segue destination="a0c-65-1OW" kind="modal" modalTransitionStyle="flipHorizontal" id="Pcn-6T-kP7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -309,6 +308,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="WYP-gU-JNQ"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="a0c-65-1OW" kind="modal" identifier="LoginSuccessSegue" modalTransitionStyle="flipHorizontal" id="8VN-Ru-EWE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gj3-C1-cfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -321,66 +323,12 @@
         <image name="facebook_login.png" width="253" height="49"/>
         <image name="map.png" width="135" height="134"/>
     </resources>
-    <classes>
-        <class className="EventCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="subtitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thumbImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="EventDetailsViewController" superclassName="NoiteHojeViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sendButtonTapped:"/>
-                <relationship kind="outlet" name="backgroundView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="detailsTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="eventDateBackground" candidateClass="UIView"/>
-                <relationship kind="outlet" name="eventDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="eventDescriptionWebView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="eventInfoBackground" candidateClass="UIView"/>
-                <relationship kind="outlet" name="eventTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="eventVenueLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="flyerImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="EventMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventMapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="eventMap" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="EventsViewController" superclassName="NoiteHojeViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addButtonTapped:"/>
-                <relationship kind="action" name="filterValueChanged:"/>
-                <relationship kind="action" name="menuButtonTapped:"/>
-                <relationship kind="outlet" name="eventsTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="segmentedControl" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="onFacebookLoginButtonClicked:"/>
-            </relationships>
-        </class>
-        <class className="NoiteHojeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoiteHojeViewController.h"/>
-        </class>
-        <class className="StartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="qEQ-12-Dx2"/>
+        <segue reference="8VN-Ru-EWE"/>
     </inferredMetricsTieBreakers>
 </document>

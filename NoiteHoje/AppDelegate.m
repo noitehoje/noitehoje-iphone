@@ -46,9 +46,7 @@ NSString *const FBSessionStateChangedNotification = @"br.com.noitehoje.Login:FBS
             break;
     }
     
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:FBSessionStateChangedNotification
-     object:session];
+    [[NSNotificationCenter defaultCenter] postNotificationName:FBSessionStateChangedNotification object:session];
     
     if (error) {
         UIAlertView *alertView = [[UIAlertView alloc]
