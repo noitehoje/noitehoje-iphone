@@ -18,6 +18,7 @@
 #import "UIViewController+JTRevealSidebarV2.h"
 #import "SidebarViewController.h"
 #import "LocationManager.h"
+#import "AppDelegate.h"
 
 @interface EventsViewController ()
 
@@ -315,8 +316,9 @@
     // for use as a reference to our sidebar's view
     CGRect viewFrame = self.navigationController.applicationViewFrame;
     SidebarViewController *controller = self.leftSidebarViewController;
-    if (! controller) {
-        self.leftSidebarViewController = [[SidebarViewController alloc] init];
+    if (!controller) {
+        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        self.leftSidebarViewController = [[SidebarViewController alloc] initWithCities:delegate.cities];
         self.leftSidebarViewController.sidebarDelegate = self;
         controller = self.leftSidebarViewController;
         controller.title = @"LeftSidebarViewController";

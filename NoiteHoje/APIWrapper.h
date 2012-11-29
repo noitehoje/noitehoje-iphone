@@ -17,5 +17,6 @@
 
 - (void)eventsWithCallback:(void (^)(NSArray *, NSUInteger, NSUInteger))callback;
 - (void)eventsWithCallback:(void (^)(NSArray *, NSUInteger, NSUInteger))callback andPage:(NSUInteger)page;
+- (void)citiesWithCallback:(void (^)(NSArray *))callback;
 
 @end

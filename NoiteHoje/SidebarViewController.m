@@ -17,10 +17,11 @@
 
 @implementation SidebarViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithCities:(NSArray *)cities
 {
-    self = [super initWithStyle:style];
-    if (self) {
+    self = [super init];
+    if(self) {
+        _cities = cities;
     }
     return self;
 }
@@ -63,7 +64,7 @@
     if(section == 0) {
         return 1;
     }
-    return 10;
+    return _cities.count + 2;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -126,17 +127,15 @@
         }
     }
     else {
-        NSString *lbl;
-        switch(indexPath.row) {
-            case 0: lbl = @"Festas"; break;
-            case 1: lbl = @"Shows"; break;
-            case 2: lbl = @"Porto Alegre"; break;
-            case 3: lbl = @"Rio de Janeiro"; break;
-            case 4: lbl = @"São Paulo"; break;
-            case 5: lbl = @"Florianópolis"; break;
-            case 6: lbl = @"Belo Horizonte"; break;
+        if(indexPath.row == 0) {
+            cell.label.text = @"Festas";
         }
-        cell.label.text = lbl;
+        else if(indexPath.row == 1) {
+            cell.label.text = @"Shows";
+        }
+        else {
+            cell.label.text = _cities[indexPath.row - 2];
+        }
     }
     
     return cell;

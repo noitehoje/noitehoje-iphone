@@ -11,6 +11,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, copy) NSArray *cities;
 extern NSString *const FBSessionStateChangedNotification;
 
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;

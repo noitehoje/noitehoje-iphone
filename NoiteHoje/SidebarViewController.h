@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIWrapper.h"
 
 @protocol SidebarViewControllerDelegate;
 
 @interface SidebarViewController : UITableViewController
+{
+    NSArray *_cities;
+}
 
 @property (nonatomic, assign) id <SidebarViewControllerDelegate> sidebarDelegate;
 @property (nonatomic, retain) UISearchBar *searchBar;
+
+- (id)initWithCities:(NSArray *)cities;
 
 @end
 

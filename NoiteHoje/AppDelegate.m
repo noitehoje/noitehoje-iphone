@@ -10,6 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "Event.h"
 #import "EventsViewController.h"
+#import "APIWrapper.h"
 
 @implementation AppDelegate
 
@@ -19,6 +20,11 @@ NSString *const FBSessionStateChangedNotification = @"br.com.noitehoje.Login:FBS
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    APIWrapper *_apiWrapper = [[APIWrapper alloc] init];
+    [_apiWrapper citiesWithCallback:^(NSArray *cities) {
+        self.cities = cities;
+    }];
+
     return YES;
 }
 
