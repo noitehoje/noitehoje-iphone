@@ -2,7 +2,7 @@
 //  Event.m
 //  Noite Hoje
 //
-//  Created by felipe on 8/12/12.
+//  Created by Felipe Lima on 8/12/12.
 //  Copyright (c) 2012 Noite Hoje. All rights reserved.
 //
 

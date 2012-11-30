@@ -42,6 +42,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    self.navigationItem.title = @"Mapa";
     // 1
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = _latitude;

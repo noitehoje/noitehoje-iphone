@@ -1,8 +1,8 @@
 //
-//  br_com_noitehojeAppDelegate.m
+//  AppDelegate.m
 //  NoiteHoje
 //
-//  Created by felipe on 8/12/12.
+//  Created by Felipe Lima on 8/12/12.
 //  Copyright (c) 2012 Noite Hoje. All rights reserved.
 //
 
