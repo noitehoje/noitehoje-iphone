@@ -9,19 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <UIKit/UITableView.h>
 #import "NoiteHojeViewController.h"
-#import "EGORefreshTableHeaderView.h"
 #import "PagedEvents.h"
 #import "JTRevealSidebarV2Delegate.h"
 #import "SidebarViewController.h"
 
-@interface EventsViewController : NoiteHojeViewController<EGORefreshTableHeaderDelegate,
-                                                          UITableViewDelegate,
+@interface EventsViewController : NoiteHojeViewController<UITableViewDelegate,
                                                           UITableViewDataSource,
                                                           UIActionSheetDelegate,
                                                           JTRevealSidebarV2Delegate,
                                                           SidebarViewControllerDelegate>
 {
-    EGORefreshTableHeaderView *_refreshHeaderView;
+    UIRefreshControl *refreshControl;
     BOOL _reloading;
 }
 

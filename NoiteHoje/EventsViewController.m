@@ -13,7 +13,6 @@
 #import "EventDetailsViewController.h"
 #import "PagedEvents.h"
 #import "UIColor+Extensions.h"
-#import "EGORefreshTableHeaderView.h"
 #import "UINavigationItem+JTRevealSidebarV2.h"
 #import "UIViewController+JTRevealSidebarV2.h"
 #import "SidebarViewController.h"
@@ -42,6 +41,10 @@
     self.eventsTableView.backgroundView = bgView;
     self.eventsTableView.hidden = YES;
     
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
+    [self.eventsTableView addSubview:refreshControl];
+    
     self.sectionDateFormatter = [[NSDateFormatter alloc] init];
     [self.sectionDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"pt_BR"]];
     [self.sectionDateFormatter setDateStyle:kCFDateFormatterFullStyle];
@@ -56,15 +59,6 @@
     f.origin.y = self.view.center.y - 100;
     self.activityView.frame = f;
     
-    if (_refreshHeaderView == nil) {
-        EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.eventsTableView.frame.size.height,
-                                                                                                      self.eventsTableView.frame.size.width,
-                                                                                                      self.eventsTableView.frame.size.height)];
-		view.delegate = self;
-		[self.eventsTableView addSubview:view];
-		_refreshHeaderView = view;
-	}
-        
     self.navigationItem.revealSidebarDelegate = self;
 }
 
@@ -84,6 +78,9 @@
 
 - (void)loadSections
 {
+    if(refreshControl.refreshing) {
+        [refreshControl endRefreshing];
+    }
     _reloading = NO;
     
     for (Event *event in self.pagedEvents.events) {
@@ -276,31 +273,9 @@
 #pragma mark -
 #pragma mark Pull to Refresh
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-	
-	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-	
-	[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];	
-}
-
-- (void)doneLoadingTableViewData
+- (void)handleRefresh
 {
-    _reloading = NO;
-    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.eventsTableView];
-}
-
-- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view
-{
-    [self reloadAllData];
-	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1.0];
-}
-
-- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view
-{
-	return _reloading;
+	[self reloadAllData];
 }
 
 - (void)revealLeftSidebar:(id)sender {
