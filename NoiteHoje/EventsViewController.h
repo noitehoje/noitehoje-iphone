@@ -20,7 +20,6 @@
                                                           SidebarViewControllerDelegate>
 {
     UIRefreshControl *refreshControl;
-    BOOL _reloading;
 }
 
 @property (nonatomic, strong) PagedEvents *pagedEvents;
