@@ -14,15 +14,23 @@
 {
     self = [super init];
     if (self) {
+        id location = [json objectForKey:@"location"];
         self.name = [[json objectForKey:@"name"] capitalizedString];
-        self.city = [[[json objectForKey:@"location"] objectForKey:@"city"] capitalizedString];
-        self.address = [[[json objectForKey:@"location"] objectForKey:@"street"] capitalizedString];
-        
-        NSNumber *lat = [[json objectForKey:@"location"] objectForKey:@"geo_lat"];
-        NSNumber *lng = [[json objectForKey:@"location"] objectForKey:@"geo_lon"];
+        self.city = [[location objectForKey:@"city"] capitalizedString];
 
-        self.location = [[CLLocation alloc] initWithLatitude:[lat floatValue] longitude:[lng floatValue]];
-        self.coordinate = self.location.coordinate;
+        if(![[location objectForKey:@"street"] isEqual:[NSNull null]]) {
+            self.address = [[location objectForKey:@"street"] capitalizedString];
+        }
+        
+        if(![[location objectForKey:@"geo_lat"] isEqual:[NSNull null]] &&
+           ![[location objectForKey:@"geo_lon"] isEqual:[NSNull null]]) {
+
+            NSNumber *lat = [location objectForKey:@"geo_lat"];
+            NSNumber *lng = [location objectForKey:@"geo_lon"];
+
+            self.location = [[CLLocation alloc] initWithLatitude:[lat floatValue] longitude:[lng floatValue]];
+            self.coordinate = self.location.coordinate;
+        }
         self.foursquareId = [json objectForKey:@"foursquare_id"];
     }
     return self;
