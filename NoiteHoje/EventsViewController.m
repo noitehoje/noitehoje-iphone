@@ -64,7 +64,6 @@
 
 - (void)reloadAllData
 {
-    _reloading = YES;
     self.sections = [NSMutableDictionary dictionary];
     
     [PagedEvents firstPage:^(PagedEvents *events) {
@@ -81,7 +80,6 @@
     if(refreshControl.refreshing) {
         [refreshControl endRefreshing];
     }
-    _reloading = NO;
     
     for (Event *event in self.pagedEvents.events) {
         switch ([self.segmentedControl selectedSegmentIndex]) {
@@ -254,7 +252,6 @@
 
 - (IBAction)filterValueChanged:(id)sender
 {
-    _reloading = YES;
     self.sections = [NSMutableDictionary dictionary];
     [self loadSections];
     [self.eventsTableView reloadData];
