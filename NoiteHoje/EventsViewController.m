@@ -67,12 +67,26 @@
     self.sections = [NSMutableDictionary dictionary];
     
     [PagedEvents firstPage:^(PagedEvents *events) {
-        self.eventsTableView.hidden = NO;
-        [self.activityView removeFromSuperview];
-        self.pagedEvents = events;
-        [self loadSections];
-        [self.eventsTableView reloadData];
+        [self onReloadComplete:events];
     }];
+}
+
+- (void)reloadAllData:(NSString *)city
+{
+    self.sections = [NSMutableDictionary dictionary];
+    
+    [PagedEvents firstPage:^(PagedEvents *events) {
+        [self onReloadComplete:events];
+    } andCity:city];
+}
+
+- (void)onReloadComplete:(PagedEvents *)events
+{
+    self.eventsTableView.hidden = NO;
+    [self.activityView removeFromSuperview];
+    self.pagedEvents = events;
+    [self loadSections];
+    [self.eventsTableView reloadData];
 }
 
 - (void)loadSections
@@ -315,6 +329,9 @@
 
 - (void)sidebarViewController:(SidebarViewController *)sidebarViewController didSelectObject:(NSObject *)object atIndexPath:(NSIndexPath *)indexPath
 {
+    if(object) {
+        [self reloadAllData:(NSString *)object];
+    }
     [self revealLeftSidebar:nil];
 }
 

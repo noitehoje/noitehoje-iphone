@@ -85,7 +85,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.sidebarDelegate sidebarViewController:self didSelectObject:nil atIndexPath:indexPath];
+    SidebarCell *cell = (SidebarCell *)[tableView cellForRowAtIndexPath:indexPath];
+    NSObject *object = cell.label.text;
+    
+    if(indexPath.section == 0 || indexPath.row == 0 || indexPath.row == 1) {
+        // skip User Name, Festas and Shows
+        object = nil;
+    }
+    
+    [self.sidebarDelegate sidebarViewController:self didSelectObject:object atIndexPath:indexPath];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -119,7 +127,6 @@
             FBRequest *me = [FBRequest requestForMe];
             [me startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *my, NSError *error) {
                 cell.label.text = my.name;
-                NSLog(@"id = %@", my.id);
                 FBProfilePictureView *avatar = [[FBProfilePictureView alloc] initWithFrame:cell.icon.frame];
                 avatar.profileID = my.id;
                 [cell.icon addSubview:avatar];

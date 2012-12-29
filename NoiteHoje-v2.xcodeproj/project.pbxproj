@@ -53,6 +53,7 @@
 		55AA51221637621800C967E7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA51211637621800C967E7 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		55AA51241637632300C967E7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55AA51231637632300C967E7 /* Default-568h@2x.png */; };
 		55BE39DC1652117100806EBD /* PagedEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BE39DB1652117100806EBD /* PagedEvents.m */; };
+		55CEAD30168E9233008BF540 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CEAD2F168E9233008BF540 /* NSString+URLEncoding.m */; };
 		55F5295216490755005EC26F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F5295116490755005EC26F /* CoreLocation.framework */; };
 		55F8E48A163B68F700F8DEC0 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F8E489163B68F700F8DEC0 /* EventDetailsViewController.m */; };
 		55F8E494163B81CB00F8DEC0 /* facebook_login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55F8E48F163B81CB00F8DEC0 /* facebook_login@2x.png */; };
@@ -145,6 +146,8 @@
 		55AA51231637632300C967E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Default-568h@2x.png"; sourceTree = "<group>"; };
 		55BE39DA1652117100806EBD /* PagedEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagedEvents.h; sourceTree = "<group>"; };
 		55BE39DB1652117100806EBD /* PagedEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagedEvents.m; sourceTree = "<group>"; };
+		55CEAD2E168E9233008BF540 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		55CEAD2F168E9233008BF540 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 		55F5295116490755005EC26F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		55F8E488163B68F700F8DEC0 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		55F8E489163B68F700F8DEC0 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
@@ -365,6 +368,8 @@
 			children = (
 				55F8E4A3163B95EE00F8DEC0 /* UIColor+Extensions.h */,
 				55F8E4A4163B95EE00F8DEC0 /* UIColor+Extensions.m */,
+				55CEAD2E168E9233008BF540 /* NSString+URLEncoding.h */,
+				55CEAD2F168E9233008BF540 /* NSString+URLEncoding.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -542,6 +547,7 @@
 				55BE39DC1652117100806EBD /* PagedEvents.m in Sources */,
 				555C11A416576084007196F0 /* SidebarViewController.m in Sources */,
 				555C11B016581B4B007196F0 /* SidebarCell.m in Sources */,
+				55CEAD30168E9233008BF540 /* NSString+URLEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

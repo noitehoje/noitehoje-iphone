@@ -31,14 +31,43 @@
     return [[[PagedEvents alloc] init] nextPage:callback];
 }
 
++ (PagedEvents *)firstPage:(ApiCallback)callback andCity:(NSString *)city
+{
+    return [[[PagedEvents alloc] init] nextPage:callback andCity:city];
+}
+
+- (PagedEvents *)nextPage:(ApiCallback)callback andCity:(NSString *)city
+{
+    return [self getPage:self.currentPage + 1 callback:callback andCity:city];
+}
+
 - (PagedEvents *)nextPage:(ApiCallback)callback
 {
+    if(self.city) {
+        return [self getPage:self.currentPage + 1 callback:callback andCity:self.city];
+    }
     return [self getPage:self.currentPage + 1 callback:callback];
 }
 
 - (PagedEvents *)previousPage:(ApiCallback)callback
 {
     return [self getPage:self.currentPage - 1 callback:callback];
+}
+
+- (PagedEvents *)getPage:(NSUInteger)page callback:(ApiCallback)callback andCity:(NSString *)city
+{
+    PagedEvents *evtList = [[PagedEvents alloc] init];
+    evtList.currentPage = page;
+    
+    [_apiWrapper eventsWithCallback:^(NSArray *evts, NSUInteger currentPage, NSUInteger totalPages) {
+        evtList.totalPages = totalPages;
+        evtList.city = city;
+        evtList.currentPage = currentPage;
+        evtList.events = evts;
+        callback(evtList);
+    } page:evtList.currentPage andCity:city];
+    
+    return evtList;
 }
 
 - (PagedEvents *)getPage:(NSUInteger)page callback:(ApiCallback)callback
@@ -51,7 +80,6 @@
         evtList.currentPage = currentPage;
         evtList.events = evts;
         callback(evtList);
-        
     } andPage:evtList.currentPage];
     
     return evtList;

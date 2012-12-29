@@ -22,8 +22,10 @@ typedef void (^ApiCallback)(PagedEvents *);
 @property (nonatomic, assign) NSUInteger totalEvents;
 @property (nonatomic, assign) NSUInteger currentPage;
 @property (nonatomic, retain) NSArray *events;
+@property (nonatomic, retain) NSString *city;
 
 + (PagedEvents *)firstPage:(ApiCallback)callback;
++ (PagedEvents *)firstPage:(ApiCallback)callback andCity:(NSString *)city;
 - (PagedEvents *)nextPage:(ApiCallback)callback;
 - (PagedEvents *)previousPage:(ApiCallback)callback;
 - (PagedEvents *)getPage:(NSUInteger)page callback:(ApiCallback)callback;
