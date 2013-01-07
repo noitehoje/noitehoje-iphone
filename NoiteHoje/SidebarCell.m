@@ -37,6 +37,24 @@
     return self;
 }
 
+- (void)setPadding:(NSUInteger)padding
+{
+    CGRect frame = self.label.frame;
+    frame.origin.x = padding;
+    self.label.frame = frame;
+}
+
+- (void)setCellIcon:(NSString *)imageName
+{
+    UIImage *icon = [UIImage imageNamed:imageName];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:icon];
+    CGRect frame = imageView.frame;
+    frame.origin.x = 5;
+    frame.origin.y = 7;
+    imageView.frame = frame;
+    [self addSubview:imageView];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

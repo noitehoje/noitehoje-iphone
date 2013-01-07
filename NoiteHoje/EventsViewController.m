@@ -42,6 +42,7 @@
     self.eventsTableView.hidden = YES;
     
     refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor purpleColor];
     [refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
     [self.eventsTableView addSubview:refreshControl];
     

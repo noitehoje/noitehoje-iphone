@@ -13,4 +13,7 @@
 @property (nonatomic, retain) UILabel *label;
 @property (nonatomic, retain) UIView *icon;
 
+- (void)setPadding:(NSUInteger)padding;
+- (void)setCellIcon:(NSString *)imageName;
+
 @end

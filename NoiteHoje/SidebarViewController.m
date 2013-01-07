@@ -56,7 +56,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -64,7 +64,10 @@
     if(section == 0) {
         return 1;
     }
-    return _cities.count + 2;
+    else if(section == 2) {
+        return 1;
+    }
+    return _cities.count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -72,7 +75,10 @@
     if(section == 0) {
         return @"";
     }
-    return @"MENU";
+    if(section == 2) {
+        return @"OUTROS";
+    }
+    return @"CIDADES";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -122,7 +128,7 @@
 {
     SidebarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SidebarCell"];
     
-    if(indexPath.section == 0 && indexPath.row == 0) {
+    if(indexPath.section == 0) {
         if([[FBSession activeSession] isOpen]) {
             FBRequest *me = [FBRequest requestForMe];
             [me startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *my, NSError *error) {
@@ -133,17 +139,17 @@
             }];
         }
     }
-    else {
-        if(indexPath.row == 0) {
-            cell.label.text = @"Festas";
-        }
-        else if(indexPath.row == 1) {
-            cell.label.text = @"Shows";
-        }
-        else {
-            cell.label.text = _cities[indexPath.row - 2];
-        }
+    else if(indexPath.section == 2){
+        cell.label.text = @"Sair";
+        [cell setCellIcon:@"LogoutIcon"];
     }
+    else if(indexPath.section == 1){
+        if(indexPath.row == 1) {
+            [cell setCellIcon:@"CitySelector"];
+        }
+        cell.label.text = _cities[indexPath.row];
+    }
+
     
     return cell;
 }
