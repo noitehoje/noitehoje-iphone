@@ -57,7 +57,10 @@
     self.thumbImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.thumbImageView.clipsToBounds = YES;
     self.thumbImageView.backgroundColor = [UIColor colorWithHex:0x191a1f];
-    [self.thumbImageView setImageWithURL:[NSURL URLWithString:event.flyerUrl]];
+
+    if(event.flyerUrl && ![event.flyerUrl isEqual:[NSNull null]]) {
+        [self.thumbImageView setImageWithURL:[NSURL URLWithString:event.flyerUrl]];
+    }
 }
 
 - (void)showLoading
