@@ -97,17 +97,6 @@
     }
     
     for (Event *event in self.pagedEvents.events) {
-        switch ([self.segmentedControl selectedSegmentIndex]) {
-            case 0:
-                break;
-            case 1:
-                if (![event.type isEqualToString:@"Festa"]) continue;
-                break;
-            case 2:
-                if (![event.type isEqualToString:@"Show"]) continue;
-                break;
-            default: break;
-        }
 
         // Reduce event start date to date components (year, month, day)
         NSDate *eventDate = [self dateAtBeginningOfDayForDate:event.formattedDate];

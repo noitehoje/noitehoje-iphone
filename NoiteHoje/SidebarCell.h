@@ -14,6 +14,8 @@
 @property (nonatomic, retain) UIView *icon;
 
 - (void)setPadding:(NSUInteger)padding;
-- (void)setCellIcon:(NSString *)imageName;
+- (void)setCellIconImage:(NSString *)imageName;
+- (void)setCellIconView:(UIView *)view;
+- (void)removeIcon;
 
 @end

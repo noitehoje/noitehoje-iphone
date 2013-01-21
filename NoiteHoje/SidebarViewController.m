@@ -106,10 +106,14 @@
     SidebarCell *cell = (SidebarCell *)[tableView cellForRowAtIndexPath:indexPath];
     NSObject *object = cell.label.text;
     
-    if(indexPath.section == 0 || indexPath.row == 0 || indexPath.row == 1) {
+    if(indexPath.section == 0) {
         // skip User Name, Festas and Shows
         object = nil;
     }
+    
+    [_selectedCell removeIcon];
+    [cell setCellIconImage:@"CitySelector"];
+    _selectedCell = cell;
     
     [self.sidebarDelegate sidebarViewController:self didSelectObject:object atIndexPath:indexPath];
 }
@@ -145,19 +149,20 @@
             FBRequest *me = [FBRequest requestForMe];
             [me startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *my, NSError *error) {
                 cell.label.text = my.name;
-                FBProfilePictureView *avatar = [[FBProfilePictureView alloc] initWithFrame:cell.icon.frame];
+                FBProfilePictureView *avatar = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(5, 3, 30, 30)];
                 avatar.profileID = my.id;
-                [cell.icon addSubview:avatar];
+                [cell setCellIconView:avatar];
             }];
         }
     }
     else if(indexPath.section == 2){
         cell.label.text = @"Sair";
-        [cell setCellIcon:@"LogoutIcon"];
+        [cell setCellIconImage:@"LogoutIcon"];
     }
     else if(indexPath.section == 1){
-        if(indexPath.row == 1) {
-            [cell setCellIcon:@"CitySelector"];
+        if(indexPath.row == 0) {
+            [cell setCellIconImage:@"CitySelector"];
+            _selectedCell = cell;
         }
         cell.label.text = _cities[indexPath.row];
     }

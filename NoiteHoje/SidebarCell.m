@@ -16,10 +16,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.label = [[UILabel alloc] initWithFrame:CGRectMake(50, 3, self.frame.size.width - 20, 40)];
-        self.icon = [[UIView alloc] initWithFrame:CGRectMake(5, 3, 30, 30)];
     
         [self addSubview:self.label];
-        [self addSubview:self.icon];
                      
         self.backgroundColor = [UIColor colorWithHex:0x211121];
         
@@ -44,7 +42,19 @@
     self.label.frame = frame;
 }
 
-- (void)setCellIcon:(NSString *)imageName
+- (void)setCellIconView:(UIView *)view
+{
+    self.icon = view;
+    [self addSubview:view];
+}
+
+- (void)removeIcon
+{
+    [self.icon removeFromSuperview];
+    self.icon = nil;
+}
+
+- (void)setCellIconImage:(NSString *)imageName
 {
     UIImage *icon = [UIImage imageNamed:imageName];
     UIImageView *imageView = [[UIImageView alloc]initWithImage:icon];
@@ -52,6 +62,7 @@
     frame.origin.x = 5;
     frame.origin.y = 7;
     imageView.frame = frame;
+    self.icon = imageView;
     [self addSubview:imageView];
 }
 

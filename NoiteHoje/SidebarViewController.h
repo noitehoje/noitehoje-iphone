@@ -11,9 +11,12 @@
 
 @protocol SidebarViewControllerDelegate;
 
+@class SidebarCell;
+
 @interface SidebarViewController : UITableViewController
 {
     NSArray *_cities;
+    SidebarCell *_selectedCell;
 }
 
 @property (nonatomic, assign) id <SidebarViewControllerDelegate> sidebarDelegate;

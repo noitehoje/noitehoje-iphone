@@ -61,6 +61,9 @@
     if(event.flyerUrl && ![event.flyerUrl isEqual:[NSNull null]]) {
         [self.thumbImageView setImageWithURL:[NSURL URLWithString:event.flyerUrl]];
     }
+    else {
+        [self.thumbImageView setImage:[UIImage imageNamed:@"RowImagePlaceHolder.png"]];
+    }
 }
 
 - (void)showLoading

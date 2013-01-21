@@ -30,7 +30,6 @@
 @property (strong, nonatomic) NSDateFormatter *sectionDateFormatter;
 @property (strong, nonatomic) NSDateFormatter *cellDateFormatter;
 @property (nonatomic, retain) SidebarViewController *leftSidebarViewController;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 
 

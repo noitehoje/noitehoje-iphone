@@ -44,7 +44,12 @@
     self.eventDateLabel.text = [self.event localizedDate];
     self.eventTitleLabel.text = self.event.title;
     self.eventVenueLabel.text = self.event.venue.name;
-    [self.flyerImageView setImageWithURL:[NSURL URLWithString:self.event.flyerUrl]];
+    if(self.event.flyerUrl && ![self.event.flyerUrl isEqual:[NSNull null]]) {
+        [self.flyerImageView setImageWithURL:[NSURL URLWithString:self.event.flyerUrl]];
+    }
+    else {
+        [self.flyerImageView setImage:[UIImage imageNamed:@"ImagePlaceHolder.png"]];
+    }
     [self loadPageWithTemplate];
 }
 
