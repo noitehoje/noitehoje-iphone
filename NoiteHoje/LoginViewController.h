@@ -12,4 +12,6 @@
 
 - (IBAction)onFacebookLoginButtonClicked:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UITextView *privacyWarning;
+
 @end

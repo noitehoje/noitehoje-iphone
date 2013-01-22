@@ -11,6 +11,7 @@
 #import "User.h"
 #import "NHApplication.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface LoginViewController ()
 
@@ -36,6 +37,14 @@
         selector:@selector(sessionStateChanged:)
         name:FBSessionStateChangedNotification
         object:nil];
+    
+    self.privacyWarning.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.privacyWarning.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    self.privacyWarning.layer.shadowOpacity = 1.0f;
+    self.privacyWarning.layer.shadowRadius = 1.0f;
+    CGRect frame = self.privacyWarning.frame;
+    frame.origin.y = self.view.frame.size.height - frame.size.height - 10;
+    self.privacyWarning.frame = frame;
 }
 
 - (void)sessionStateChanged:(NSNotification*)notification {
