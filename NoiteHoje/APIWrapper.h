@@ -19,5 +19,5 @@
 - (void)eventsWithCallback:(void (^)(NSArray *, NSUInteger, NSUInteger))callback andPage:(NSUInteger)page;
 - (void)eventsWithCallback:(void (^)(NSArray *, NSUInteger, NSUInteger))callback page:(NSUInteger)page andCity:(NSString *)city;
 - (void)citiesWithCallback:(void (^)(NSArray *))callback;
-
+- (void)userWithFacebookUID:(NSString *)uid;
 @end

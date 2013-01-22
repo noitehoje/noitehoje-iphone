@@ -311,9 +311,6 @@
 {
     [self revealLeftSidebar:nil];
     
-    if(object) {
-        [self reloadAllData:(NSString *)object];
-    }
     if(object == @"Logout") {
         if([[FBSession activeSession] isOpen]) {
             NSLog(@"Logging out...");
@@ -334,6 +331,10 @@
             });
         }
     }
+    else if(object) {
+        [self reloadAllData:(NSString *)object];
+    }
+
 }
 
 @end

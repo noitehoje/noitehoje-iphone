@@ -8,6 +8,8 @@
 
 #import "SidebarViewController.h"
 #import "SidebarCell.h"
+#import "User.h"
+#import "NHApplication.h"
 #import "UIColor+Extensions.h"
 #import <QuartzCore/QuartzCore.h>
 #import <QuartzCore/CALayer.h>
@@ -150,15 +152,10 @@
     SidebarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SidebarCell"];
     
     if(indexPath.section == 0) {
-        if([[FBSession activeSession] isOpen]) {
-            FBRequest *me = [FBRequest requestForMe];
-            [me startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *my, NSError *error) {
-                cell.label.text = my.name;
-                FBProfilePictureView *avatar = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(5, 3, 30, 30)];
-                avatar.profileID = my.id;
-                [cell setCellIconView:avatar];
-            }];
-        }
+        NHApplication *app = [NHApplication instance];
+        User *user = app.currentUser;
+        cell.label.text = [user displayName];
+        [cell setCellIconView:[user avatarImageWithRect:CGRectMake(5, 8, 30, 30)]];
     }
     else if(indexPath.section == 2){
         cell.label.text = @"Sair";

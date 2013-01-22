@@ -8,6 +8,7 @@
 
 #import "APIWrapper.h"
 #import "Event.h"
+#import "User.h"
 #import "AFJSONRequestOperation.h"
 #import "NSString+URLEncoding.h"
 
@@ -64,6 +65,28 @@
     [self requestEvents:request callback:callback];
 }
 
+- (void)userWithFacebookUID:(NSString *)uid callback:(void (^)(User *))callback
+{
+    NSLog(@"retrieving user with uid %@", uid);
+    NSString *apiUrlString = [self apiEndpoint:@"user" uid:uid andProvider:@"facebook"];
+    NSURL *url = [NSURL URLWithString:apiUrlString];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    
+    [self requestUser:request callback:callback];
+}
+
+- (void)requestUser:(NSURLRequest *)request callback:(void (^)(User *))callback
+{
+    [[AFJSONRequestOperation
+      JSONRequestOperationWithRequest:request
+      success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+          User *user = [[User alloc] initWithJSON:JSON];
+          callback(user);
+      } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+          NSLog(@"request failed");
+      }] start];
+}
+
 - (void)requestEvents:(NSURLRequest *)request callback:(void (^)(NSArray *, NSUInteger, NSUInteger))callback
 {
     [[AFJSONRequestOperation
@@ -83,6 +106,16 @@
      } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
          NSLog(@"request failed");
      }] start];
+}
+
+- (NSString *) apiEndpoint:(NSString *)method uid:(NSString *)uid andProvider:(NSString *)provider {
+    return [NSString stringWithFormat:@"%@/%@/%@/%@?uid=%@&provider=%@",
+            self.noiteHojeWSURL,
+            self.noiteAPIVersion,
+            self.noiteHojeAPIKey,
+            method,
+            uid,
+            provider];
 }
 
 - (NSString *) apiEndpoint:(NSString *)method page:(NSUInteger)page {

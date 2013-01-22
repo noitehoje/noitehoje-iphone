@@ -11,6 +11,8 @@
 #import "Event.h"
 #import "EventsViewController.h"
 #import "APIWrapper.h"
+#import "NHApplication.h"
+#import "User.h"
 
 @implementation AppDelegate
 
@@ -40,6 +42,13 @@ NSString *const FBSessionStateChangedNotification = @"br.com.noitehoje.Login:FBS
             if (!error) {
                 // We have a valid session
                 NSLog(@"User session found");
+                
+                FBRequest *me = [FBRequest requestForMe];
+                [me startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *my, NSError *error) {
+                    User *user = [[User alloc] initWithFbGraphUser:my];
+                    NHApplication *app = [NHApplication instance];
+                    app.currentUser = user;
+                }];
             }
             break;
         case FBSessionStateClosed:

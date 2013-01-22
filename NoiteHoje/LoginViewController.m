@@ -8,6 +8,8 @@
 
 #import "LoginViewController.h"
 #import "AppDelegate.h"
+#import "User.h"
+#import "NHApplication.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface LoginViewController ()
@@ -41,7 +43,7 @@
         [self performSegueWithIdentifier:@"LoginSuccessSegue" sender:self];
     }
     else {
-        // failed to authorize the user via Facebook
+        // Failed to authorize the user via Facebook
     }
 }
 
@@ -63,20 +65,5 @@
     // The user has initiated a login, so call the openSession method
     // and show the login UX if necessary.
     [appDelegate openSessionWithAllowLoginUI:YES];
-    
-//    [FBSession openActiveSessionWithPermissions:nil
-//                                   allowLoginUI:YES
-//                              completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-//                                  if (session.isOpen) {
-//                                      FBRequest *me = [FBRequest requestForMe];
-//                                      [me startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *my, NSError *error) {
-//                                          NSEnumerator *enumerator = [my keyEnumerator];
-//                                          id key;
-//                                          while ((key = [enumerator nextObject])){
-//                                              //NSLog(@"%@ - %@", key, [my objectForKey: key]);
-//                                          }
-//                                      }];
-//                                  }
-//                              }];
 }
 @end
