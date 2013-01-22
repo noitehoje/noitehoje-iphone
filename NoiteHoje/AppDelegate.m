@@ -48,6 +48,11 @@ NSString *const FBSessionStateChangedNotification = @"br.com.noitehoje.Login:FBS
                     User *user = [[User alloc] initWithFbGraphUser:my];
                     NHApplication *app = [NHApplication instance];
                     app.currentUser = user;
+                    APIWrapper *apiWrapper = [[APIWrapper alloc] init];
+
+                    [apiWrapper userWithFacebookUID:user.facebookUid callback:^(User *apiUser) {
+                        app.currentUser.facebookToken = apiUser.facebookToken;
+                    }];
                 }];
             }
             break;

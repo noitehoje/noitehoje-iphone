@@ -38,7 +38,11 @@
     UIImage *img = [UIImage imageNamed:@"MainBG.png"];
     UIImageView *bgView = [[UIImageView alloc] initWithImage:img];
 
-    [self reloadAllData];
+    // TODO: Change this to default based on current user location
+    // or last city selected.
+    NSString *initialCity = @"Porto Alegre";
+
+    [self reloadAllData:initialCity];
     
     self.eventsTableView.backgroundView = bgView;
     self.eventsTableView.hidden = YES;
@@ -249,16 +253,6 @@
     self.sections = [NSMutableDictionary dictionary];
     [self loadSections];
     [self.eventsTableView reloadData];
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    if(buttonIndex == 0) {
-        NSLog(@"New party");
-    }
-    else if (buttonIndex == 1) {
-        NSLog(@"New show");        
-    }
 }
 
 #pragma mark -

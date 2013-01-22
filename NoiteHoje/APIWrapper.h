@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class User;
+
 @interface APIWrapper : NSObject
 
 @property (nonatomic, copy) NSString *noiteHojeWSURL;
@@ -19,5 +21,5 @@
 - (void)eventsWithCallback:(void (^)(NSArray *, NSUInteger, NSUInteger))callback andPage:(NSUInteger)page;
 - (void)eventsWithCallback:(void (^)(NSArray *, NSUInteger, NSUInteger))callback page:(NSUInteger)page andCity:(NSString *)city;
 - (void)citiesWithCallback:(void (^)(NSArray *))callback;
-- (void)userWithFacebookUID:(NSString *)uid;
+- (void)userWithFacebookUID:(NSString *)uid callback:(void (^)(User *))callback;
 @end
