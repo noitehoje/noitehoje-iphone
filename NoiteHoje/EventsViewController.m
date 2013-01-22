@@ -7,8 +7,10 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import <FacebookSDK/FacebookSDK.h>
 #import "EventsViewController.h"
 #import "Event.h"
+#import "StartViewController.h"
 #import "EventCell.h"
 #import "EventDetailsViewController.h"
 #import "PagedEvents.h"
@@ -237,18 +239,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)addButtonTapped:(id)sender
-{
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Novo evento"
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cancelar"
-                                         destructiveButtonTitle:nil
-                                              otherButtonTitles:@"Festa", @"Show", nil];
-    
-    // Show the sheet
-    [sheet showInView:self.view];
-}
-
 - (IBAction)menuButtonTapped:(id)sender
 {
     [self revealLeftSidebar:sender];
@@ -319,10 +309,31 @@
 
 - (void)sidebarViewController:(SidebarViewController *)sidebarViewController didSelectObject:(NSObject *)object atIndexPath:(NSIndexPath *)indexPath
 {
+    [self revealLeftSidebar:nil];
+    
     if(object) {
         [self reloadAllData:(NSString *)object];
     }
-    [self revealLeftSidebar:nil];
+    if(object == @"Logout") {
+        if([[FBSession activeSession] isOpen]) {
+            NSLog(@"Logging out...");
+            
+            dispatch_async(dispatch_get_main_queue(), ^ {
+                [[FBSession activeSession] closeAndClearTokenInformation];
+                
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+                UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"StartViewController"];
+                
+                CATransition *transition = [CATransition animation];
+                
+                [transition setDuration:0.5f];
+                [transition setType:kCATransitionFade];
+                [transition setRemovedOnCompletion:YES];
+                [self.navigationController.view.layer addAnimation:transition forKey:nil];
+                [self.navigationController setViewControllers:@[vc] animated:NO];
+            });
+        }
+    }
 }
 
 @end

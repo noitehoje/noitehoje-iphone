@@ -9,6 +9,8 @@
 #import "SidebarViewController.h"
 #import "SidebarCell.h"
 #import "UIColor+Extensions.h"
+#import <QuartzCore/QuartzCore.h>
+#import <QuartzCore/CALayer.h>
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface SidebarViewController ()
@@ -109,6 +111,9 @@
     if(indexPath.section == 0) {
         // skip User Name, Festas and Shows
         object = nil;
+    }
+    else if(indexPath.section == 2) {
+        object = @"Logout";
     }
     
     [_selectedCell removeIcon];

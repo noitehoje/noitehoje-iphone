@@ -22,6 +22,7 @@
 		550764C816ADEE8C00AF5F0A /* ImagePlaceHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 550764C616ADEE8C00AF5F0A /* ImagePlaceHolder@2x.png */; };
 		550764CC16ADF66600AF5F0A /* RowImagePlaceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 550764CA16ADF66600AF5F0A /* RowImagePlaceHolder.png */; };
 		550764CD16ADF66600AF5F0A /* RowImagePlaceHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 550764CB16ADF66600AF5F0A /* RowImagePlaceHolder@2x.png */; };
+		550764E516AE191100AF5F0A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 550764E416AE191100AF5F0A /* Default-568h@2x.png */; };
 		5529183115D8AA1500765DEE /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183015D8AA1500765DEE /* EventsViewController.m */; };
 		5529183415D8AB4600765DEE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183315D8AB4600765DEE /* Event.m */; };
 		5529183715D8ACE000765DEE /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183615D8ACE000765DEE /* Venue.m */; };
@@ -62,7 +63,6 @@
 		55AA511F163761FF00C967E7 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA511D163761FF00C967E7 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		55AA5120163761FF00C967E7 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA511E163761FF00C967E7 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		55AA51221637621800C967E7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA51211637621800C967E7 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		55AA51241637632300C967E7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55AA51231637632300C967E7 /* Default-568h@2x.png */; };
 		55BE39DC1652117100806EBD /* PagedEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BE39DB1652117100806EBD /* PagedEvents.m */; };
 		55CDE4FE169A6A8F009BD8B9 /* FacebookConnectButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CDE4FC169A6A8F009BD8B9 /* FacebookConnectButton.png */; };
 		55CDE4FF169A6A8F009BD8B9 /* FacebookConnectButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CDE4FD169A6A8F009BD8B9 /* FacebookConnectButton@2x.png */; };
@@ -111,6 +111,7 @@
 		550764C616ADEE8C00AF5F0A /* ImagePlaceHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImagePlaceHolder@2x.png"; sourceTree = "<group>"; };
 		550764CA16ADF66600AF5F0A /* RowImagePlaceHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RowImagePlaceHolder.png; sourceTree = "<group>"; };
 		550764CB16ADF66600AF5F0A /* RowImagePlaceHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RowImagePlaceHolder@2x.png"; sourceTree = "<group>"; };
+		550764E416AE191100AF5F0A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		5529182F15D8AA1500765DEE /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
 		5529183015D8AA1500765DEE /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
 		5529183215D8AB4600765DEE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -170,7 +171,6 @@
 		55AA511D163761FF00C967E7 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		55AA511E163761FF00C967E7 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		55AA51211637621800C967E7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		55AA51231637632300C967E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Default-568h@2x.png"; sourceTree = "<group>"; };
 		55BE39DA1652117100806EBD /* PagedEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagedEvents.h; sourceTree = "<group>"; };
 		55BE39DB1652117100806EBD /* PagedEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagedEvents.m; sourceTree = "<group>"; };
 		55CDE4FC169A6A8F009BD8B9 /* FacebookConnectButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FacebookConnectButton.png; sourceTree = "<group>"; };
@@ -301,6 +301,7 @@
 		555A381615D83D2E005D273C /* NoiteHoje */ = {
 			isa = PBXGroup;
 			children = (
+				550764E416AE191100AF5F0A /* Default-568h@2x.png */,
 				5586F1F2164B89E300B7325C /* External */,
 				558390B8163CB6B6002340CB /* Categories */,
 				558390B7163CB697002340CB /* Models */,
@@ -368,7 +369,6 @@
 				55F8E491163B81CB00F8DEC0 /* RowCellBG@2x.png */,
 				55F8E492163B81CB00F8DEC0 /* RowCellSelectedBG.png */,
 				55F8E493163B81CB00F8DEC0 /* RowCellSelectedBG@2x.png */,
-				55AA51231637632300C967E7 /* Default-568h@2x.png */,
 				555A385015D83DE0005D273C /* Default.png */,
 				555A385115D83DE0005D273C /* Default@2x.png */,
 				555A385215D83DE0005D273C /* MainBG.png */,
@@ -450,9 +450,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		555A380B15D83D2E005D273C /* NoiteHoje */ = {
+		555A380B15D83D2E005D273C /* Noite Hoje */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 555A384515D83D2F005D273C /* Build configuration list for PBXNativeTarget "NoiteHoje" */;
+			buildConfigurationList = 555A384515D83D2F005D273C /* Build configuration list for PBXNativeTarget "Noite Hoje" */;
 			buildPhases = (
 				555A380815D83D2E005D273C /* Sources */,
 				555A380915D83D2E005D273C /* Frameworks */,
@@ -463,7 +463,7 @@
 			);
 			dependencies = (
 			);
-			name = NoiteHoje;
+			name = "Noite Hoje";
 			productName = NoiteHoje;
 			productReference = 555A380C15D83D2E005D273C /* NoiteHoje.app */;
 			productType = "com.apple.product-type.application";
@@ -509,7 +509,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				555A380B15D83D2E005D273C /* NoiteHoje */,
+				555A380B15D83D2E005D273C /* Noite Hoje */,
 				555A383215D83D2F005D273C /* NoiteHojeTests */,
 			);
 		};
@@ -526,7 +526,6 @@
 				555A385715D83DE0005D273C /* Default@2x.png in Resources */,
 				555A385815D83DE0005D273C /* MainBG.png in Resources */,
 				555A385915D83DE0005D273C /* MainBG@2x.png in Resources */,
-				55AA51241637632300C967E7 /* Default-568h@2x.png in Resources */,
 				55F8E495163B81CB00F8DEC0 /* RowCellBG.png in Resources */,
 				55F8E496163B81CB00F8DEC0 /* RowCellBG@2x.png in Resources */,
 				55F8E497163B81CB00F8DEC0 /* RowCellSelectedBG.png in Resources */,
@@ -561,6 +560,7 @@
 				550764C816ADEE8C00AF5F0A /* ImagePlaceHolder@2x.png in Resources */,
 				550764CC16ADF66600AF5F0A /* RowImagePlaceHolder.png in Resources */,
 				550764CD16ADF66600AF5F0A /* RowImagePlaceHolder@2x.png in Resources */,
+				550764E516AE191100AF5F0A /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,7 +644,7 @@
 /* Begin PBXTargetDependency section */
 		555A383915D83D2F005D273C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 555A380B15D83D2E005D273C /* NoiteHoje */;
+			target = 555A380B15D83D2E005D273C /* Noite Hoje */;
 			targetProxy = 555A383815D83D2F005D273C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -818,7 +818,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		555A384515D83D2F005D273C /* Build configuration list for PBXNativeTarget "NoiteHoje" */ = {
+		555A384515D83D2F005D273C /* Build configuration list for PBXNativeTarget "Noite Hoje" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				555A384615D83D2F005D273C /* Debug */,

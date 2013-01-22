@@ -33,7 +33,6 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 
 
-- (IBAction)addButtonTapped:(id)sender;
 - (IBAction)menuButtonTapped:(id)sender;
 - (IBAction)filterValueChanged:(id)sender;
 
