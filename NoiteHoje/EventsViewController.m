@@ -40,9 +40,9 @@
 
     // TODO: Change this to default based on current user location
     // or last city selected.
-    NSString *initialCity = @"Porto Alegre";
+    currentCity = @"Porto Alegre";
 
-    [self reloadAllData:initialCity];
+    [self reloadAllData];
     
     self.eventsTableView.backgroundView = bgView;
     self.eventsTableView.hidden = YES;
@@ -75,16 +75,7 @@
     
     [PagedEvents firstPage:^(PagedEvents *events) {
         [self onReloadComplete:events];
-    }];
-}
-
-- (void)reloadAllData:(NSString *)city
-{
-    self.sections = [NSMutableDictionary dictionary];
-    
-    [PagedEvents firstPage:^(PagedEvents *events) {
-        [self onReloadComplete:events];
-    } andCity:city];
+    } andCity:currentCity];
 }
 
 - (void)onReloadComplete:(PagedEvents *)events
@@ -326,7 +317,8 @@
         }
     }
     else if(object) {
-        [self reloadAllData:(NSString *)object];
+        currentCity = (NSString *)object;
+        [self reloadAllData];
     }
 
 }

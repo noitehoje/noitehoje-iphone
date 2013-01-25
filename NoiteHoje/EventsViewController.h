@@ -20,6 +20,7 @@
                                                           SidebarViewControllerDelegate>
 {
     UIRefreshControl *refreshControl;
+    NSString *currentCity;
 }
 
 @property (nonatomic, strong) PagedEvents *pagedEvents;
