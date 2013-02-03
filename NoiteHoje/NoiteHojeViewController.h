@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface NoiteHojeViewController : UIViewController
+@interface NoiteHojeViewController : GAITrackedViewController
 
 @end

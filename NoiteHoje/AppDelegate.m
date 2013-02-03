@@ -13,6 +13,7 @@
 #import "APIWrapper.h"
 #import "NHApplication.h"
 #import "User.h"
+#import "GAI.h"
 
 @implementation AppDelegate
 
@@ -26,6 +27,15 @@ NSString *const FBSessionStateChangedNotification = @"br.com.noitehoje.Login:FBS
     [_apiWrapper citiesWithCallback:^(NSArray *cities) {
         self.cities = cities;
     }];
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    // Optional: set debug to YES for extra debugging information.
+    [GAI sharedInstance].debug = YES;
+    // Create tracker instance.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-22061370-2"];
 
     return YES;
 }

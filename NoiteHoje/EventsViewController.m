@@ -67,6 +67,7 @@
     self.activityView.frame = f;
     
     self.navigationItem.revealSidebarDelegate = self;
+    self.trackedViewName = @"Event List Screen";
 }
 
 - (void)reloadAllData

@@ -36,6 +36,7 @@
     self.eventDescriptionWebView.dataDetectorTypes = UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber;
     self.eventDescriptionWebView.opaque = NO;
     self.eventDescriptionWebView.backgroundColor = [UIColor clearColor];
+    self.trackedViewName = @"Event Details Screen";
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.trackedViewName = @"Event Map Screen";
 }
 
 - (void)setMapPinLocation:(CLLocation *)location name:(NSString *)name andDescription:(NSString *)description

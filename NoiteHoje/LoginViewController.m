@@ -45,6 +45,7 @@
     CGRect frame = self.privacyWarning.frame;
     frame.origin.y = self.view.frame.size.height - frame.size.height - 10;
     self.privacyWarning.frame = frame;
+    self.trackedViewName = @"Login Screen";
 }
 
 - (void)sessionStateChanged:(NSNotification*)notification {

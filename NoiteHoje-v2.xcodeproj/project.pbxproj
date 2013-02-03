@@ -30,6 +30,16 @@
 		5529183715D8ACE000765DEE /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529183615D8ACE000765DEE /* Venue.m */; };
 		552B976B15D8CE8900A4DC45 /* APIWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 552B976A15D8CE8900A4DC45 /* APIWrapper.m */; };
 		552DA31015F17B2000951CB8 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 552DA30F15F17B2000951CB8 /* EventCell.m */; };
+		5546305916BDB8E4004BD7EF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5546305816BDB8E4004BD7EF /* CoreData.framework */; };
+		5546305B16BDB8F0004BD7EF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5546305A16BDB8F0004BD7EF /* SystemConfiguration.framework */; };
+		5546305F16BDB9AA004BD7EF /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5546305E16BDB9AA004BD7EF /* libGoogleAnalytics.a */; };
+		554630D916BDB9CF004BD7EF /* GAI.h in Resources */ = {isa = PBXBuildFile; fileRef = 5546309C16BDB9CF004BD7EF /* GAI.h */; };
+		554630DA16BDB9CF004BD7EF /* GAITrackedViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 5546309D16BDB9CF004BD7EF /* GAITrackedViewController.h */; };
+		554630DB16BDB9CF004BD7EF /* GAITracker.h in Resources */ = {isa = PBXBuildFile; fileRef = 5546309E16BDB9CF004BD7EF /* GAITracker.h */; };
+		554630DC16BDB9CF004BD7EF /* GAITransaction.h in Resources */ = {isa = PBXBuildFile; fileRef = 5546309F16BDB9CF004BD7EF /* GAITransaction.h */; };
+		554630DD16BDB9CF004BD7EF /* GAITransactionItem.h in Resources */ = {isa = PBXBuildFile; fileRef = 554630A016BDB9CF004BD7EF /* GAITransactionItem.h */; };
+		554630DE16BDB9CF004BD7EF /* libGoogleAnalytics.a in Resources */ = {isa = PBXBuildFile; fileRef = 554630A116BDB9CF004BD7EF /* libGoogleAnalytics.a */; };
+		554630DF16BDB9CF004BD7EF /* libGoogleAnalytics_debug.a in Resources */ = {isa = PBXBuildFile; fileRef = 554630A216BDB9CF004BD7EF /* libGoogleAnalytics_debug.a */; };
 		555A381115D83D2E005D273C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381015D83D2E005D273C /* UIKit.framework */; };
 		555A381315D83D2E005D273C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381215D83D2E005D273C /* Foundation.framework */; };
 		555A381515D83D2E005D273C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555A381415D83D2E005D273C /* CoreGraphics.framework */; };
@@ -128,6 +138,16 @@
 		552B976A15D8CE8900A4DC45 /* APIWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIWrapper.m; sourceTree = "<group>"; };
 		552DA30E15F17B2000951CB8 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
 		552DA30F15F17B2000951CB8 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
+		5546305816BDB8E4004BD7EF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5546305A16BDB8F0004BD7EF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5546305E16BDB9AA004BD7EF /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = "Pods/GoogleAnalytics-iOS-SDK/Library/libGoogleAnalytics.a"; sourceTree = "<group>"; };
+		5546309C16BDB9CF004BD7EF /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = GAI.h; sourceTree = "<group>"; };
+		5546309D16BDB9CF004BD7EF /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		5546309E16BDB9CF004BD7EF /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = GAITracker.h; sourceTree = "<group>"; };
+		5546309F16BDB9CF004BD7EF /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = GAITransaction.h; sourceTree = "<group>"; };
+		554630A016BDB9CF004BD7EF /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		554630A116BDB9CF004BD7EF /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = file; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		554630A216BDB9CF004BD7EF /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = file; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
 		555A380C15D83D2E005D273C /* Noite Hoje.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noite Hoje.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		555A381015D83D2E005D273C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		555A381215D83D2E005D273C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -208,6 +228,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5546305B16BDB8F0004BD7EF /* SystemConfiguration.framework in Frameworks */,
+				5546305916BDB8E4004BD7EF /* CoreData.framework in Frameworks */,
 				5597C4D0164F6CD700449789 /* QuartzCore.framework in Frameworks */,
 				55F5295216490755005EC26F /* CoreLocation.framework in Frameworks */,
 				558390B2163CB54C002340CB /* MapKit.framework in Frameworks */,
@@ -218,6 +240,7 @@
 				555A381315D83D2E005D273C /* Foundation.framework in Frameworks */,
 				555A381515D83D2E005D273C /* CoreGraphics.framework in Frameworks */,
 				5DCFCCC2CB8C49329BE24B03 /* libPods.a in Frameworks */,
+				5546305F16BDB9AA004BD7EF /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +286,29 @@
 			name = Placeholders;
 			sourceTree = "<group>";
 		};
+		554630A316BDB9CF004BD7EF /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				5546309C16BDB9CF004BD7EF /* GAI.h */,
+				5546309D16BDB9CF004BD7EF /* GAITrackedViewController.h */,
+				5546309E16BDB9CF004BD7EF /* GAITracker.h */,
+				5546309F16BDB9CF004BD7EF /* GAITransaction.h */,
+				554630A016BDB9CF004BD7EF /* GAITransactionItem.h */,
+				554630A116BDB9CF004BD7EF /* libGoogleAnalytics.a */,
+				554630A216BDB9CF004BD7EF /* libGoogleAnalytics_debug.a */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		554630A516BDB9CF004BD7EF /* GoogleAnalytics-iOS-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				554630A316BDB9CF004BD7EF /* Library */,
+			);
+			name = "GoogleAnalytics-iOS-SDK";
+			path = "../Pods/GoogleAnalytics-iOS-SDK";
+			sourceTree = "<group>";
+		};
 		555A380115D83D2E005D273C = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +333,9 @@
 		555A380F15D83D2E005D273C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5546305A16BDB8F0004BD7EF /* SystemConfiguration.framework */,
+				5546305816BDB8E4004BD7EF /* CoreData.framework */,
+				5546305E16BDB9AA004BD7EF /* libGoogleAnalytics.a */,
 				5597C4CF164F6CD700449789 /* QuartzCore.framework */,
 				55F5295116490755005EC26F /* CoreLocation.framework */,
 				558390B1163CB54C002340CB /* MapKit.framework */,
@@ -451,6 +500,7 @@
 		5586F1F2164B89E300B7325C /* External */ = {
 			isa = PBXGroup;
 			children = (
+				554630A516BDB9CF004BD7EF /* GoogleAnalytics-iOS-SDK */,
 				5586F1F7164B8A2200B7325C /* LocationManager.h */,
 				5586F1F8164B8A2200B7325C /* LocationManager.m */,
 			);
@@ -571,6 +621,13 @@
 				550764CC16ADF66600AF5F0A /* RowImagePlaceHolder.png in Resources */,
 				550764CD16ADF66600AF5F0A /* RowImagePlaceHolder@2x.png in Resources */,
 				550764E516AE191100AF5F0A /* Default-568h@2x.png in Resources */,
+				554630D916BDB9CF004BD7EF /* GAI.h in Resources */,
+				554630DA16BDB9CF004BD7EF /* GAITrackedViewController.h in Resources */,
+				554630DB16BDB9CF004BD7EF /* GAITracker.h in Resources */,
+				554630DC16BDB9CF004BD7EF /* GAITransaction.h in Resources */,
+				554630DD16BDB9CF004BD7EF /* GAITransactionItem.h in Resources */,
+				554630DE16BDB9CF004BD7EF /* libGoogleAnalytics.a in Resources */,
+				554630DF16BDB9CF004BD7EF /* libGoogleAnalytics_debug.a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,6 +810,10 @@
 				GCC_PREFIX_HEADER = "NoiteHoje/NoiteHoje-Prefix.pch";
 				INFOPLIST_FILE = "NoiteHoje/NoiteHoje-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Pods/GoogleAnalytics-iOS-SDK/Library\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"$(inherited)",
@@ -777,6 +838,10 @@
 				GCC_PREFIX_HEADER = "NoiteHoje/NoiteHoje-Prefix.pch";
 				INFOPLIST_FILE = "NoiteHoje/NoiteHoje-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Pods/GoogleAnalytics-iOS-SDK/Library\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"$(inherited)",

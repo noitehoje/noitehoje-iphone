@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "GAITrackedViewController.h"
 
-@interface EventMapViewController : UIViewController
+@interface EventMapViewController : GAITrackedViewController
 {
     CLLocationDegrees _latitude;
     CLLocationDegrees _longitude;

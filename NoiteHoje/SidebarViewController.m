@@ -117,10 +117,11 @@
     else if(indexPath.section == 2) {
         object = @"Logout";
     }
-    
-    [_selectedCell removeIcon];
-    [cell setCellIconImage:@"CitySelector"];
-    _selectedCell = cell;
+    if(indexPath.section != 0) {
+        [_selectedCell removeIcon];
+        [cell setCellIconImage:@"CitySelector"];
+        _selectedCell = cell;
+    }
     
     [self.sidebarDelegate sidebarViewController:self didSelectObject:object atIndexPath:indexPath];
 }
@@ -157,11 +158,11 @@
         cell.label.text = [user displayName];
         [cell setCellIconView:[user avatarImageWithRect:CGRectMake(5, 8, 30, 30)]];
     }
-    else if(indexPath.section == 2){
+    else if(indexPath.section == 2) {
         cell.label.text = @"Sair";
         [cell setCellIconImage:@"LogoutIcon"];
     }
-    else if(indexPath.section == 1){
+    else if(indexPath.section == 1) {
         if(indexPath.row == 0) {
             [cell setCellIconImage:@"CitySelector"];
             _selectedCell = cell;

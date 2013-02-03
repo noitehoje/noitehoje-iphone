@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : GAITrackedViewController
 
 - (IBAction)onFacebookLoginButtonClicked:(id)sender;
 
